@@ -18,7 +18,7 @@ export async function generateMetadata({
   const project = projects.find((p) => p.slug === slug);
   if (!project) return { title: "프로젝트를 찾을 수 없습니다" };
   return {
-    title: `${project.title} | 김규민`,
+    title: `${project.title} | 이규민`,
     description: project.theme,
   };
 }
@@ -90,7 +90,7 @@ export default async function ProjectDetailPage({
       </DetailSection>
 
       <DetailSection label="처음 문제">
-        <p>{project.problem}</p>
+        <p className="whitespace-pre-wrap">{project.problem}</p>
       </DetailSection>
 
       <DetailSection label="내가 직접 한 일">
@@ -102,15 +102,15 @@ export default async function ProjectDetailPage({
       </DetailSection>
 
       <DetailSection label="가장 막혔던 부분">
-        <p>{project.bottleneck}</p>
+        <p className="whitespace-pre-wrap">{project.bottleneck}</p>
       </DetailSection>
 
       <DetailSection label="해결 과정">
-        <p>{project.solution}</p>
+        <p className="whitespace-pre-wrap">{project.solution}</p>
       </DetailSection>
 
       <DetailSection label="결과">
-        <p>{project.result}</p>
+        <p className="whitespace-pre-wrap">{project.result}</p>
       </DetailSection>
 
       <DetailSection label="증명 자료 (Evidence)">
@@ -121,7 +121,7 @@ export default async function ProjectDetailPage({
       </DetailSection>
 
       <DetailSection label="지금 다시 한다면">
-        <p>{project.retrospective}</p>
+        <p className="whitespace-pre-wrap">{project.retrospective}</p>
       </DetailSection>
 
       <DetailSection label="더 이야기할 수 있는 부분">
@@ -133,7 +133,7 @@ export default async function ProjectDetailPage({
       </DetailSection>
 
       <DetailSection label="사용한 기술과 이유">
-        <p>{project.techContext}</p>
+        <p className="whitespace-pre-wrap">{project.techContext}</p>
       </DetailSection>
 
       {/* Links */}
@@ -166,22 +166,6 @@ export default async function ProjectDetailPage({
                 데모 사이트
               </a>
             )}
-          </div>
-        </DetailSection>
-      )}
-
-      {/* Screenshots placeholder */}
-      {project.screenshots && project.screenshots.length > 0 && (
-        <DetailSection label="스크린샷">
-          <div className="grid gap-4 md:grid-cols-2">
-            {project.screenshots.map((src, i) => (
-              <div
-                key={i}
-                className="border border-gray-200 rounded-lg aspect-video flex items-center justify-center bg-gray-50 text-sm text-gray-400"
-              >
-                스크린샷 placeholder
-              </div>
-            ))}
           </div>
         </DetailSection>
       )}

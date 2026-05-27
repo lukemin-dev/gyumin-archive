@@ -3,8 +3,8 @@ import PageHeader from "@/components/PageHeader";
 import ProjectCard from "@/components/ProjectCard";
 
 export const metadata = {
-  title: "프로젝트 | 김규민",
-  description: "김규민이 수행한 개발 프로젝트 목록입니다.",
+  title: "프로젝트 | 이규민",
+  description: "이규민이 수행한 개발 프로젝트 목록입니다.",
 };
 
 export default function ProjectsPage() {

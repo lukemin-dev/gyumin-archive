@@ -5,8 +5,8 @@ import SkillTag from "@/components/SkillTag";
 import Image from "next/image";
 
 export const metadata = {
-  title: "소개 | 김규민",
-  description: "김규민의 학력, 기술 스택, 관심 분야를 소개합니다.",
+  title: "소개 | 이규민",
+  description: "이규민의 학력, 기술 스택, 관심 분야를 소개합니다.",
 };
 
 export default function AboutPage() {
@@ -30,7 +30,7 @@ export default function AboutPage() {
               priority
             />
           )}
-          <p className="text-sm text-gray-700 leading-relaxed">{profile.bio}</p>
+          <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">{profile.bio}</p>
         </div>
       </SectionBlock>
 

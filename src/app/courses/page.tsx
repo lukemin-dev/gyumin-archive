@@ -3,8 +3,8 @@ import PageHeader from "@/components/PageHeader";
 import CourseItem from "@/components/CourseItem";
 
 export const metadata = {
-  title: "교육 | 김규민",
-  description: "김규민이 참여한 교육 프로그램 및 과정입니다.",
+  title: "교육 | 이규민",
+  description: "이규민이 참여한 교육 프로그램 및 과정입니다.",
 };
 
 export default function CoursesPage() {

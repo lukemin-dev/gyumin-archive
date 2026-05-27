@@ -3,8 +3,8 @@ import PageHeader from "@/components/PageHeader";
 import NoteItem from "@/components/NoteItem";
 
 export const metadata = {
-  title: "노트 | 김규민",
-  description: "김규민의 기술 노트입니다.",
+  title: "노트 | 이규민",
+  description: "이규민의 기술 노트입니다.",
 };
 
 export default function NotesPage() {

@@ -6,7 +6,7 @@ export const profile: Profile = {
   title: "Cloud Infrastructure & Backend Engineer",
   tagline:
     "반복 작업을 자동화하고, 시스템을 모니터링하며, 장애 없이 재현 가능한 인프라를 구축하는 데 집중합니다.",
-  bio: "처음부터 거창한 시스템을 만들려고 했다기보다, 프로젝트를 하면서 같은 문제가 반복되는 상황을 자주 봤습니다. 그래서 코드를 바로 고치기보다 입력 기준을 맞추고, 로그를 남기고, 실패했을 때 다시 이어서 실행할 수 있는 구조를 고민하게 됐습니다. 일본 요코하마 IT 기업 인턴십에서 자동화 파이프라인을 구축해 3일 걸리던 작업을 10초로 단축했고, IoT 시스템을 구축하면서 Edge-to-Cloud 구조를 경험했습니다. 전공 학습에서도 꾸준함을 유지해 GPA 4.26/4.5와 학과 수석을 기록했습니다.",
+  bio: "• 문제 해결 철학: 코드를 바로 고치기보다 입력 기준을 맞추고, 로그를 남기며, 실패 시 재개 가능한 견고한 구조를 설계합니다.\n• 인턴십 자동화 성과: 일본 요코하마 IT 기업에서 수동 데이터 추출 및 엑셀 취합에 3일 소요되던 작업을 10초로 단축하는 파이프라인을 구축했습니다.\n• 성실함과 꾸준함: 전공 학습에서 꾸준함을 유지해 GPA 4.26/4.5와 수석 경험을 기록했습니다.",
   email: "lgmlgm227@naver.com",
   github: "https://github.com/lukemin-dev",
   portfolioRepo: "https://github.com/lukemin-dev/gyumin-archive",
@@ -41,24 +41,24 @@ export const profile: Profile = {
   ],
   skills: [
     {
-      category: "Cloud/Infra",
-      items: ["AWS", "Docker", "Linux", "Terraform"],
-    },
-    {
       category: "Backend",
-      items: ["Java", "Spring", "Python", "Node.js"],
+      items: ["Java", "Spring Boot", "Python", "REST API", "Swagger/OpenAPI", "SQL"],
     },
     {
-      category: "Monitoring",
-      items: ["Grafana", "Prometheus", "ELK Stack"],
+      category: "Cloud/Infra",
+      items: ["AWS EC2", "Linux", "Git/GitHub"],
     },
     {
-      category: "Automation",
-      items: ["Selenium", "Shell Script", "CI/CD"],
+      category: "Automation & API",
+      items: ["GSC API", "Google Sheets API", "Gemini API"],
     },
     {
-      category: "Database",
-      items: ["MySQL", "PostgreSQL", "Redis"],
+      category: "Engineering Focus",
+      items: ["Input Validation", "Retry Logic", "Checkpointing"],
+    },
+    {
+      category: "Fundamentals",
+      items: ["OS / Database / Network"],
     },
   ],
   interests: ["클라우드 인프라", "백엔드 시스템", "자동화", "모니터링"],

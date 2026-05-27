@@ -3,8 +3,8 @@ import PageHeader from "@/components/PageHeader";
 import ActivityItem from "@/components/ActivityItem";
 
 export const metadata = {
-  title: "활동 | 김규민",
-  description: "김규민의 멘토링, 봉사, 학술 활동입니다.",
+  title: "활동 | 이규민",
+  description: "이규민의 멘토링, 봉사, 학술 활동입니다.",
 };
 
 export default function ActivitiesPage() {

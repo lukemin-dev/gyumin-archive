@@ -14,7 +14,7 @@ export default function EnglishSummaryPage() {
           Computer Engineering student interested in automation, backend systems, and cloud infrastructure.
         </p>
         <p className="text-gray-600 leading-relaxed">
-          I focus on reducing repeated problems by setting clear criteria, leaving logs, and designing workflows that can be resumed after failure.
+          Architecting resilient systems and automating repetitive workflows. I focus on establishing clear input criteria, implementing robust logging, and designing fault-tolerant pipelines that can resume seamlessly after failures.
         </p>
       </section>
 
@@ -49,8 +49,7 @@ export default function EnglishSummaryPage() {
           <p className="font-semibold text-gray-900">Crosslink / SEO Automation Team Intern</p>
           <p className="text-sm text-gray-500 mb-2">Yokohama, Japan / 2026.01 ~ 2026.02</p>
           <ul className="list-disc list-inside space-y-1 ml-2">
-            <li>Utilized Python, GSC API, Google Sheets API, and Gemini API</li>
-            <li>Reduced manual analysis workflow from 2–3 days to around 10 seconds</li>
+            <li>Engineered an automated SEO reporting pipeline using Python, GSC, and Gemini APIs. Drastically reduced manual data extraction and spreadsheet aggregation time from 3 days to under 10 seconds.</li>
           </ul>
         </div>
       </section>

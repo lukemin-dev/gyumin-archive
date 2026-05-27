@@ -25,16 +25,13 @@ export default function ResumePage() {
           </p>
 
           <a
-            href="/resume/gyumin-lee-resume-public.pdf"
+            href="/resume.pdf"
             download
             className="inline-block px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded hover:bg-gray-800 transition-colors"
           >
             이력서 다운로드 (PDF)
           </a>
 
-          <p className="text-xs text-gray-400 mt-4">
-            * 현재 플레이스홀더 PDF입니다. 실제 이력서로 교체해 주세요.
-          </p>
         </div>
       </div>
 

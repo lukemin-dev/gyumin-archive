@@ -4,8 +4,8 @@ import ExperienceCard from "@/components/ExperienceCard";
 import SkillTag from "@/components/SkillTag";
 
 export const metadata = {
-  title: "경험 | 김규민",
-  description: "김규민의 인턴십 및 실무 경험입니다.",
+  title: "경험 | 이규민",
+  description: "이규민의 인턴십 및 실무 경험입니다.",
 };
 
 export default function ExperiencePage() {

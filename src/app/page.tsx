@@ -58,8 +58,8 @@ export default function Home() {
           <h1 className="text-3xl font-bold text-gray-900 mb-3">
             이규민의 경험 정리
           </h1>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mb-6">
-            자동화와 시스템 운영에 관심이 있습니다. 특히 같은 문제가 반복되지 않게 기준을 만들고, 로그로 원인을 다시 찾을 수 있는 구조를 고민해왔습니다.
+          <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mb-6 whitespace-pre-wrap">
+            자동화와 시스템 운영에 관심이 있습니다. 특히 코드를 바로 고치기보다 입력 기준을 맞추고, 로그를 남기며, 실패 시 재개 가능한 견고한 구조를 고민합니다.
           </p>
 
         {/* Direction keywords */}
