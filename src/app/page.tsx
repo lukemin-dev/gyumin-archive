@@ -185,7 +185,7 @@ export default function Home() {
               </Link>
               <div className="mt-auto pt-4 border-t border-gray-100">
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  <span className="font-semibold text-gray-900">면접 질문:</span> {project.shortQuestion}
+                  <span className="font-semibold text-gray-900">더 이야기할 수 있는 부분:</span> {project.shortQuestion}
                 </p>
               </div>
             </div>

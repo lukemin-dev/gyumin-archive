@@ -124,7 +124,7 @@ export default async function ProjectDetailPage({
         <p>{project.retrospective}</p>
       </DetailSection>
 
-      <DetailSection label="면접에서 이야기할 포인트">
+      <DetailSection label="더 이야기할 수 있는 부분">
         <ul className="list-disc list-inside space-y-1 text-gray-800 font-medium">
           {project.interviewPoints.map((point, i) => (
             <li key={i}>{point}</li>
