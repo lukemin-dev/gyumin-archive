@@ -1,5 +1,7 @@
 # Gyumin Archive
 
+[![CI](https://github.com/lukemin-dev/gyumin-archive/actions/workflows/ci.yml/badge.svg)](https://github.com/lukemin-dev/gyumin-archive/actions/workflows/ci.yml)
+
 Cloud, backend, and automation-focused portfolio for Gyumin Lee.
 
 This site organizes projects, internships, activities, courses, and notes around the problems each experience solved. The goal is to show not only finished outputs, but also the reasoning behind the work: what was repeated, what was automated, what was measured, and what can be explained clearly in an interview.
