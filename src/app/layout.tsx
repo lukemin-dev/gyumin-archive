@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "이규민 | Cloud · Backend · Automation",
     description: "자동화와 시스템 운영에 관심 있는 컴퓨터공학도 이규민의 경험 정리입니다.",
-    url: "https://gyumin-archive.vercel.app", // 배포 후 실제 도메인으로 변경하세요
+    url: "https://gyumin-archive.vercel.app",
     siteName: "이규민 포트폴리오",
     locale: "ko_KR",
     type: "website",
