@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { projects } from "@/data/projects";
-import SkillTag from "@/components/SkillTag";
+import { projects } from "@/lib/content-data";
 
 export function generateStaticParams() {
   return projects.map((project) => ({

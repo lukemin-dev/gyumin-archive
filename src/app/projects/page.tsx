@@ -1,4 +1,4 @@
-import { projects } from "@/data/projects";
+import { projects } from "@/lib/content-data";
 import PageHeader from "@/components/PageHeader";
 import ProjectCard from "@/components/ProjectCard";
 

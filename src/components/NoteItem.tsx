@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Note } from "@/types";
 
 interface NoteItemProps {
@@ -6,7 +7,10 @@ interface NoteItemProps {
 
 export default function NoteItem({ note }: NoteItemProps) {
   return (
-    <div className="py-4 border-b border-gray-100">
+    <Link
+      href={`/notes/${note.slug}`}
+      className="block py-4 border-b border-gray-100 hover:border-gray-300 transition-colors"
+    >
       <h3 className="font-medium text-gray-900">{note.title}</h3>
       <p className="text-sm text-gray-400 font-mono mt-0.5">{note.date}</p>
       <p className="text-sm text-gray-600 mt-1">{note.summary}</p>
@@ -22,6 +26,6 @@ export default function NoteItem({ note }: NoteItemProps) {
           ))}
         </div>
       )}
-    </div>
+    </Link>
   );
 }

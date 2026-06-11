@@ -1,4 +1,4 @@
-import { notes } from "@/data/notes";
+import { notes } from "@/lib/content-data";
 import PageHeader from "@/components/PageHeader";
 import NoteItem from "@/components/NoteItem";
 

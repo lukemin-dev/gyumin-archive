@@ -30,6 +30,16 @@ npm run dev
 
 Open `http://localhost:3000` in your browser.
 
+## Editing Content on GitHub
+
+You can add content without running the project locally:
+
+- Add notes in `content/notes`
+- Add projects in `content/projects`
+- Add activities in `content/activities`
+
+Use the `_README.md` template inside each folder, then commit the new `.md` file on GitHub. Vercel will redeploy the site automatically.
+
 ## Verification
 
 ```bash
@@ -42,6 +52,7 @@ npm run build
 ```text
 src/app/          App Router pages and metadata
 src/components/   Shared UI components
+content/          Markdown files that can be edited from GitHub
 src/data/         Portfolio content data
 src/types/        Shared TypeScript types
 public/           Static assets

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Project } from "@/types";
-import SkillTag from "@/components/SkillTag";
 
 interface ProjectCardProps {
   project: Project;

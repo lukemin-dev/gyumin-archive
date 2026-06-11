@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { profile } from "@/data/profile";
-import { projects } from "@/data/projects";
+import { projects } from "@/lib/content-data";
 import { experiences } from "@/data/experience";
-import ProjectCard from "@/components/ProjectCard";
 import Image from "next/image";
 import type { Evidence } from "@/types";
 
@@ -33,7 +32,6 @@ const evidenceData: Evidence[] = [
   },
 ];
 
-const featuredProjects = projects.filter((p) => p.featured);
 const featuredExperience = experiences.find((e) => e.featured);
 
 export default function Home() {

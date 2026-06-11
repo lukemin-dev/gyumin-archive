@@ -1,4 +1,4 @@
-import { activities } from "@/data/activities";
+import { activities } from "@/lib/content-data";
 import PageHeader from "@/components/PageHeader";
 import ActivityItem from "@/components/ActivityItem";
 
