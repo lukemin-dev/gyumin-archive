@@ -30,15 +30,65 @@ npm run dev
 
 Open `http://localhost:3000` in your browser.
 
-## Editing Content on GitHub
+## GitHub에서 콘텐츠 추가하기
 
-You can add content without running the project locally:
+이 사이트는 컴퓨터에 프로젝트 파일이 없어도 GitHub 웹사이트에서 직접 수정할 수 있습니다.  
+새 글, 프로젝트, 활동을 추가하면 Vercel이 자동으로 다시 배포합니다.
 
-- Add notes in `content/notes`
-- Add projects in `content/projects`
-- Add activities in `content/activities`
+### 새 노트 추가
 
-Use the `_README.md` template inside each folder, then commit the new `.md` file on GitHub. Vercel will redeploy the site automatically.
+1. GitHub 저장소에서 `content/notes` 폴더로 들어갑니다.
+2. `Add file` -> `Create new file`을 누릅니다.
+3. 파일 이름을 `my-new-note.md`처럼 입력합니다.
+4. `content/notes/_README.md`에 있는 양식을 복사해서 붙여넣습니다.
+5. 제목, 날짜, 요약, 태그, 본문을 수정합니다.
+6. 아래의 `Commit changes` 버튼을 누릅니다.
+
+예시:
+
+```md
+---
+title: "새로 배운 점"
+date: "2026-06-11"
+summary: "목록에 보일 짧은 요약"
+tags: ["Backend", "DevOps"]
+---
+
+# 새로 배운 점
+
+여기에 본문을 씁니다.
+```
+
+저장하면 `/notes/my-new-note` 주소로 상세 페이지가 자동 생성됩니다.
+
+### 새 프로젝트 추가
+
+1. `content/projects` 폴더로 들어갑니다.
+2. `Add file` -> `Create new file`을 누릅니다.
+3. 파일 이름을 `my-project.md`처럼 입력합니다.
+4. `content/projects/_README.md` 양식을 복사해서 채웁니다.
+5. `Commit changes`를 누릅니다.
+
+프로젝트는 `/projects/my-project` 주소로 상세 페이지가 자동 생성됩니다.
+
+### 새 활동 추가
+
+1. `content/activities` 폴더로 들어갑니다.
+2. `Add file` -> `Create new file`을 누릅니다.
+3. 파일 이름을 `my-activity.md`처럼 입력합니다.
+4. `content/activities/_README.md` 양식을 복사해서 채웁니다.
+5. `Commit changes`를 누릅니다.
+
+### 파일 이름 규칙
+
+- 영어 소문자, 숫자, 하이픈을 사용하는 것을 추천합니다.
+- 좋은 예: `java-study-note.md`, `crosslink-retrospective.md`
+- 피할 예: `새 글.md`, `My New Note.md`
+- `_README.md`처럼 밑줄로 시작하는 파일은 사이트에 표시되지 않습니다.
+
+### 배포 확인
+
+GitHub에서 `Commit changes`를 누르면 Vercel이 자동으로 배포합니다. 보통 1~3분 뒤 [https://gyumin-archive.vercel.app/](https://gyumin-archive.vercel.app/)에서 확인할 수 있습니다.
 
 ## Verification
 
