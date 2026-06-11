@@ -51,10 +51,14 @@ URL: https://github.com/lukemin-dev/backend-interview-tracker
 
 ### 추가로 정리하면 좋은 문서
 
-- `docs/interview-notes.md`
+- `docs/interview-notes.md` 추가 완료
 - API 설계 의도
 - 검색/필터/페이지네이션을 구현하며 고민한 점
 - 테스트 케이스 목록과 실패했던 케이스
+
+정리 커밋:
+
+- `101091c Add interview preparation notes`
 
 ## 2. file-organizer-agent
 
@@ -90,10 +94,14 @@ URL: https://github.com/lukemin-dev/file-organizer-agent
 
 ### 추가로 정리하면 좋은 문서
 
-- `docs/interview-notes.md`
+- `docs/interview-notes.md` 추가 완료
 - dry-run 설계 이유
 - 파일 이동 실패/권한 오류/중복 파일 처리 사례
 - 테스트 커버리지와 수동 테스트 시나리오
+
+정리 커밋:
+
+- `e343b5d Add interview notes and stabilize Windows tests`
 
 ## 3. gyumin-archive
 
