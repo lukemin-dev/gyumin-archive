@@ -5,7 +5,7 @@ import SkillTag from "@/components/SkillTag";
 
 export const metadata = {
   title: "경험 | 이규민",
-  description: "이규민의 인턴십 및 실무 경험입니다.",
+  description: "이규민의 연구, 인턴십, 실무 경험입니다.",
 };
 
 export default function ExperiencePage() {
@@ -13,7 +13,7 @@ export default function ExperiencePage() {
     <div>
       <PageHeader
         title="경험"
-        description="인턴십과 실무 경험을 맥락, 문제, 조치, 결과 중심으로 정리했습니다."
+        description="연구, 인턴십, 실무 경험을 맥락, 문제, 조치, 결과 중심으로 정리했습니다."
       />
 
       {experiences.map((exp) => (
