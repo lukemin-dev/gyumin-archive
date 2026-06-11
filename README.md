@@ -90,6 +90,11 @@ tags: ["Backend", "DevOps"]
 
 GitHub에서 `Commit changes`를 누르면 Vercel이 자동으로 배포합니다. 보통 1~3분 뒤 [https://gyumin-archive.vercel.app/](https://gyumin-archive.vercel.app/)에서 확인할 수 있습니다.
 
+## 면접 대비 기록
+
+작업 과정과 문제 해결 흐름은 `docs/interview-notes.md`에 정리합니다.  
+다른 저장소에서도 같은 방식으로 정리하려면 `docs/interview-template.md`를 복사해서 사용하면 됩니다.
+
 ## Verification
 
 ```bash
