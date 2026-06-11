@@ -39,6 +39,20 @@ export const projects: Project[] = [
     shortResult: "분석과 리포트 생성 시간을 약 10초 내외로 줄였습니다.",
     shortQuestion: "Gemini API 호출 제한이 발생했을 때 처리 방식을 조정한 과정",
     privateCode: true,
+    evidence: [
+      {
+        label: "정량 결과",
+        description: "수작업으로 2~3일 걸리던 SEO 분석과 리포트 생성 과정을 약 10초 내외로 단축했습니다.",
+      },
+      {
+        label: "공개 제한",
+        description: "기업 실무 프로젝트라 소스 코드는 공개하지 않고, 포트폴리오에는 문제, 역할, 해결 과정, 결과 중심으로 정리했습니다.",
+      },
+      {
+        label: "면접 설명 포인트",
+        description: "Gemini API quota, 재시도, 체크포인트, 입력 스키마 검증처럼 실제 자동화 운영에서 부딪힌 문제를 설명할 수 있습니다.",
+      },
+    ],
     featured: true,
   },
   {
@@ -77,7 +91,23 @@ export const projects: Project[] = [
     shortAction: "송수신 로그 기준을 맞추고 수신 버퍼에 데이터를 누적한 뒤 완전한 단위만 처리하도록 바꿨습니다.",
     shortResult: "팀원이 같은 로그와 기준으로 문제를 확인할 수 있게 됐습니다.",
     shortQuestion: "메시지가 나뉘어 수신될 때 수신 버퍼를 처리한 기준",
-    githubUrl: "https://github.com/lukemin-dev/java-socket",
+    githubUrl: "https://github.com/lukemin-dev/multichat-java",
+    evidence: [
+      {
+        label: "GitHub 저장소",
+        description: "Java Socket 기반 실시간 통신 프로젝트 정리 저장소입니다.",
+        href: "https://github.com/lukemin-dev/multichat-java",
+      },
+      {
+        label: "면접 대비 노트",
+        description: "TCP 메시지 경계, 수신 버퍼 처리, 멀티스레드 처리, 로그 기준을 면접 답변용으로 정리했습니다.",
+        href: "https://github.com/lukemin-dev/multichat-java/blob/main/docs/interview-notes.md",
+      },
+      {
+        label: "문제 해결 근거",
+        description: "메시지가 나뉘어 수신되는 문제를 TCP 스트림 특성으로 설명하고, 완전한 메시지 단위 처리와 로그 기준 통일로 해결한 과정을 정리했습니다.",
+      },
+    ],
     featured: false,
   },
   {
@@ -116,7 +146,20 @@ export const projects: Project[] = [
     shortAction: "네트워크 장애 상황을 고려해 로컬 저장과 재전송 구조를 검토했습니다.",
     shortResult: "센서 데이터가 서버까지 이어지는 흐름과 운영 안정성의 중요성을 학습했습니다.",
     shortQuestion: "네트워크가 불안정할 때 센서 데이터를 유실 없이 보존한 방법",
-    githubUrl: "https://github.com/lukemin-dev/iot-cloud-monitoring",
+    evidence: [
+      {
+        label: "프로젝트 케이스 정리",
+        description: "Raspberry Pi, MQTT, InfluxDB, Grafana, Slack 알림을 연결한 Edge-to-Cloud 모니터링 흐름을 포트폴리오 케이스로 정리했습니다.",
+      },
+      {
+        label: "공개 코드 상태",
+        description: "현재 공개 GitHub 저장소는 연결하지 않았습니다. 코드나 캡스톤 산출물을 정리하면 이 위치에 링크를 추가할 수 있습니다.",
+      },
+      {
+        label: "면접 설명 포인트",
+        description: "네트워크 장애 시 로컬 저장과 재전송 구조, 시계열 데이터 저장, 임계값 기반 알림의 오탐 관리 관점으로 설명할 수 있습니다.",
+      },
+    ],
     featured: true,
   },
   {
@@ -155,6 +198,28 @@ export const projects: Project[] = [
     shortResult: "API 구조, 예외 처리, 문서화 흐름을 정리했습니다.",
     shortQuestion: "DTO, Controller, Service 구조를 분리한 이유와 장점",
     githubUrl: "https://github.com/lukemin-dev/backend-interview-tracker",
+    evidence: [
+      {
+        label: "GitHub 저장소",
+        description: "Spring Boot REST API 소스, 테스트 코드, CI 설정을 확인할 수 있습니다.",
+        href: "https://github.com/lukemin-dev/backend-interview-tracker",
+      },
+      {
+        label: "API 명세",
+        description: "질문 등록, 조회, 검색, 수정, 삭제 API와 공통 응답 형식을 문서화했습니다.",
+        href: "https://github.com/lukemin-dev/backend-interview-tracker/blob/main/docs/02-design/api-spec.md",
+      },
+      {
+        label: "아키텍처 리뷰",
+        description: "Controller-Service-Repository 계층 분리, DTO 분리, 전역 예외 처리, 테스트 관점을 정리했습니다.",
+        href: "https://github.com/lukemin-dev/backend-interview-tracker/blob/main/docs/03-analysis/architecture-review.md",
+      },
+      {
+        label: "면접 대비 노트",
+        description: "프로젝트 설명 흐름, 막혔던 점, 해결 방법, 30초 답변 예시를 정리했습니다.",
+        href: "https://github.com/lukemin-dev/backend-interview-tracker/blob/main/docs/interview-notes.md",
+      },
+    ],
     featured: true,
   },
 ];

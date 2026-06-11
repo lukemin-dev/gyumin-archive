@@ -25,6 +25,8 @@ shortQuestion: "홈 화면 카드에 보일 질문 포인트"
 githubUrl: "https://github.com/lukemin-dev/example"
 demoUrl: ""
 privateCode: false
+evidence:
+  - "GitHub 저장소, 테스트 결과, 문서 링크처럼 증명 자료로 쓸 내용을 적습니다."
 ---
 
 본문은 선택 사항입니다. `problem`을 비워두면 이 본문이 문제 설명으로 사용됩니다.

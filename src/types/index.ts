@@ -59,7 +59,14 @@ export interface Project {
   githubUrl?: string;
   demoUrl?: string;
   screenshots?: string[];
+  evidence?: ProjectEvidence[];
   featured?: boolean;
+}
+
+export interface ProjectEvidence {
+  label: string;
+  description: string;
+  href?: string;
 }
 
 export interface Experience {

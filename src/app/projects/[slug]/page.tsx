@@ -113,10 +113,42 @@ export default async function ProjectDetailPage({
       </DetailSection>
 
       <DetailSection label="증명 자료 (Evidence)">
-        <div className="bg-gray-50 border border-gray-200 border-dashed rounded-lg p-6 flex flex-col items-center justify-center text-center text-gray-500">
-          <p className="text-sm font-medium mb-1">[증명 자료 Placeholder]</p>
-          <p className="text-xs text-gray-400">여기에 스크린샷, 로그 예시, 아키텍처 다이어그램, 리포트 산출물 등을 배치할 수 있습니다.</p>
-        </div>
+        {project.evidence && project.evidence.length > 0 ? (
+          <div className="space-y-3">
+            {project.evidence.map((item) => {
+              const content = (
+                <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 transition-colors hover:border-gray-300">
+                  <p className="font-semibold text-gray-900">{item.label}</p>
+                  <p className="mt-1 text-sm text-gray-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              );
+
+              if (item.href) {
+                return (
+                  <a
+                    key={`${item.label}-${item.href}`}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    {content}
+                  </a>
+                );
+              }
+
+              return <div key={item.label}>{content}</div>;
+            })}
+          </div>
+        ) : (
+          <div className="rounded-lg border border-gray-200 border-dashed bg-gray-50 p-4">
+            <p className="text-sm text-gray-500">
+              공개 가능한 증명 자료를 정리 중입니다.
+            </p>
+          </div>
+        )}
       </DetailSection>
 
       <DetailSection label="지금 다시 한다면">

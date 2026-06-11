@@ -182,6 +182,10 @@ function markdownProjects(): Project[] {
     );
     const result = stringValue(frontmatter, "result");
     const interviewPoints = arrayValue(frontmatter, "interviewPoints");
+    const evidence = arrayValue(frontmatter, "evidence").map((item) => ({
+      label: "Evidence",
+      description: item,
+    }));
 
     return {
       slug,
@@ -210,6 +214,7 @@ function markdownProjects(): Project[] {
       githubUrl: stringValue(frontmatter, "githubUrl") || undefined,
       demoUrl: stringValue(frontmatter, "demoUrl") || undefined,
       screenshots: arrayValue(frontmatter, "screenshots"),
+      evidence: evidence.length > 0 ? evidence : undefined,
       featured: booleanValue(frontmatter, "featured"),
     };
   });
