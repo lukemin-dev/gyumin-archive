@@ -28,7 +28,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
       <nav className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/" className="text-lg font-bold text-gray-900">
-          이규민
+          {profile.name}
         </Link>
 
         {/* Desktop nav */}
