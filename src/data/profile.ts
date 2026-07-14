@@ -6,7 +6,7 @@ export const profile: Profile = {
   title: "Cloud Infrastructure & Backend Engineer",
   tagline:
     "반복 작업을 자동화하고, 시스템을 모니터링하며, 장애 없이 재현 가능한 인프라를 구축하는 데 집중합니다.",
-  bio: "• 문제 해결 철학: 코드를 바로 고치기보다 입력 기준을 맞추고, 로그를 남기며, 실패 시 재개 가능한 견고한 구조를 설계합니다.\n• 인턴십 자동화 성과: 일본 요코하마 IT 기업에서 수동 데이터 추출 및 엑셀 취합에 3일 소요되던 작업을 10초로 단축하는 파이프라인을 구축했습니다.\n• 성실함과 꾸준함: 전공 학습에서 꾸준함을 유지해 GPA 4.26/4.5와 수석 경험을 기록했습니다.",
+  bio: "• 문제 해결 철학: 코드를 바로 고치기보다 입력 기준을 맞추고, 로그를 남기며, 실패 시 재개 가능한 견고한 구조를 설계합니다.\n• 인턴십 자동화 성과: 일본 요코하마 IT 기업에서 수동 데이터 추출 및 엑셀 취합에 3일 소요되던 작업을 10초로 단축하는 파이프라인을 구축했습니다.\n• 성실함과 꾸준함: 전공 학습에서 꾸준함을 유지해 GPA 4.23/4.5와 수석 경험을 기록했습니다.",
   email: "lgmlgm227@naver.com",
   github: "https://github.com/lukemin-dev",
   portfolioRepo: "https://github.com/lukemin-dev/gyumin-archive",
@@ -16,7 +16,7 @@ export const profile: Profile = {
       school: "전남대학교",
       major: "컴퓨터공학과",
       period: "2023.03 - 2027.02 졸업예정",
-      gpa: "4.26/4.5",
+      gpa: "4.23/4.5",
     },
   ],
   awards: [
