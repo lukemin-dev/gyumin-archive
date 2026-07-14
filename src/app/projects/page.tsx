@@ -1,6 +1,6 @@
-import { projects } from "@/lib/content-data";
-import PageHeader from "@/components/PageHeader";
 import ProjectCard from "@/components/ProjectCard";
+import PageHeader from "@/components/PageHeader";
+import { projects } from "@/lib/content-data";
 
 export const metadata = {
   title: "프로젝트 | 이규민",
@@ -8,22 +8,26 @@ export const metadata = {
 };
 
 export default function ProjectsPage() {
-  const featured = projects.filter((p) => p.featured);
-  const others = projects.filter((p) => !p.featured);
+  const featured = projects.filter((project) => project.featured);
+  const others = projects.filter((project) => !project.featured);
 
   return (
     <div>
       <PageHeader
-        title="프로젝트"
-        description="각 프로젝트의 문제, 역할, 기술적 챌린지, 결과를 정리했습니다."
+        eyebrow="Projects"
+        title="문제를 해결한 과정을 보여주는 프로젝트"
+        description="기술 이름보다 어떤 문제를 발견했고, 무엇을 직접 구현했으며, 결과가 어떻게 달라졌는지를 중심으로 정리했습니다."
       />
 
       {featured.length > 0 && (
-        <section className="mb-12">
-          <h2 className="text-sm font-mono text-gray-400 uppercase tracking-wider mb-4">
-            Featured
-          </h2>
-          <div className="grid gap-4 md:grid-cols-2">
+        <section className="mb-14">
+          <div className="mb-5">
+            <h2 className="text-xl font-bold tracking-tight text-slate-950">대표 프로젝트</h2>
+            <p className="mt-1 text-sm text-slate-500">
+              직무 연관성과 문제 해결 과정이 가장 잘 드러나는 작업입니다.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {featured.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}
@@ -33,10 +37,13 @@ export default function ProjectsPage() {
 
       {others.length > 0 && (
         <section>
-          <h2 className="text-sm font-mono text-gray-400 uppercase tracking-wider mb-4">
-            Other Projects
-          </h2>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="mb-5">
+            <h2 className="text-xl font-bold tracking-tight text-slate-950">그 밖의 프로젝트</h2>
+            <p className="mt-1 text-sm text-slate-500">
+              수업과 개인 학습에서 구현한 시스템 및 자동화 도구입니다.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {others.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}
