@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "Automation",
     "Python",
     "Spring Boot",
-    "ROS2",
+    "AI Vision",
   ],
   openGraph: {
     title: "이규민 | Backend · Cloud · Automation",
@@ -64,8 +64,14 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a href="#main-content" className="skip-link">
+          본문으로 바로가기
+        </a>
         <Header />
-        <main className="flex-1 w-full max-w-4xl mx-auto px-6 py-12">
+        <main
+          id="main-content"
+          className="flex-1 w-full max-w-5xl mx-auto px-5 sm:px-6 py-10 sm:py-14"
+        >
           {children}
         </main>
         <Footer />
