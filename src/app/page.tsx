@@ -9,7 +9,7 @@ const evidenceData: Evidence[] = [
   {
     icon: "",
     label: "학업",
-    value: "수석 경험 · GPA 4.26 / 4.5 · 성적우수장학금 6회",
+    value: "수석 경험 · GPA 4.23 / 4.5 · 성적우수장학금 6회",
     description: "",
   },
   {
