@@ -4,8 +4,8 @@ export const courses: Course[] = [
   {
     title: "AWS Master Class",
     type: "Cloud Training",
-    period: "2026.04-2026.06",
-    theme: "클라우드 인프라 및 운영 기초 학습",
+    period: "2026.04-2026.06 / 수강 완료",
+    theme: "클라우드 인프라 및 운영 기초 과정 수강 완료",
     details: [
       "AWS 기반 서버, 네트워크, 스토리지, 모니터링 개념 학습",
       "클라우드 환경에서 서비스가 배포되고 운영되는 흐름 이해",
@@ -16,8 +16,8 @@ export const courses: Course[] = [
   {
     title: "H-Mobility Class 자율주행 인지 과정",
     type: "Online Training",
-    period: "2026.04-2026.06",
-    theme: "자율주행 인지 기술 학습",
+    period: "2026.04-2026.06 / 수강 완료",
+    theme: "자율주행 인지 기술 과정 수강 완료",
     details: [
       "카메라와 센서 기반 주변 환경 인식 과정 학습",
       "자율주행 기능 안정성과 데이터 검증의 연결성 이해",
