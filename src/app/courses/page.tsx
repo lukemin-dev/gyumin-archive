@@ -1,6 +1,6 @@
-import { courses } from "@/data/courses";
-import PageHeader from "@/components/PageHeader";
 import CourseItem from "@/components/CourseItem";
+import PageHeader from "@/components/PageHeader";
+import { courses } from "@/data/courses";
 
 export const metadata = {
   title: "교육 | 이규민",
@@ -8,31 +8,31 @@ export const metadata = {
 };
 
 export default function CoursesPage() {
-  // Group courses by category
-  const categories = Array.from(new Set(courses.map((c) => c.category)));
+  const categories = Array.from(new Set(courses.map((course) => course.category)));
 
   return (
     <div>
       <PageHeader
-        title="교육 · 프로그램"
-        description="실제 참여하거나 이수한 프로그램만 정리했습니다."
+        eyebrow="Courses"
+        title="직무와 연결해 이수한 교육"
+        description="수료 여부와 학습 내용을 확인할 수 있도록 실제 참여한 과정만 정리했습니다."
       />
 
-      {categories.map((category) => {
-        const items = courses.filter((c) => c.category === category);
-        return (
-          <section key={category} className="mb-10">
-            <h2 className="text-sm font-mono text-gray-400 uppercase tracking-wider mb-2">
-              {category}
-            </h2>
-            <div>
-              {items.map((course) => (
-                <CourseItem key={course.title} course={course} />
-              ))}
-            </div>
-          </section>
-        );
-      })}
+      <div className="space-y-14">
+        {categories.map((category) => {
+          const items = courses.filter((course) => course.category === category);
+          return (
+            <section key={category}>
+              <h2 className="mb-4 text-lg font-bold text-slate-950">{category}</h2>
+              <div className="grid gap-5 md:grid-cols-2">
+                {items.map((course) => (
+                  <CourseItem key={course.title} course={course} />
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
     </div>
   );
 }
