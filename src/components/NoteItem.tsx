@@ -7,25 +7,31 @@ interface NoteItemProps {
 
 export default function NoteItem({ note }: NoteItemProps) {
   return (
-    <Link
-      href={`/notes/${note.slug}`}
-      className="block py-4 border-b border-gray-100 hover:border-gray-300 transition-colors"
-    >
-      <h3 className="font-medium text-gray-900">{note.title}</h3>
-      <p className="text-sm text-gray-400 font-mono mt-0.5">{note.date}</p>
-      <p className="text-sm text-gray-600 mt-1">{note.summary}</p>
+    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md">
+      <div className="flex items-start justify-between gap-4">
+        <h2 className="font-bold leading-snug text-slate-950">
+          <Link href={`/notes/${note.slug}`} className="hover:text-blue-700">
+            {note.title}
+          </Link>
+        </h2>
+        <time className="shrink-0 text-xs text-slate-400">{note.date}</time>
+      </div>
+      <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-600">{note.summary}</p>
       {note.tags.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 mt-2">
+        <div className="mt-4 flex flex-wrap gap-2">
           {note.tags.map((tag) => (
             <span
               key={tag}
-              className="inline-block text-xs px-2 py-0.5 bg-gray-100 text-gray-600 rounded"
+              className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600"
             >
               {tag}
             </span>
           ))}
         </div>
       )}
-    </Link>
+      <Link href={`/notes/${note.slug}`} className="mt-5 inline-block text-sm font-semibold text-blue-700 hover:underline">
+        읽기 →
+      </Link>
+    </article>
   );
 }
