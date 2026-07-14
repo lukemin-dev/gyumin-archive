@@ -7,61 +7,57 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="border border-gray-200 rounded-lg hover:border-gray-400 transition-colors overflow-hidden">
-      <Link href={`/projects/${project.slug}`} className="block p-6">
-        <div className="flex items-start justify-between gap-4 mb-4">
-          <h3 className="font-semibold text-gray-900 flex-1 leading-snug">
-            {project.title}
-          </h3>
-          <span className="shrink-0 text-xs font-mono text-gray-400 mt-0.5">
-            {project.period}
-          </span>
-        </div>
+    <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <span className="w-fit rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-bold text-blue-700">
+          {project.type}
+        </span>
+        <span className="text-xs text-slate-400">{project.period}</span>
+      </div>
 
-        <div className="space-y-4 text-sm text-gray-700">
-          <div>
-            <span className="font-semibold text-gray-900 block mb-1">무엇을 만들었나</span>
-            <p>{project.theme}</p>
-          </div>
-          <div>
-            <span className="font-semibold text-gray-900 block mb-1">어떤 문제가 있었나</span>
-            <p className="line-clamp-2 leading-relaxed">{project.problem}</p>
-          </div>
-          <div>
-            <span className="font-semibold text-gray-900 block mb-1">내가 직접 한 일</span>
-            <p className="line-clamp-2 leading-relaxed">{project.myContribution[0]}</p>
-          </div>
-          <div>
-            <span className="font-semibold text-gray-900 block mb-1">무엇이 바뀌었나</span>
-            <p className="line-clamp-2 leading-relaxed">{project.result}</p>
-          </div>
-        </div>
-      </Link>
+      <h3 className="mt-4 text-lg font-bold leading-snug text-slate-950">
+        <Link href={`/projects/${project.slug}`} className="hover:text-blue-700">
+          {project.title}
+        </Link>
+      </h3>
+      <p className="mt-2 text-sm leading-relaxed text-slate-600">{project.theme}</p>
 
-      {(project.githubUrl || project.demoUrl) && (
-        <div className="flex gap-4 border-t border-gray-100 px-6 py-3">
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-medium text-gray-500 hover:text-black transition-colors"
-            >
-              GitHub ↗
-            </a>
-          )}
-          {project.demoUrl && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-medium text-gray-500 hover:text-black transition-colors"
-            >
-              Demo ↗
-            </a>
-          )}
-        </div>
-      )}
+      <div className="mt-5 rounded-xl border-l-4 border-blue-500 bg-slate-50 px-4 py-3">
+        <p className="text-xs font-semibold text-slate-500">핵심 결과</p>
+        <p className="mt-1 text-sm font-semibold leading-relaxed text-slate-900">
+          {project.shortResult || project.result}
+        </p>
+      </div>
+
+      <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-slate-500">
+        {project.shortAction || project.myContribution[0]}
+      </p>
+
+      <div className="mt-auto flex flex-wrap items-center gap-4 pt-5 text-sm font-semibold">
+        <Link href={`/projects/${project.slug}`} className="text-blue-700 hover:underline">
+          상세 보기 →
+        </Link>
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-500 hover:text-slate-950"
+          >
+            GitHub ↗
+          </a>
+        )}
+        {project.demoUrl && (
+          <a
+            href={project.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-500 hover:text-slate-950"
+          >
+            Demo ↗
+          </a>
+        )}
+      </div>
     </article>
   );
 }
