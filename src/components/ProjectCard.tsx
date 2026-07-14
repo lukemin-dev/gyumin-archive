@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getProjectVisuals } from "@/data/project-visuals";
 import type { Project } from "@/types";
@@ -17,11 +18,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           className="block border-b border-slate-200 bg-slate-100"
           aria-label={`${project.title} 구현 화면과 상세 내용 보기`}
         >
-          <img
+          <Image
             src={preview.src}
             alt={preview.alt}
-            loading="lazy"
-            decoding="async"
+            width={1080}
+            height={2340}
+            sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
             className="h-48 w-full object-contain object-top transition-transform duration-300 group-hover:scale-[1.02]"
           />
         </Link>
