@@ -1,7 +1,6 @@
-import { experiences } from "@/data/experience";
-import PageHeader from "@/components/PageHeader";
 import ExperienceCard from "@/components/ExperienceCard";
-import SkillTag from "@/components/SkillTag";
+import PageHeader from "@/components/PageHeader";
+import { experiences } from "@/data/experience";
 
 export const metadata = {
   title: "경험 | 이규민",
@@ -12,27 +11,16 @@ export default function ExperiencePage() {
   return (
     <div>
       <PageHeader
-        title="경험"
-        description="연구, 인턴십, 실무 경험을 맥락, 문제, 조치, 결과 중심으로 정리했습니다."
+        eyebrow="Experience"
+        title="현장에서 문제를 나누고 해결한 경험"
+        description="처음에는 핵심 역할과 결과만 빠르게 확인하고, 필요한 경험의 문제 해결 과정은 펼쳐서 볼 수 있도록 구성했습니다."
       />
 
-      {experiences.map((exp) => (
-        <div key={exp.title}>
-          <ExperienceCard experience={exp} />
-          {exp.techStack && exp.techStack.length > 0 && (
-            <div className="ml-6 mb-8 -mt-4">
-              <p className="text-xs font-mono text-gray-400 uppercase tracking-wider mb-2">
-                기술 스택
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {exp.techStack.map((tech) => (
-                  <SkillTag key={tech} label={tech} />
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      ))}
+      <div className="grid gap-6">
+        {experiences.map((experience) => (
+          <ExperienceCard key={experience.title} experience={experience} />
+        ))}
+      </div>
     </div>
   );
 }
