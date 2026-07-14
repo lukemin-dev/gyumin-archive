@@ -1,227 +1,198 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import ProjectCard from "@/components/ProjectCard";
+import { experiences } from "@/data/experience";
 import { profile } from "@/data/profile";
 import { projects } from "@/lib/content-data";
-import { experiences } from "@/data/experience";
-import type { Evidence } from "@/types";
 
-const featuredExperience = experiences.find((experience) => experience.featured);
-const primaryEducation = profile.education[0];
-const topAcademicAward = profile.awards.find((award) => award.title.includes("수석"));
-const scholarshipAward = profile.awards.find((award) =>
-  award.title.includes("성적우수장학금"),
+const currentExperience = experiences.find((experience) =>
+  experience.period.includes("진행 중"),
 );
+const impactExperience = experiences.find((experience) => experience.featured);
+const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
 
-const evidenceData: Evidence[] = [
+const highlights = [
   {
-    icon: "",
-    label: "학업",
-    value: `${topAcademicAward?.title ?? "수석 경험"} · GPA ${primaryEducation?.gpa ?? "-"} · ${scholarshipAward?.title ?? "성적우수장학금"} ${scholarshipAward?.date ?? ""}`,
-    description: "",
+    value: "약 10초",
+    label: "2~3일 걸리던 SEO 분석·보고 업무 자동화",
   },
   {
-    icon: "",
-    label: featuredExperience?.company ?? "Crosslink 인턴",
-    value:
-      featuredExperience?.result ??
-      "수작업으로 2~3일 걸리던 SEO 분석 과정을 약 10초 내외로 줄였습니다.",
-    description: "",
+    value: "4.23 / 4.5",
+    label: "누계 GPA · 성적우수장학금 6회",
   },
   {
-    icon: "",
-    label: "멘토링",
-    value: "초록어린이지역아동센터에서 총 294.5시간의 학습 멘토링을 수행했습니다.",
-    description: "",
-  },
-  {
-    icon: "",
-    label: "일본 경험",
-    value: "Osaka University J-SHIP 이후 일본 기업 인턴십까지 이어졌습니다.",
-    description: "",
+    value: "294.5시간",
+    label: "학생별 설명 방식을 조정한 학습 멘토링",
   },
 ];
+
+function ExperiencePreview({
+  eyebrow,
+  experience,
+}: {
+  eyebrow: string;
+  experience: (typeof experiences)[number];
+}) {
+  return (
+    <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <p className="text-xs font-bold uppercase tracking-[0.14em] text-blue-600">
+        {eyebrow}
+      </p>
+      <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
+        <div>
+          <h3 className="font-bold text-slate-950">{experience.title}</h3>
+          <p className="mt-1 text-sm text-slate-500">{experience.company}</p>
+        </div>
+        <span className="shrink-0 text-xs text-slate-400">{experience.period}</span>
+      </div>
+      <p className="mt-4 text-sm leading-relaxed text-slate-600">{experience.context}</p>
+      <div className="mt-4 rounded-xl bg-slate-50 px-4 py-3">
+        <p className="text-xs font-semibold text-slate-500">핵심 결과</p>
+        <p className="mt-1 text-sm font-semibold leading-relaxed text-slate-900">
+          {experience.result}
+        </p>
+      </div>
+    </article>
+  );
+}
 
 export default function Home() {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="mb-16 flex flex-col md:flex-row items-start gap-8">
-        {profile.image && (
-          <div className="shrink-0">
-            <Image
-              src={profile.image}
-              alt={`${profile.name} 프로필 이미지`}
-              width={100}
-              height={100}
-              className="rounded-full object-cover w-24 h-24 border border-gray-200"
-              priority
-            />
-          </div>
-        )}
-        <div>
-          <p className="text-sm font-mono text-gray-400 mb-2">{profile.title}</p>
-          <h1 className="text-3xl font-bold text-gray-900 mb-3">
-            {profile.name}의 경험 정리
-          </h1>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mb-6 whitespace-pre-wrap">
-            {profile.tagline}
-          </p>
-
-          <div className="flex flex-wrap gap-2 mt-6">
-            {profile.interests.map((keyword) => (
-              <span
-                key={keyword}
-                className="text-xs font-mono px-3 py-1.5 border border-gray-300 rounded text-gray-600"
-              >
-                {keyword}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mb-16">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">기술을 설명하는 방식</h2>
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-          <p className="text-sm text-gray-700 leading-relaxed">
-            프로젝트나 교류 활동을 하면서, 정답을 아는 것보다 상대가 이해할 수 있게 설명하는 과정이 중요하다는 걸 느꼈습니다. 일본문화연구회 발표와 통역, 멘토링 활동을 통해 질문의 의도와 상대의 이해 수준을 먼저 보는 습관을 갖게 됐습니다.
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-16">
-        <h2 className="text-lg font-semibold text-gray-900 mb-6">
-          주요 성과 및 근거
-        </h2>
-        <div className="border-t border-gray-200">
-          {evidenceData.map((evidence) => (
-            <div
-              key={evidence.label}
-              className="py-4 border-b border-gray-200 flex flex-col md:flex-row md:items-start gap-2 md:gap-6"
-            >
-              <span className="text-sm font-mono text-gray-400 w-32 shrink-0">
-                {evidence.label}
-              </span>
-              <div>
-                <p className="font-medium text-gray-900 leading-relaxed">
-                  {evidence.value}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {featuredExperience && (
-        <section className="mb-16">
-          <h2 className="text-lg font-semibold text-gray-900 mb-6">
-            주요 경험
-          </h2>
-          <div className="border border-gray-200 rounded-lg p-6">
-            <div className="flex items-start justify-between gap-4 mb-1">
-              <h3 className="font-semibold text-gray-900">
-                {featuredExperience.title}
-              </h3>
-              <span className="shrink-0 text-xs font-mono text-gray-400">
-                {featuredExperience.period}
-              </span>
-            </div>
-            <p className="text-sm text-gray-500 mb-3">
-              {featuredExperience.company}
+      <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+        <div className="grid gap-8 p-7 sm:p-10 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
+              {profile.title}
             </p>
-            <p className="text-sm text-gray-600 mb-2">
-              {featuredExperience.context}
+            <h1 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl sm:leading-[1.12]">
+              반복되는 문제를 구조화하고,
+              <br className="hidden sm:block" /> 자동화 가능한 흐름으로 바꿉니다.
+            </h1>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+              {profile.tagline}
             </p>
-            <p className="text-sm text-gray-600 mb-2">
-              <span className="font-medium text-gray-700">담당:</span>{" "}
-              {featuredExperience.responsibility}
-            </p>
-            <p className="text-sm text-gray-700">
-              <span className="font-medium">결과:</span>{" "}
-              {featuredExperience.result}
-            </p>
-            <div className="mt-4">
+
+            <div className="mt-7 flex flex-wrap gap-3">
               <Link
-                href="/experience"
-                className="text-sm text-gray-500 hover:text-black transition-colors underline underline-offset-4"
+                href="/projects"
+                className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-slate-800"
               >
-                자세히 보기 →
+                대표 프로젝트 보기
               </Link>
+              <Link
+                href="/resume"
+                className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-slate-400 hover:bg-slate-50"
+              >
+                이력서 다운로드
+              </Link>
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl px-4 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-50"
+              >
+                GitHub ↗
+              </a>
             </div>
+
+            <div className="mt-7 flex flex-wrap gap-2">
+              {profile.interests.map((interest) => (
+                <span
+                  key={interest}
+                  className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600"
+                >
+                  {interest}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {profile.image && (
+            <div className="order-first md:order-last">
+              <Image
+                src={profile.image}
+                alt={`${profile.name} 프로필 이미지`}
+                width={144}
+                height={144}
+                className="h-28 w-28 rounded-3xl border border-slate-200 object-cover shadow-sm sm:h-36 sm:w-36"
+                priority
+              />
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="mt-8 grid gap-4 sm:grid-cols-3" aria-label="주요 성과">
+        {highlights.map((item) => (
+          <div key={item.value} className="rounded-2xl border border-slate-200 bg-white p-5">
+            <p className="text-2xl font-bold tracking-tight text-slate-950">{item.value}</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.label}</p>
+          </div>
+        ))}
+      </section>
+
+      {(currentExperience || impactExperience) && (
+        <section className="mt-16">
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
+                Experience
+              </p>
+              <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">
+                현장에서 검증한 경험
+              </h2>
+            </div>
+            <Link href="/experience" className="text-sm font-semibold text-blue-700 hover:underline">
+              전체 경험 보기 →
+            </Link>
+          </div>
+          <div className="grid gap-5 lg:grid-cols-2">
+            {currentExperience && (
+              <ExperiencePreview eyebrow="Current" experience={currentExperience} />
+            )}
+            {impactExperience && impactExperience !== currentExperience && (
+              <ExperiencePreview eyebrow="Measured Impact" experience={impactExperience} />
+            )}
           </div>
         </section>
       )}
 
-      <section className="mb-16">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-semibold text-gray-900">
-            제가 깊게 다뤄본 문제들
-          </h2>
-          <Link
-            href="/projects"
-            className="text-sm text-gray-500 hover:text-black transition-colors"
-          >
+      <section className="mt-16">
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
+              Selected Work
+            </p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">
+              대표 프로젝트
+            </h2>
+          </div>
+          <Link href="/projects" className="text-sm font-semibold text-blue-700 hover:underline">
             전체 프로젝트 보기 →
           </Link>
         </div>
-        <div className="grid gap-4 md:grid-cols-2">
-          {projects.slice(0, 4).map((project) => (
-            <div
-              key={project.slug}
-              className="border border-gray-200 rounded-lg p-6 hover:border-gray-400 transition-colors flex flex-col bg-white"
-            >
-              <Link href={`/projects/${project.slug}`} className="flex-1">
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <h3 className="font-semibold text-gray-900 flex-1 leading-snug">
-                    {project.title}
-                  </h3>
-                </div>
-                <p className="text-sm text-gray-700 leading-relaxed mb-2">
-                  <span className="font-semibold text-gray-900">문제:</span>{" "}
-                  {project.shortProblem}
-                </p>
-                <p className="text-sm text-gray-700 leading-relaxed mb-2">
-                  <span className="font-semibold text-gray-900">내가 한 일:</span>{" "}
-                  {project.shortAction}
-                </p>
-                <p className="text-sm text-gray-700 leading-relaxed mb-4">
-                  <span className="font-semibold text-gray-900">결과:</span>{" "}
-                  {project.shortResult}
-                </p>
-              </Link>
-              <div className="mt-auto pt-4 border-t border-gray-100">
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  <span className="font-semibold text-gray-900">
-                    더 이야기할 수 있는 부분:
-                  </span>{" "}
-                  {project.shortQuestion}
-                </p>
-              </div>
-            </div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {featuredProjects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
       </section>
 
-      <section className="mb-8">
-        <h2 className="text-lg font-semibold text-gray-900 mb-6">둘러보기</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <section className="mt-16 rounded-2xl border border-blue-100 bg-blue-50 p-6 sm:p-8">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
+          Engineering Principles
+        </p>
+        <div className="mt-4 grid gap-5 sm:grid-cols-3">
           {[
-            { href: "/about", label: "소개", desc: "학력 · 기술 · 관심사" },
-            { href: "/projects", label: "프로젝트", desc: "개발 프로젝트" },
-            { href: "/experience", label: "경험", desc: "인턴십 · 실무" },
-            { href: "/courses", label: "교육", desc: "프로그램 · 과정" },
-            { href: "/activities", label: "활동", desc: "멘토링 · 봉사" },
-            { href: "/notes", label: "노트", desc: "기술 노트" },
-            { href: "/resume", label: "이력서", desc: "PDF 다운로드" },
-          ].map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="border border-gray-200 rounded-lg p-4 hover:border-gray-400 transition-colors"
-            >
-              <p className="font-medium text-gray-900 text-sm">{item.label}</p>
-              <p className="text-xs text-gray-400 mt-1">{item.desc}</p>
-            </Link>
+            ["입력부터 확인", "코드를 고치기 전에 데이터 형식과 시스템 경계를 먼저 확인합니다."],
+            ["실패를 전제로 설계", "재시도·체크포인트·로그를 넣어 중단 이후에도 복구할 수 있게 만듭니다."],
+            ["근거를 남기는 문서화", "문제, 판단 기준, 조치와 결과를 다시 설명할 수 있는 형태로 기록합니다."],
+          ].map(([title, description]) => (
+            <div key={title}>
+              <h3 className="font-bold text-slate-950">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
+            </div>
           ))}
         </div>
       </section>
