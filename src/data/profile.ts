@@ -15,7 +15,7 @@ export const profile: Profile = {
     {
       school: "전남대학교",
       major: "컴퓨터공학과",
-      period: "2023.03 - 2026.08 졸업예정",
+      period: "2023.03 - 2027.02 졸업예정",
       gpa: "4.23/4.5",
     },
   ],
