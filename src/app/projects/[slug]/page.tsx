@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getProjectVisuals } from "@/data/project-visuals";
 import { projects } from "@/lib/content-data";
 
 export function generateStaticParams() {
@@ -45,6 +47,8 @@ export default async function ProjectDetailPage({
 
   if (!project) notFound();
 
+  const visuals = getProjectVisuals(project.slug);
+
   return (
     <article className="mx-auto max-w-4xl">
       <Link
@@ -78,7 +82,10 @@ export default async function ProjectDetailPage({
           <ul className="mt-6 grid gap-3 text-sm leading-relaxed text-slate-600 sm:grid-cols-2">
             {project.details.map((detail) => (
               <li key={detail} className="flex gap-3 rounded-xl bg-slate-50 p-4">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" aria-hidden="true" />
+                <span
+                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"
+                  aria-hidden="true"
+                />
                 <span>{detail}</span>
               </li>
             ))}
@@ -116,6 +123,49 @@ export default async function ProjectDetailPage({
         )}
       </header>
 
+      {visuals.length > 0 && (
+        <section className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
+                Verified Screens
+              </p>
+              <h2 className="mt-2 text-xl font-bold tracking-tight text-slate-950">
+                실제 구현 화면
+              </h2>
+            </div>
+            <p className="text-sm text-slate-500">GitHub 저장소에 공개된 시연 이미지</p>
+          </div>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {visuals.map((visual) => (
+              <a
+                key={visual.src}
+                href={visual.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition hover:border-blue-200 hover:shadow-md"
+              >
+                <Image
+                  src={visual.src}
+                  alt={visual.alt}
+                  width={1080}
+                  height={2340}
+                  sizes="(min-width: 640px) 30vw, 100vw"
+                  className="h-[30rem] w-full object-contain object-top sm:h-[25rem] lg:h-[30rem]"
+                />
+                <div className="border-t border-slate-200 bg-white p-4">
+                  <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-blue-700">
+                    {visual.caption}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-400">원본 이미지 보기 ↗</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
       <div className="mt-6 grid gap-6 md:grid-cols-2">
         <Section title="문제">
           <p className="whitespace-pre-wrap">{project.problem}</p>
@@ -133,7 +183,10 @@ export default async function ProjectDetailPage({
           <ul className="space-y-3">
             {project.myContribution.map((item) => (
               <li key={item} className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" aria-hidden="true" />
+                <span
+                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"
+                  aria-hidden="true"
+                />
                 <span>{item}</span>
               </li>
             ))}
@@ -200,7 +253,10 @@ export default async function ProjectDetailPage({
             <ul className="space-y-3">
               {project.interviewPoints.map((point) => (
                 <li key={point} className="flex gap-3 font-medium text-slate-800">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" aria-hidden="true" />
+                  <span
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400"
+                    aria-hidden="true"
+                  />
                   <span>{point}</span>
                 </li>
               ))}
