@@ -1,152 +1,140 @@
 import Image from "next/image";
-import { profile } from "@/data/profile";
 import PageHeader from "@/components/PageHeader";
 import SectionBlock from "@/components/SectionBlock";
-import SkillTag from "@/components/SkillTag";
+import { experiences } from "@/data/experience";
+import { profile } from "@/data/profile";
 
 export const metadata = {
   title: "소개 | 이규민",
-  description: "이규민의 학력, 기술 스택, 관심 분야를 소개합니다.",
+  description: "이규민의 개발 방향, 학력과 기술 역량을 소개합니다.",
 };
 
 export default function AboutPage() {
-  const primaryEducation = profile.education[0];
-  const topAcademicAward = profile.awards.find((award) =>
-    award.title.includes("수석"),
-  );
-  const scholarshipAward = profile.awards.find((award) =>
-    award.title.includes("성적우수장학금"),
+  const education = profile.education[0];
+  const currentExperience = experiences.find((experience) =>
+    experience.period.includes("진행 중"),
   );
 
   return (
     <div>
       <PageHeader
-        title="소개"
-        description="학력, 기술, 관심 분야를 정리했습니다."
+        eyebrow="About"
+        title="문제를 나누고, 근거를 남기는 개발자"
+        description="반복 업무 자동화와 시스템 운영 경험을 바탕으로 입력부터 결과까지 다시 설명할 수 있는 구조를 만듭니다."
       />
 
-      <SectionBlock title="자기소개">
-        <div className="flex flex-col md:flex-row gap-6 items-start">
+      <section className="mb-14 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
           {profile.image && (
             <Image
               src={profile.image}
               alt={`${profile.name} 프로필 이미지`}
-              width={120}
-              height={120}
-              className="rounded-lg object-cover w-24 h-24 md:w-32 md:h-32 border border-gray-200 shrink-0"
+              width={144}
+              height={144}
+              className="h-28 w-28 shrink-0 rounded-3xl border border-slate-200 object-cover sm:h-36 sm:w-36"
               priority
             />
           )}
-          <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
-            {profile.bio}
-          </p>
-        </div>
-      </SectionBlock>
-
-      <SectionBlock title="현재 집중하는 것">
-        <ul className="list-disc list-inside space-y-2 text-sm text-gray-700">
-          <li>한국생산기술연구원 현장실습 인턴으로 ROS2와 SLAM 연구 흐름 학습</li>
-          <li>자율주행 데이터 수집·처리와 오픈소스 알고리즘 구현 실습</li>
-          <li>프로젝트의 문제, 역할, 해결 과정과 근거 자료 문서화</li>
-        </ul>
-      </SectionBlock>
-
-      <SectionBlock title="기술을 설명하는 방식">
-        <p className="text-sm text-gray-700 leading-relaxed">
-          프로젝트나 교류 활동을 하면서, 정답을 아는 것보다 상대가 이해할 수 있게 설명하는 과정이 중요하다는 걸 느꼈습니다. 일본문화연구회 발표와 통역, 멘토링 활동을 통해 질문의 의도와 상대의 이해 수준을 먼저 보는 습관을 갖게 됐습니다.
-        </p>
-      </SectionBlock>
-
-      <SectionBlock title="학력">
-        {profile.education.map((edu) => (
-          <div key={edu.school} className="mb-4 last:mb-0">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="font-medium text-gray-900">{edu.school}</p>
-                <p className="text-sm text-gray-600">{edu.major}</p>
-              </div>
-              <span className="text-sm font-mono text-gray-400 shrink-0">
-                {edu.period}
-              </span>
+          <div>
+            <h2 className="text-xl font-bold text-slate-950">{profile.name}</h2>
+            <p className="mt-1 text-sm font-semibold text-blue-700">{profile.title}</p>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">{profile.bio}</p>
+            <div className="mt-5 flex flex-wrap gap-4 text-sm font-semibold">
+              <a href={`mailto:${profile.email}`} className="text-blue-700 hover:underline">
+                {profile.email}
+              </a>
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 hover:text-slate-950"
+              >
+                GitHub ↗
+              </a>
             </div>
-            {edu.gpa && (
-              <p className="text-sm text-gray-500 mt-1">
-                GPA: <span className="font-mono">{edu.gpa}</span>
-                {edu.note && (
-                  <span className="text-xs text-gray-400 ml-2">
-                    ({edu.note})
-                  </span>
-                )}
-              </p>
-            )}
-          </div>
-        ))}
-      </SectionBlock>
-
-      <SectionBlock title="학업 성취">
-        <p className="text-sm text-gray-700 leading-relaxed mb-4">
-          전공 학습에서도 꾸준함을 유지했습니다. GPA{" "}
-          <span className="font-mono font-semibold">
-            {primaryEducation?.gpa ?? "-"}
-          </span>
-          를 기록했고, 학과 수석 경험과 성적우수장학금 6회를 통해 컴퓨터공학 기초를 성실히 쌓아왔습니다.
-        </p>
-        <div className="grid grid-cols-3 gap-4 border border-gray-200 rounded-lg p-4">
-          <div className="text-center">
-            <p className="text-xl font-bold font-mono text-gray-900">
-              {primaryEducation?.gpa ?? "-"}
-            </p>
-            <p className="text-xs text-gray-500 mt-1">GPA</p>
-          </div>
-          <div className="text-center">
-            <p className="text-xl font-bold font-mono text-gray-900">
-              {topAcademicAward?.title.replace(" 경험", "") ?? "수석"}
-            </p>
-            <p className="text-xs text-gray-500 mt-1">학과 내 최상위</p>
-          </div>
-          <div className="text-center">
-            <p className="text-xl font-bold font-mono text-gray-900">
-              {scholarshipAward?.date ?? "-"}
-            </p>
-            <p className="text-xs text-gray-500 mt-1">성적우수장학금</p>
           </div>
         </div>
-      </SectionBlock>
+      </section>
 
-      <SectionBlock title="수상 및 장학">
-        {profile.awards.map((award) => (
-          <div
-            key={award.title}
-            className="py-3 border-b border-gray-100 last:border-b-0"
-          >
-            <div className="flex items-start justify-between gap-4">
+      {currentExperience && (
+        <SectionBlock
+          title="현재 집중하는 경험"
+          description="진행 중인 업무는 과장하지 않고 현재 수행한 범위까지만 기록합니다."
+        >
+          <div className="rounded-2xl border border-blue-100 bg-blue-50 p-6">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <p className="font-medium text-gray-900">{award.title}</p>
-                <p className="text-sm text-gray-600">{award.description}</p>
+                <h3 className="font-bold text-slate-950">{currentExperience.title}</h3>
+                <p className="mt-1 text-sm text-slate-500">{currentExperience.company}</p>
               </div>
-              <span className="text-sm font-mono text-gray-400 shrink-0">
-                {award.date}
-              </span>
+              <span className="text-xs font-semibold text-blue-700">{currentExperience.period}</span>
             </div>
-            <p className="text-xs text-gray-400 mt-1">{award.organization}</p>
+            <p className="mt-4 text-sm leading-relaxed text-slate-700">
+              {currentExperience.responsibility}
+            </p>
           </div>
-        ))}
-      </SectionBlock>
+        </SectionBlock>
+      )}
 
-      <SectionBlock title="기술 스택">
-        <div className="space-y-4">
+      <SectionBlock
+        title="기술 역량"
+        description="기술 이름보다 실제로 사용한 맥락에 따라 구분했습니다."
+      >
+        <div className="grid gap-4 md:grid-cols-2">
           {profile.skills.map((category) => (
-            <div key={category.category}>
-              <p className="text-xs font-mono text-gray-400 uppercase tracking-wider mb-2">
-                {category.category}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
+            <div key={category.category} className="rounded-2xl border border-slate-200 bg-white p-5">
+              <h3 className="text-sm font-bold text-slate-950">{category.category}</h3>
+              <div className="mt-3 flex flex-wrap gap-2">
                 {category.items.map((item) => (
-                  <SkillTag key={item} label={item} />
+                  <span
+                    key={item}
+                    className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600"
+                  >
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
           ))}
+        </div>
+      </SectionBlock>
+
+      <SectionBlock title="학력 및 학업 성취">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h3 className="font-bold text-slate-950">{education?.school}</h3>
+              <p className="mt-1 text-sm text-slate-500">{education?.major}</p>
+            </div>
+            <span className="text-xs text-slate-400">{education?.period}</span>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <div className="rounded-xl bg-slate-50 p-4">
+              <p className="text-xl font-bold text-slate-950">{education?.gpa}</p>
+              <p className="mt-1 text-xs text-slate-500">누계 GPA</p>
+            </div>
+            <div className="rounded-xl bg-slate-50 p-4">
+              <p className="text-xl font-bold text-slate-950">수석</p>
+              <p className="mt-1 text-xs text-slate-500">학과 최상위 성적 경험</p>
+            </div>
+            <div className="rounded-xl bg-slate-50 p-4">
+              <p className="text-xl font-bold text-slate-950">6회</p>
+              <p className="mt-1 text-xs text-slate-500">성적우수장학금</p>
+            </div>
+          </div>
+
+          <div className="mt-5 divide-y divide-slate-100">
+            {profile.awards.map((award) => (
+              <div key={award.title} className="flex flex-col gap-1 py-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <p className="text-sm font-semibold text-slate-800">{award.title}</p>
+                  <p className="mt-1 text-xs text-slate-500">{award.description}</p>
+                </div>
+                <span className="text-xs text-slate-400">{award.date}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </SectionBlock>
 
@@ -155,36 +143,11 @@ export default function AboutPage() {
           {profile.interests.map((interest) => (
             <span
               key={interest}
-              className="text-sm px-3 py-1.5 border border-gray-200 rounded text-gray-700"
+              className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700"
             >
               {interest}
             </span>
           ))}
-        </div>
-      </SectionBlock>
-
-      <SectionBlock title="연락처">
-        <div className="space-y-2 text-sm">
-          <p className="text-gray-600">
-            <span className="font-mono text-gray-400 mr-2">Email</span>
-            <a
-              href={`mailto:${profile.email}`}
-              className="text-gray-900 hover:underline underline-offset-4"
-            >
-              {profile.email}
-            </a>
-          </p>
-          <p className="text-gray-600">
-            <span className="font-mono text-gray-400 mr-2">GitHub</span>
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-900 hover:underline underline-offset-4"
-            >
-              {profile.github}
-            </a>
-          </p>
         </div>
       </SectionBlock>
     </div>
