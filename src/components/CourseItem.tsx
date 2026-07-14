@@ -6,18 +6,26 @@ interface CourseItemProps {
 
 export default function CourseItem({ course }: CourseItemProps) {
   return (
-    <div className="py-4 border-b border-gray-100">
-      <h3 className="font-semibold text-gray-900">
-        ■ {course.title} / {course.type} / {course.period}
-      </h3>
-      <p className="font-medium text-gray-800 mt-2">[{course.theme}]</p>
-      <ul className="list-none space-y-1 mt-1 text-sm text-gray-600">
-        {course.details.map((detail, idx) => (
-          <li key={idx}>
-            {idx + 1}. {detail}
+    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <h3 className="font-bold text-slate-950">{course.title}</h3>
+          <p className="mt-1 text-sm font-medium text-blue-700">{course.theme}</p>
+        </div>
+        <div className="shrink-0 text-left sm:text-right">
+          <p className="text-xs font-semibold text-slate-500">{course.type}</p>
+          <p className="mt-1 text-xs text-slate-400">{course.period}</p>
+        </div>
+      </div>
+
+      <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-600">
+        {course.details.map((detail) => (
+          <li key={detail} className="flex gap-2">
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" aria-hidden="true" />
+            <span>{detail}</span>
           </li>
         ))}
       </ul>
-    </div>
+    </article>
   );
 }
