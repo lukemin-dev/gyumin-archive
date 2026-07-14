@@ -1,27 +1,36 @@
 import Link from "next/link";
+import Image from "next/image";
 import { profile } from "@/data/profile";
 import { projects } from "@/lib/content-data";
 import { experiences } from "@/data/experience";
-import Image from "next/image";
 import type { Evidence } from "@/types";
+
+const featuredExperience = experiences.find((experience) => experience.featured);
+const primaryEducation = profile.education[0];
+const topAcademicAward = profile.awards.find((award) => award.title.includes("수석"));
+const scholarshipAward = profile.awards.find((award) =>
+  award.title.includes("성적우수장학금"),
+);
 
 const evidenceData: Evidence[] = [
   {
     icon: "",
     label: "학업",
-    value: "수석 경험 · GPA 4.23 / 4.5 · 성적우수장학금 6회",
+    value: `${topAcademicAward?.title ?? "수석 경험"} · GPA ${primaryEducation?.gpa ?? "-"} · ${scholarshipAward?.title ?? "성적우수장학금"} ${scholarshipAward?.date ?? ""}`,
     description: "",
   },
   {
     icon: "",
-    label: "Crosslink 인턴",
-    value: "수작업으로 2~3일 걸리던 SEO 분석 과정을 약 10초 내외로 줄였습니다.",
+    label: featuredExperience?.company ?? "Crosslink 인턴",
+    value:
+      featuredExperience?.result ??
+      "수작업으로 2~3일 걸리던 SEO 분석 과정을 약 10초 내외로 줄였습니다.",
     description: "",
   },
   {
     icon: "",
     label: "멘토링",
-    value: "초록어린이지역아동센터에서 294.5시간 이상 학습 멘토링을 이어가고 있습니다.",
+    value: "초록어린이지역아동센터에서 총 294.5시간의 학습 멘토링을 수행했습니다.",
     description: "",
   },
   {
@@ -32,8 +41,6 @@ const evidenceData: Evidence[] = [
   },
 ];
 
-const featuredExperience = experiences.find((e) => e.featured);
-
 export default function Home() {
   return (
     <div>
@@ -43,7 +50,7 @@ export default function Home() {
           <div className="shrink-0">
             <Image
               src={profile.image}
-              alt="프로필 이미지"
+              alt={`${profile.name} 프로필 이미지`}
               width={100}
               height={100}
               className="rounded-full object-cover w-24 h-24 border border-gray-200"
@@ -52,36 +59,27 @@ export default function Home() {
           </div>
         )}
         <div>
-          <p className="text-sm font-mono text-gray-400 mb-2">Cloud · Backend · Automation Portfolio</p>
+          <p className="text-sm font-mono text-gray-400 mb-2">{profile.title}</p>
           <h1 className="text-3xl font-bold text-gray-900 mb-3">
-            이규민의 경험 정리
+            {profile.name}의 경험 정리
           </h1>
           <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mb-6 whitespace-pre-wrap">
-            자동화와 시스템 운영에 관심이 있습니다. 특히 코드를 바로 고치기보다 입력 기준을 맞추고, 로그를 남기며, 실패 시 재개 가능한 견고한 구조를 고민합니다.
+            {profile.tagline}
           </p>
 
-        {/* Direction keywords */}
-        <div className="flex flex-wrap gap-2 mt-6">
-          {[
-            "Cloud Infrastructure",
-            "Backend Systems",
-            "Automation",
-            "Monitoring & Logging",
-            "Reproducible Workflows",
-          ].map((keyword) => (
-            <span
-              key={keyword}
-              className="text-xs font-mono px-3 py-1.5 border border-gray-300 rounded text-gray-600"
-            >
-              {keyword}
-            </span>
-          ))}
-        </div>
+          <div className="flex flex-wrap gap-2 mt-6">
+            {profile.interests.map((keyword) => (
+              <span
+                key={keyword}
+                className="text-xs font-mono px-3 py-1.5 border border-gray-300 rounded text-gray-600"
+              >
+                {keyword}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* How I view problems */}
-      {/* 기술을 설명하는 방식 */}
       <section className="mb-16">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">기술을 설명하는 방식</h2>
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
@@ -91,24 +89,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Evidence Section */}
       <section className="mb-16">
         <h2 className="text-lg font-semibold text-gray-900 mb-6">
           주요 성과 및 근거
         </h2>
         <div className="border-t border-gray-200">
           {evidenceData.map((evidence) => (
-            <div key={evidence.label} className="py-4 border-b border-gray-200 flex flex-col md:flex-row md:items-start gap-2 md:gap-6">
-              <span className="text-sm font-mono text-gray-400 w-32 shrink-0">{evidence.label}</span>
+            <div
+              key={evidence.label}
+              className="py-4 border-b border-gray-200 flex flex-col md:flex-row md:items-start gap-2 md:gap-6"
+            >
+              <span className="text-sm font-mono text-gray-400 w-32 shrink-0">
+                {evidence.label}
+              </span>
               <div>
-                <p className="font-medium text-gray-900 leading-relaxed">{evidence.value}</p>
+                <p className="font-medium text-gray-900 leading-relaxed">
+                  {evidence.value}
+                </p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Featured Experience */}
       {featuredExperience && (
         <section className="mb-16">
           <h2 className="text-lg font-semibold text-gray-900 mb-6">
@@ -149,7 +152,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* 제가 깊게 다뤄본 문제들 */}
       <section className="mb-16">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-semibold text-gray-900">
@@ -164,7 +166,10 @@ export default function Home() {
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           {projects.slice(0, 4).map((project) => (
-            <div key={project.slug} className="border border-gray-200 rounded-lg p-6 hover:border-gray-400 transition-colors flex flex-col bg-white">
+            <div
+              key={project.slug}
+              className="border border-gray-200 rounded-lg p-6 hover:border-gray-400 transition-colors flex flex-col bg-white"
+            >
               <Link href={`/projects/${project.slug}`} className="flex-1">
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <h3 className="font-semibold text-gray-900 flex-1 leading-snug">
@@ -172,18 +177,24 @@ export default function Home() {
                   </h3>
                 </div>
                 <p className="text-sm text-gray-700 leading-relaxed mb-2">
-                  <span className="font-semibold text-gray-900">문제:</span> {project.shortProblem}
+                  <span className="font-semibold text-gray-900">문제:</span>{" "}
+                  {project.shortProblem}
                 </p>
                 <p className="text-sm text-gray-700 leading-relaxed mb-2">
-                  <span className="font-semibold text-gray-900">내가 한 일:</span> {project.shortAction}
+                  <span className="font-semibold text-gray-900">내가 한 일:</span>{" "}
+                  {project.shortAction}
                 </p>
                 <p className="text-sm text-gray-700 leading-relaxed mb-4">
-                  <span className="font-semibold text-gray-900">결과:</span> {project.shortResult}
+                  <span className="font-semibold text-gray-900">결과:</span>{" "}
+                  {project.shortResult}
                 </p>
               </Link>
               <div className="mt-auto pt-4 border-t border-gray-100">
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  <span className="font-semibold text-gray-900">더 이야기할 수 있는 부분:</span> {project.shortQuestion}
+                  <span className="font-semibold text-gray-900">
+                    더 이야기할 수 있는 부분:
+                  </span>{" "}
+                  {project.shortQuestion}
                 </p>
               </div>
             </div>
@@ -191,11 +202,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick Navigation */}
       <section className="mb-8">
-        <h2 className="text-lg font-semibold text-gray-900 mb-6">
-          둘러보기
-        </h2>
+        <h2 className="text-lg font-semibold text-gray-900 mb-6">둘러보기</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
             { href: "/about", label: "소개", desc: "학력 · 기술 · 관심사" },
