@@ -1,6 +1,6 @@
-import { activities } from "@/lib/content-data";
-import PageHeader from "@/components/PageHeader";
 import ActivityItem from "@/components/ActivityItem";
+import PageHeader from "@/components/PageHeader";
+import { activities } from "@/lib/content-data";
 
 export const metadata = {
   title: "활동 | 이규민",
@@ -8,30 +8,31 @@ export const metadata = {
 };
 
 export default function ActivitiesPage() {
-  const categories = Array.from(new Set(activities.map((a) => a.category)));
+  const categories = Array.from(new Set(activities.map((activity) => activity.category)));
 
   return (
     <div>
       <PageHeader
-        title="활동"
-        description="커뮤니케이션, 멘토링, 봉사, 협업 활동을 정리했습니다."
+        eyebrow="Activities"
+        title="기술 밖에서 쌓은 협업과 설명 경험"
+        description="멘토링, 국제 교류, 학술 활동에서 맡은 역할과 실제로 배운 점을 정리했습니다."
       />
 
-      {categories.map((category) => {
-        const items = activities.filter((a) => a.category === category);
-        return (
-          <section key={category} className="mb-10">
-            <h2 className="text-sm font-mono text-gray-400 uppercase tracking-wider mb-2">
-              {category}
-            </h2>
-            <div>
-              {items.map((activity) => (
-                <ActivityItem key={activity.title} activity={activity} />
-              ))}
-            </div>
-          </section>
-        );
-      })}
+      <div className="space-y-14">
+        {categories.map((category) => {
+          const items = activities.filter((activity) => activity.category === category);
+          return (
+            <section key={category}>
+              <h2 className="mb-4 text-lg font-bold text-slate-950">{category}</h2>
+              <div className="grid gap-5 md:grid-cols-2">
+                {items.map((activity) => (
+                  <ActivityItem key={activity.title} activity={activity} />
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
     </div>
   );
 }
