@@ -48,6 +48,8 @@ export default async function ProjectDetailPage({
   if (!project) notFound();
 
   const visuals = getProjectVisuals(project.slug);
+  const diagrams = visuals.filter((visual) => visual.kind === "diagram");
+  const screens = visuals.filter((visual) => visual.kind === "screen");
 
   return (
     <article className="mx-auto max-w-4xl">
@@ -128,41 +130,74 @@ export default async function ProjectDetailPage({
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
-                Verified Screens
+                Visual Evidence
               </p>
               <h2 className="mt-2 text-xl font-bold tracking-tight text-slate-950">
-                실제 구현 화면
+                구조와 구현 결과
               </h2>
             </div>
-            <p className="text-sm text-slate-500">GitHub 저장소에 공개된 시연 이미지</p>
+            <p className="text-sm text-slate-500">
+              프로젝트 구조도와 공개된 실제 구현 화면
+            </p>
           </div>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            {visuals.map((visual) => (
-              <a
-                key={visual.src}
-                href={visual.src}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition hover:border-blue-200 hover:shadow-md"
-              >
-                <Image
-                  src={visual.src}
-                  alt={visual.alt}
-                  width={1080}
-                  height={2340}
-                  sizes="(min-width: 640px) 30vw, 100vw"
-                  className="h-[30rem] w-full object-contain object-top sm:h-[25rem] lg:h-[30rem]"
-                />
-                <div className="border-t border-slate-200 bg-white p-4">
-                  <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-blue-700">
-                    {visual.caption}
-                  </p>
-                  <p className="mt-1 text-xs text-slate-400">원본 이미지 보기 ↗</p>
-                </div>
-              </a>
-            ))}
-          </div>
+          {diagrams.length > 0 && (
+            <div className="mt-6 space-y-4">
+              {diagrams.map((visual) => (
+                <a
+                  key={visual.src}
+                  href={visual.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition hover:border-blue-200 hover:shadow-md"
+                >
+                  <Image
+                    src={visual.src}
+                    alt={visual.alt}
+                    width={visual.width}
+                    height={visual.height}
+                    sizes="(min-width: 1024px) 56rem, 100vw"
+                    className="h-auto w-full object-contain"
+                  />
+                  <div className="border-t border-slate-200 bg-white p-4">
+                    <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-blue-700">
+                      {visual.caption}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-400">원본 자료 보기 ↗</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+
+          {screens.length > 0 && (
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {screens.map((visual) => (
+                <a
+                  key={visual.src}
+                  href={visual.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition hover:border-blue-200 hover:shadow-md"
+                >
+                  <Image
+                    src={visual.src}
+                    alt={visual.alt}
+                    width={visual.width}
+                    height={visual.height}
+                    sizes="(min-width: 640px) 30vw, 100vw"
+                    className="h-[30rem] w-full object-contain object-top sm:h-[25rem] lg:h-[30rem]"
+                  />
+                  <div className="border-t border-slate-200 bg-white p-4">
+                    <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-blue-700">
+                      {visual.caption}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-400">원본 이미지 보기 ↗</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
         </section>
       )}
 
