@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Backend Interview Tracker 구조</title>
+  <desc id="desc">클라이언트 요청이 Controller, Service, Repository, H2 데이터베이스로 흐르고 전역 예외 처리와 테스트, CI가 이를 검증하는 Spring Boot 구조</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef2ff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0 L12 6 L0 12 Z" fill="#4f46e5"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" rx="48" fill="url(#bg)"/>
+  <text x="90" y="105" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#0f172a">Backend Interview Tracker</text>
+  <text x="90" y="155" font-family="Arial, sans-serif" font-size="24" fill="#64748b">Spring Boot REST API의 계층 분리와 일관된 오류 응답·테스트 흐름</text>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="280" width="250" height="180" rx="28" fill="#ffffff" stroke="#c7d2fe" stroke-width="3"/>
+    <text x="215" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">Client</text>
+    <text x="215" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">Swagger UI</text>
+    <text x="215" y="426" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">REST 요청</text>
+
+    <rect x="430" y="280" width="250" height="180" rx="28" fill="#ffffff" stroke="#c7d2fe" stroke-width="3"/>
+    <text x="555" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">Controller</text>
+    <text x="555" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">DTO 검증</text>
+    <text x="555" y="426" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">요청·응답 매핑</text>
+
+    <rect x="770" y="280" width="250" height="180" rx="28" fill="#ffffff" stroke="#c7d2fe" stroke-width="3"/>
+    <text x="895" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">Service</text>
+    <text x="895" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">비즈니스 규칙</text>
+    <text x="895" y="426" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">검색·페이지네이션</text>
+
+    <rect x="1110" y="280" width="250" height="180" rx="28" fill="#ffffff" stroke="#c7d2fe" stroke-width="3"/>
+    <text x="1235" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">Repository</text>
+    <text x="1235" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">Spring Data JPA</text>
+    <text x="1235" y="426" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">H2 Database</text>
+  </g>
+
+  <path d="M340 370 H420" stroke="#4f46e5" stroke-width="7" fill="none" marker-end="url(#arrow)"/>
+  <path d="M680 370 H760" stroke="#4f46e5" stroke-width="7" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1020 370 H1100" stroke="#4f46e5" stroke-width="7" fill="none" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="190" y="575" width="520" height="165" rx="28" fill="#0f172a"/>
+    <text x="450" y="627" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">일관된 오류 처리</text>
+    <text x="450" y="681" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#e0e7ff">GlobalExceptionHandler</text>
+    <text x="450" y="716" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#e0e7ff">validation · enum · not found · sort 오류</text>
+
+    <rect x="890" y="575" width="520" height="165" rx="28" fill="#0f172a"/>
+    <text x="1150" y="627" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">자동 검증</text>
+    <text x="1150" y="681" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#e0e7ff">JUnit 5 · Mockito · MockMvc</text>
+    <text x="1150" y="716" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#e0e7ff">GitHub Actions CI</text>
+  </g>
+</svg>
