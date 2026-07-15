@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI 기반 SEO 자동화 파이프라인 구조</title>
+  <desc id="desc">Google Search Console과 Google Sheets 데이터를 검증하고 우선순위를 계산한 뒤 Gemini API로 개선 초안을 생성하고 Markdown 보고서로 출력하는 흐름</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eff6ff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0 L12 6 L0 12 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" rx="48" fill="url(#bg)"/>
+  <text x="90" y="105" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#0f172a">AI 기반 SEO 자동화 파이프라인</text>
+  <text x="90" y="155" font-family="Arial, sans-serif" font-size="24" fill="#64748b">데이터 수집부터 검증·분석·보고서 생성까지 반복 업무를 하나의 흐름으로 자동화</text>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="265" width="250" height="190" rx="28" fill="#ffffff" stroke="#bfdbfe" stroke-width="3"/>
+    <text x="215" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">데이터 수집</text>
+    <rect x="125" y="355" width="180" height="42" rx="21" fill="#eff6ff"/>
+    <text x="215" y="383" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#1d4ed8">GSC API</text>
+    <rect x="125" y="410" width="180" height="42" rx="21" fill="#eff6ff"/>
+    <text x="215" y="438" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#1d4ed8">Google Sheets API</text>
+
+    <rect x="430" y="265" width="270" height="190" rx="28" fill="#ffffff" stroke="#bfdbfe" stroke-width="3"/>
+    <text x="565" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">정제·검증</text>
+    <text x="565" y="374" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">입력 스키마 검증</text>
+    <text x="565" y="411" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">예외 데이터 분리</text>
+    <text x="565" y="448" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">형식 통일</text>
+
+    <rect x="790" y="265" width="270" height="190" rx="28" fill="#ffffff" stroke="#bfdbfe" stroke-width="3"/>
+    <text x="925" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">분석·우선순위</text>
+    <text x="925" y="374" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">SEO 개선 후보 추출</text>
+    <text x="925" y="411" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">우선순위 점수 계산</text>
+    <text x="925" y="448" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">처리 대상 선별</text>
+
+    <rect x="1150" y="265" width="360" height="190" rx="28" fill="#ffffff" stroke="#bfdbfe" stroke-width="3"/>
+    <text x="1330" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">초안·보고서 생성</text>
+    <rect x="1210" y="355" width="240" height="42" rx="21" fill="#eff6ff"/>
+    <text x="1330" y="383" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#1d4ed8">Gemini API</text>
+    <text x="1330" y="433" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">Markdown 리포트 출력</text>
+  </g>
+
+  <path d="M340 360 H420" stroke="#2563eb" stroke-width="7" fill="none" marker-end="url(#arrow)"/>
+  <path d="M700 360 H780" stroke="#2563eb" stroke-width="7" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1060 360 H1140" stroke="#2563eb" stroke-width="7" fill="none" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="250" y="585" width="1100" height="160" rx="28" fill="#0f172a"/>
+    <text x="800" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">장애 대응과 재현성을 전체 단계에 공통 적용</text>
+    <g font-family="Arial, sans-serif" font-size="20" fill="#dbeafe">
+      <text x="390" y="695" text-anchor="middle">재시도 규칙</text>
+      <text x="660" y="695" text-anchor="middle">체크포인트 저장</text>
+      <text x="940" y="695" text-anchor="middle">사용 가능 모델 감지</text>
+      <text x="1210" y="695" text-anchor="middle">실행 로그</text>
+    </g>
+  </g>
+
+  <rect x="1080" y="782" width="430" height="62" rx="31" fill="#dbeafe"/>
+  <text x="1295" y="822" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#1e40af">2~3일 → 약 10초</text>
+</svg>
