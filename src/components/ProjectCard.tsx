@@ -9,22 +9,26 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const preview = getProjectVisuals(project.slug)[0];
+  const previewClassName =
+    preview?.kind === "diagram"
+      ? "h-48 w-full object-contain p-3 transition-transform duration-300 group-hover:scale-[1.015]"
+      : "h-48 w-full object-contain object-top transition-transform duration-300 group-hover:scale-[1.02]";
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md">
       {preview && (
         <Link
           href={`/projects/${project.slug}`}
-          className="block border-b border-slate-200 bg-slate-100"
-          aria-label={`${project.title} 구현 화면과 상세 내용 보기`}
+          className="block border-b border-slate-200 bg-slate-50"
+          aria-label={`${project.title} 시각 자료와 상세 내용 보기`}
         >
           <Image
             src={preview.src}
             alt={preview.alt}
-            width={1080}
-            height={2340}
+            width={preview.width}
+            height={preview.height}
             sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
-            className="h-48 w-full object-contain object-top transition-transform duration-300 group-hover:scale-[1.02]"
+            className={previewClassName}
           />
         </Link>
       )}
