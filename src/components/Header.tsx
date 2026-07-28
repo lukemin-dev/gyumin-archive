@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { profile } from "@/data/profile";
 
 const navLinks = [
   { href: "/projects", label: "프로젝트" },
   { href: "/experience", label: "경험" },
+  { href: "/notes", label: "기술 노트" },
   { href: "/about", label: "소개" },
   { href: "/resume", label: "이력서" },
 ];
@@ -15,10 +16,6 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
 
   const isActive = (href: string) => pathname.startsWith(href);
 
@@ -114,6 +111,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={() => setMobileOpen(false)}
                     aria-current={active ? "page" : undefined}
                     className={`rounded-lg px-3 py-2.5 text-sm font-medium ${
                       active

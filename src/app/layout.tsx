@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   creator: "Gyumin Lee",
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
   },
   keywords: [
     "이규민",

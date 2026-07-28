@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { estimateReadingMinutes } from "@/lib/content-data";
 import type { Note } from "@/types";
 
 interface NoteItemProps {
@@ -14,7 +15,10 @@ export default function NoteItem({ note }: NoteItemProps) {
             {note.title}
           </Link>
         </h2>
-        <time className="shrink-0 text-xs text-slate-400">{note.date}</time>
+        <div className="shrink-0 text-right text-xs text-slate-400">
+          <time dateTime={note.date}>{note.date}</time>
+          <p className="mt-1">약 {estimateReadingMinutes(note.content)}분</p>
+        </div>
       </div>
       <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-600">{note.summary}</p>
       {note.tags.length > 0 && (

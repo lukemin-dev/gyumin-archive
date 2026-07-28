@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { notes, projects } from "@/lib/content-data";
 
 const baseUrl = "https://gyumin-archive.vercel.app";
+const latestNoteDate = notes[0]?.date ? new Date(notes[0].date) : undefined;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -16,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/en",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    lastModified: route === "/notes" ? latestNoteDate : undefined,
     changeFrequency: route === "" ? ("weekly" as const) : ("monthly" as const),
     priority: route === "" ? 1 : 0.7,
   }));

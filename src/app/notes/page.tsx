@@ -16,6 +16,15 @@ export default function NotesPage() {
         description="프로젝트에서 부딪힌 문제와 학습 내용을 나중에 다시 사용할 수 있도록 정리했습니다."
       />
 
+      <div className="mb-6 flex justify-end">
+        <a
+          href="/feed.xml"
+          className="text-sm font-semibold text-blue-700 hover:underline"
+        >
+          RSS 구독 →
+        </a>
+      </div>
+
       {notes.length > 0 ? (
         <div className="grid gap-5 md:grid-cols-2">
           {notes.map((note) => (
