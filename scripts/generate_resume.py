@@ -284,7 +284,7 @@ def build_resume(output_path: Path) -> None:
         entry_header(
             "한국생산기술연구원",
             "AI 비전·PLC 현장실습 인턴",
-            "2026.07 - 2026.12",
+            "2026.07 - 2026.08",
             "모빌리티 핵심부품소재센터 · 광주 · 진행 중",
             styles,
         )

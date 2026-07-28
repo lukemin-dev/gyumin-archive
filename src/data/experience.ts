@@ -4,7 +4,7 @@ export const experiences: Experience[] = [
   {
     title: "현장실습 인턴 — AI 비전·PLC 자동 선별 시스템",
     company: "한국생산기술연구원 모빌리티 핵심부품소재센터",
-    period: "2026.07 - 2026.12 / 진행 중",
+    period: "2026.07 - 2026.08 / 진행 중",
     context:
       "AI 비전과 PLC가 연동되는 농산물 자동 선별 시스템의 성능 개선 프로젝트에 참여하고 있습니다. 모델 성능뿐 아니라 센서, PLC, 카메라, 컨베이어가 연결되는 전체 흐름을 함께 확인하고 있습니다.",
     responsibility:
