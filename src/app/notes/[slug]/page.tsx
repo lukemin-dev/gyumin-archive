@@ -2,7 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import KitechSignalFlow from "@/components/KitechSignalFlow";
 import MarkdownBody from "@/components/MarkdownBody";
-import { estimateReadingMinutes, notes } from "@/lib/content-data";
+import { notes } from "@/lib/content-data";
+import { estimateReadingMinutes } from "@/lib/notes";
 
 const siteUrl = "https://gyumin-archive.vercel.app";
 

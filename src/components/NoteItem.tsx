@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { estimateReadingMinutes } from "@/lib/content-data";
+import { estimateReadingMinutes } from "@/lib/notes";
 import type { Note } from "@/types";
 
 interface NoteItemProps {

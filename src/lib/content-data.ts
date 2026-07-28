@@ -227,8 +227,3 @@ function byNewestDate(a: Note, b: Note) {
 export const notes = [...markdownNotes(), ...baseNotes].sort(byNewestDate);
 export const projects = [...markdownProjects(), ...baseProjects];
 export const activities = [...markdownActivities(), ...baseActivities];
-
-export function estimateReadingMinutes(content: string) {
-  const words = content.trim().split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.ceil(words / 250));
-}
