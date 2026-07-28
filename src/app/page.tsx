@@ -120,9 +120,6 @@ export default function Home() {
                 </span>
               ))}
             </div>
-            <p className="mt-4 text-sm font-medium text-slate-500">
-              영어 기술 문서·업무 소통 · 일본어 일상·협업 소통
-            </p>
           </div>
 
           {profile.image && (
@@ -147,6 +144,35 @@ export default function Home() {
             <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.label}</p>
           </div>
         ))}
+      </section>
+
+      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" aria-labelledby="home-languages">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
+              Languages
+            </p>
+            <h2 id="home-languages" className="mt-2 text-xl font-bold text-slate-950">
+              영어·일본어 소통 역량
+            </h2>
+          </div>
+          <Link href="/en" className="text-sm font-semibold text-blue-700 hover:underline">
+            영문 포트폴리오 보기 →
+          </Link>
+        </div>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          {profile.languages.map((language) => (
+            <div key={language.name} className="rounded-xl bg-slate-50 p-4">
+              <p className="font-bold text-slate-900">{language.name}</p>
+              <p className="mt-1 text-sm font-semibold text-blue-700">
+                {language.capability}
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                {language.evidence}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {(currentExperience || impactExperience) && (
