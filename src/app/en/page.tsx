@@ -240,7 +240,11 @@ export default function EnglishSummaryPage() {
             <ul className="mt-3 space-y-2">
               <li>GPA {education?.gpa ?? "-"}</li>
               <li>Department top-ranking experience</li>
-              <li>Academic Excellence Scholarship, six times</li>
+              <li>
+                Academic Excellence Scholarship, six times: Aug 31, 2023;
+                Feb 28, 2024; Aug 31, 2024; Feb 28, 2025; Aug 31, 2025;
+                and Feb 28, 2026
+              </li>
             </ul>
           </Section>
 
