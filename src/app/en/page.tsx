@@ -5,6 +5,20 @@ export const metadata = {
   title: "Gyumin Lee | English Summary",
   description:
     "English summary of Gyumin Lee's backend, automation, cloud, and AI vision experience.",
+  alternates: {
+    canonical: "/en",
+    languages: {
+      "ko-KR": "/",
+      "en-US": "/en",
+    },
+  },
+  openGraph: {
+    title: "Gyumin Lee | Backend · Cloud · Automation",
+    description:
+      "English portfolio summary covering backend, automation, cloud, AI vision, and multilingual communication experience.",
+    url: "/en",
+    locale: "en_US",
+  },
 };
 
 const projects = [
@@ -28,6 +42,34 @@ const projects = [
   },
 ];
 
+const achievements = [
+  { value: "80% → 100%", label: "AI vision capture success rate" },
+  { value: "8,092", label: "Onions captured in a full production run" },
+  { value: "14,000", label: "Agricultural product images prepared" },
+  { value: "~10 sec", label: "SEO analysis and reporting workflow" },
+];
+
+const technicalNotes = [
+  {
+    href: "/notes/tracing-ai-vision-capture-failures",
+    title: "Tracing AI Vision Capture Failures from Sensor to Inference",
+    description:
+      "How I separated the LR-Z sensor, PLC, camera trigger, YOLO, and ConvNeXt stages to locate missed captures.",
+  },
+  {
+    href: "/notes/edge-to-cloud-iot",
+    title: "Why the Edge-to-Cloud Flow Matters in IoT Monitoring",
+    description:
+      "Lessons from connecting Raspberry Pi sensor collection, a Flask API, SQLite, anomaly detection, and a mobile dashboard.",
+  },
+  {
+    href: "/notes/why-reproducible-automation",
+    title: "Why Reproducible Automation Matters",
+    description:
+      "Input validation, retries, and checkpoints that made an API-driven automation pipeline more dependable.",
+  },
+];
+
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
@@ -41,7 +83,7 @@ export default function EnglishSummaryPage() {
   const education = profile.education[0];
 
   return (
-    <div className="mx-auto max-w-4xl">
+    <div className="mx-auto max-w-4xl" lang="en">
       <header className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-10">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
           English Summary
@@ -59,7 +101,17 @@ export default function EnglishSummaryPage() {
           days to about ten seconds. I am currently working on an AI vision and PLC
           based agricultural sorting system at the Korea Institute of Industrial Technology.
         </p>
+        <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-500">
+          I can communicate in English for technical documentation and project work,
+          and in Japanese for everyday and collaborative situations.
+        </p>
         <div className="mt-7 flex flex-wrap gap-3">
+          <Link
+            href="/"
+            className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          >
+            한국어 포트폴리오
+          </Link>
           <a
             href={profile.github}
             target="_blank"
@@ -83,6 +135,19 @@ export default function EnglishSummaryPage() {
         </div>
       </header>
 
+      <section className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="Key achievements">
+        {achievements.map((achievement) => (
+          <div key={achievement.value} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p className="text-2xl font-bold tracking-tight text-slate-950">
+              {achievement.value}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-500">
+              {achievement.label}
+            </p>
+          </div>
+        ))}
+      </section>
+
       <div className="mt-6 grid gap-6">
         <Section title="Experience">
           <div className="space-y-6">
@@ -94,12 +159,12 @@ export default function EnglishSummaryPage() {
                   </h3>
                   <p className="mt-1 text-sm text-slate-500">Gwangju, Korea</p>
                 </div>
-                <span className="text-xs text-slate-400">Jul 2026 – Dec 2026 · In progress</span>
+                <span className="text-xs text-slate-400">Currently employed</span>
               </div>
               <ul className="mt-3 space-y-2">
                 <li>Trained and evaluated YOLO object detection and ConvNeXt classification models in a conveyor environment.</li>
-                <li>Analyzed missed image captures by separating the sensor input, PLC output, camera trigger, and AI inference stages.</li>
-                <li>Labeled and quality-checked onion and kabocha squash image data for model training.</li>
+                <li>Improved the image capture success rate from about 80% to 100% by tuning the LR-Z sensor and PLC output conditions.</li>
+                <li>Verified a full production run in which all 8,092 onions were captured, and prepared a 14,000-image dataset.</li>
               </ul>
             </div>
 
@@ -152,6 +217,22 @@ export default function EnglishSummaryPage() {
           </div>
         </Section>
 
+        <Section title="Technical Notes">
+          <div className="grid gap-4 md:grid-cols-3">
+            {technicalNotes.map((note) => (
+              <Link
+                key={note.href}
+                href={note.href}
+                className="rounded-xl border border-slate-200 bg-slate-50 p-4 transition-colors hover:border-blue-200 hover:bg-blue-50"
+              >
+                <h3 className="font-bold leading-snug text-slate-900">{note.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{note.description}</p>
+                <p className="mt-4 text-sm font-semibold text-blue-700">Read note →</p>
+              </Link>
+            ))}
+          </div>
+        </Section>
+
         <div className="grid gap-6 md:grid-cols-2">
           <Section title="Education">
             <h3 className="font-bold text-slate-900">Chonnam National University</h3>
@@ -172,6 +253,25 @@ export default function EnglishSummaryPage() {
             </ul>
           </Section>
         </div>
+
+        <Section title="Languages">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="font-bold text-slate-900">English</h3>
+              <p className="mt-2">Technical documentation and project communication.</p>
+              <p className="mt-2 text-xs text-slate-500">
+                Used for API documentation, technical research, and international exchange support.
+              </p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="font-bold text-slate-900">Japanese</h3>
+              <p className="mt-2">Everyday and collaborative communication.</p>
+              <p className="mt-2 text-xs text-slate-500">
+                Used during an internship in Yokohama and the Osaka University J-SHIP program.
+              </p>
+            </div>
+          </div>
+        </Section>
       </div>
     </div>
   );

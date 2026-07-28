@@ -55,6 +55,12 @@ export default function Header() {
             );
           })}
           <span className="mx-2 h-5 w-px bg-slate-200" aria-hidden="true" />
+          <Link
+            href="/en"
+            className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950"
+          >
+            EN
+          </Link>
           <a
             href={profile.github}
             target="_blank"

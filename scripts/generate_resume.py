@@ -428,7 +428,8 @@ def build_resume(output_path: Path) -> None:
             "<b>Cloud / Infra:</b> AWS EC2, Linux, systemd, Git, GitHub Actions<br/>"
             "<b>AI / Automation:</b> YOLO, ConvNeXt, scikit-learn, GSC API, Google Sheets API, Gemini API, ROS2&nbsp;&nbsp;|&nbsp;&nbsp;"
             "<b>Practices:</b> Input Validation, Retry, Checkpointing, Logging, Testing<br/>"
-            "<b>CS:</b> 자료구조, 알고리즘, 운영체제, 데이터베이스, 네트워크, 소프트웨어공학",
+            "<b>CS:</b> 자료구조, 알고리즘, 운영체제, 데이터베이스, 네트워크, 소프트웨어공학<br/>"
+            "<b>Languages:</b> 영어 기술 문서·업무 소통, 일본어 일상·협업 소통",
             styles["skills"],
         )
     )

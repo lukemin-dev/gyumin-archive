@@ -62,4 +62,16 @@ export const profile: Profile = {
     },
   ],
   interests: ["백엔드 시스템", "클라우드 인프라", "업무 자동화", "AI 비전"],
+  languages: [
+    {
+      name: "영어",
+      capability: "기술 문서 이해 및 업무·프로젝트 소통",
+      evidence: "영문 API 문서 활용과 국제 교류 활동 지원 경험",
+    },
+    {
+      name: "일본어",
+      capability: "일상 및 협업 상황 소통",
+      evidence: "일본 기업 인턴십과 오사카대학교 J-SHIP 교류 경험",
+    },
+  ],
 };

@@ -12,6 +12,7 @@ const resumeHighlights = [
   "전남대학교 소프트컴퓨팅·인공지능 연구실 학부연구생",
   "백엔드·AI 비전·자동화 프로젝트와 GitHub 증명 자료",
   "GPA 4.23/4.5 · 성적우수장학금 6회 · 멘토링 294.5시간",
+  "영어 기술 문서·업무 소통 · 일본어 일상·협업 소통",
 ];
 
 export default function ResumePage() {

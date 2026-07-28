@@ -120,6 +120,9 @@ export default function Home() {
                 </span>
               ))}
             </div>
+            <p className="mt-4 text-sm font-medium text-slate-500">
+              영어 기술 문서·업무 소통 · 일본어 일상·협업 소통
+            </p>
           </div>
 
           {profile.image && (

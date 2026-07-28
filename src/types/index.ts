@@ -14,6 +14,11 @@ export interface Profile {
   awards: Award[];
   skills: SkillCategory[];
   interests: string[];
+  languages: Array<{
+    name: string;
+    capability: string;
+    evidence: string;
+  }>;
 }
 
 export interface Education {

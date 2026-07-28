@@ -138,6 +138,25 @@ export default function AboutPage() {
         </div>
       </SectionBlock>
 
+      <SectionBlock
+        title="언어 역량"
+        description="공인 등급을 과장하지 않고 실제로 활용한 소통 경험을 기준으로 정리했습니다."
+      >
+        <div className="grid gap-4 sm:grid-cols-2">
+          {profile.languages.map((language) => (
+            <div key={language.name} className="rounded-2xl border border-slate-200 bg-white p-5">
+              <h3 className="font-bold text-slate-950">{language.name}</h3>
+              <p className="mt-2 text-sm font-semibold text-blue-700">
+                {language.capability}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                {language.evidence}
+              </p>
+            </div>
+          ))}
+        </div>
+      </SectionBlock>
+
       <SectionBlock title="관심 분야">
         <div className="flex flex-wrap gap-2">
           {profile.interests.map((interest) => (

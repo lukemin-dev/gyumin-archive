@@ -82,6 +82,7 @@ const structuredData = {
         "AI Vision",
         "PLC Integration",
       ],
+      knowsLanguage: ["Korean", "English", "Japanese"],
     },
     {
       "@type": "WebSite",
