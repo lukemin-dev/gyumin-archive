@@ -1,4 +1,4 @@
-import NoteItem from "@/components/NoteItem";
+import NotesExplorer from "@/components/NotesExplorer";
 import PageHeader from "@/components/PageHeader";
 import { notes } from "@/lib/content-data";
 
@@ -26,11 +26,7 @@ export default function NotesPage() {
       </div>
 
       {notes.length > 0 ? (
-        <div className="grid gap-5 md:grid-cols-2">
-          {notes.map((note) => (
-            <NoteItem key={note.slug} note={note} />
-          ))}
-        </div>
+        <NotesExplorer notes={notes} />
       ) : (
         <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center text-sm text-slate-500">
           공개된 기술 노트를 정리 중입니다.

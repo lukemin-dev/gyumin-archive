@@ -109,6 +109,15 @@ export interface Note {
   summary: string;
   tags: string[];
   content: string;
+  relatedProject?: {
+    slug: string;
+    title: string;
+  };
+  evidence?: Array<{
+    label: string;
+    description: string;
+    href?: string;
+  }>;
 }
 
 export interface Evidence {

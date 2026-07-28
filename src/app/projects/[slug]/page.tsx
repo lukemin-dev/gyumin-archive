@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProjectVisuals } from "@/data/project-visuals";
-import { projects } from "@/lib/content-data";
+import { notes, projects } from "@/lib/content-data";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -50,6 +50,9 @@ export default async function ProjectDetailPage({
   const visuals = getProjectVisuals(project.slug);
   const diagrams = visuals.filter((visual) => visual.kind === "diagram");
   const screens = visuals.filter((visual) => visual.kind === "screen");
+  const relatedNotes = notes.filter(
+    (note) => note.relatedProject?.slug === project.slug,
+  );
 
   return (
     <article className="mx-auto max-w-4xl">
@@ -273,6 +276,26 @@ export default async function ProjectDetailPage({
             </div>
           )}
         </Section>
+
+        {relatedNotes.length > 0 && (
+          <Section title="관련 기술 노트">
+            <div className="grid gap-4 md:grid-cols-2">
+              {relatedNotes.map((note) => (
+                <Link
+                  key={note.slug}
+                  href={`/notes/${note.slug}`}
+                  className="rounded-xl border border-slate-200 bg-slate-50 p-4 transition-colors hover:border-blue-200 hover:bg-blue-50"
+                >
+                  <p className="font-bold text-slate-900">{note.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    {note.summary}
+                  </p>
+                  <p className="mt-3 text-sm font-semibold text-blue-700">글 읽기 →</p>
+                </Link>
+              ))}
+            </div>
+          </Section>
+        )}
 
         <div className="grid gap-6 md:grid-cols-2">
           <Section title="사용한 기술과 이유">

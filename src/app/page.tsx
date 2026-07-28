@@ -1,15 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import NoteItem from "@/components/NoteItem";
 import ProjectCard from "@/components/ProjectCard";
 import { experiences } from "@/data/experience";
 import { profile } from "@/data/profile";
-import { projects } from "@/lib/content-data";
+import { notes, projects } from "@/lib/content-data";
 
 const currentExperience = experiences.find((experience) =>
   experience.period.includes("재직 중") || experience.period.includes("진행 중"),
 );
 const impactExperience = experiences.find((experience) => experience.featured);
 const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
+const latestNotes = notes.slice(0, 3);
 
 const highlights = [
   {
@@ -23,6 +25,18 @@ const highlights = [
   {
     value: "294.5시간",
     label: "학생별 설명 방식을 조정한 학습 멘토링",
+  },
+  {
+    value: "80% → 100%",
+    label: "AI 비전 시스템 촬영 성공률 개선",
+  },
+  {
+    value: "8,092개",
+    label: "실제 컨베이어 전량 촬영 검증",
+  },
+  {
+    value: "14,000장",
+    label: "농산물 이미지 데이터셋 구축 규모",
   },
 ];
 
@@ -123,7 +137,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-8 grid gap-4 sm:grid-cols-3" aria-label="주요 성과">
+      <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="주요 성과">
         {highlights.map((item) => (
           <div key={item.value} className="rounded-2xl border border-slate-200 bg-white p-5">
             <p className="text-2xl font-bold tracking-tight text-slate-950">{item.value}</p>
@@ -175,6 +189,27 @@ export default function Home() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {featuredProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-16">
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
+              Technical Notes
+            </p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">
+              최근 기술 노트
+            </h2>
+          </div>
+          <Link href="/notes" className="text-sm font-semibold text-blue-700 hover:underline">
+            전체 글 보기 →
+          </Link>
+        </div>
+        <div className="grid gap-5 md:grid-cols-3">
+          {latestNotes.map((note) => (
+            <NoteItem key={note.slug} note={note} />
           ))}
         </div>
       </section>

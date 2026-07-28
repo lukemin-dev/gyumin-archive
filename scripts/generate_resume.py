@@ -296,7 +296,7 @@ def build_resume(output_path: Path) -> None:
                 styles,
             ),
             bullet(
-                "촬영 누락 문제를 센서 입력 → PLC 출력 → 카메라 트리거 → AI 추론 단계로 분리해 원인을 분석하고 KEYENCE LR-Z 센서와 신호 흐름을 점검",
+                "센서 입력 → PLC 출력 → 카메라 트리거 → AI 추론 단계로 원인을 분리하고 LR-Z 센서와 PLC 조건을 조정해 촬영 성공률을 약 80%에서 100%로 개선",
                 styles,
             ),
             bullet(

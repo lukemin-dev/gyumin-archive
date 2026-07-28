@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import KitechSignalFlow from "@/components/KitechSignalFlow";
 import MarkdownBody from "@/components/MarkdownBody";
 import { estimateReadingMinutes, notes } from "@/lib/content-data";
 
@@ -53,12 +54,16 @@ export default async function NoteDetailPage({
     notFound();
   }
 
-  const relatedNotes = notes
+  const tagRelatedNotes = notes
     .filter(
       (item) =>
         item.slug !== note.slug && item.tags.some((tag) => note.tags.includes(tag)),
     )
     .slice(0, 2);
+  const relatedNotes =
+    tagRelatedNotes.length > 0
+      ? tagRelatedNotes
+      : notes.filter((item) => item.slug !== note.slug).slice(0, 2);
   const articleUrl = `${siteUrl}/notes/${note.slug}`;
   const articleStructuredData = {
     "@context": "https://schema.org",
@@ -114,7 +119,58 @@ export default async function NoteDetailPage({
         )}
       </header>
 
+      {note.slug === "tracing-ai-vision-capture-failures" && <KitechSignalFlow />}
+
       <MarkdownBody content={note.content} />
+
+      {(note.relatedProject || (note.evidence && note.evidence.length > 0)) && (
+        <section className="mt-12 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-slate-950">관련 프로젝트와 근거</h2>
+          {note.relatedProject && (
+            <Link
+              href={
+                note.relatedProject.slug === "experience"
+                  ? "/experience"
+                  : `/projects/${note.relatedProject.slug}`
+              }
+              className="mt-4 inline-flex rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800"
+            >
+              {note.relatedProject.title} 보기 →
+            </Link>
+          )}
+          {note.evidence && note.evidence.length > 0 && (
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {note.evidence.map((item) => {
+                const content = (
+                  <>
+                    <p className="font-bold text-slate-900">{item.label}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      {item.description}
+                    </p>
+                  </>
+                );
+
+                return item.href ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-xl border border-slate-200 bg-slate-50 p-4 hover:border-blue-200 hover:bg-blue-50"
+                  >
+                    {content}
+                    <p className="mt-3 text-sm font-semibold text-blue-700">자료 열기 ↗</p>
+                  </a>
+                ) : (
+                  <div key={item.label} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    {content}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </section>
+      )}
 
       {relatedNotes.length > 0 && (
         <aside className="mt-12 border-t border-slate-200 pt-8" aria-labelledby="related-notes">
