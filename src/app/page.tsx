@@ -6,7 +6,7 @@ import { profile } from "@/data/profile";
 import { projects } from "@/lib/content-data";
 
 const currentExperience = experiences.find((experience) =>
-  experience.period.includes("진행 중"),
+  experience.period.includes("재직 중") || experience.period.includes("진행 중"),
 );
 const impactExperience = experiences.find((experience) => experience.featured);
 const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);

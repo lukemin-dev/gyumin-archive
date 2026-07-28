@@ -12,7 +12,7 @@ export const metadata = {
 export default function AboutPage() {
   const education = profile.education[0];
   const currentExperience = experiences.find((experience) =>
-    experience.period.includes("진행 중"),
+    experience.period.includes("재직 중") || experience.period.includes("진행 중"),
   );
 
   return (

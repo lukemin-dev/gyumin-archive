@@ -14,7 +14,8 @@ function DetailItem({ label, children }: { label: string; children: React.ReactN
 }
 
 export default function ExperienceCard({ experience }: ExperienceCardProps) {
-  const ongoing = experience.period.includes("진행 중");
+  const ongoing =
+    experience.period.includes("재직 중") || experience.period.includes("진행 중");
 
   return (
     <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
@@ -24,7 +25,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
             <h2 className="text-lg font-bold text-slate-950">{experience.title}</h2>
             {ongoing && (
               <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-700">
-                진행 중
+                {experience.period.includes("재직 중") ? "재직 중" : "진행 중"}
               </span>
             )}
           </div>
