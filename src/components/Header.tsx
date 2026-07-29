@@ -61,6 +61,12 @@ export default function Header() {
           >
             EN
           </Link>
+          <Link
+            href="/jp"
+            className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950"
+          >
+            JP
+          </Link>
           <a
             href={profile.github}
             target="_blank"
@@ -144,6 +150,9 @@ export default function Header() {
               </a>
               <Link href="/en" className="text-sm font-semibold text-slate-700">
                 English
+              </Link>
+              <Link href="/jp" className="text-sm font-semibold text-slate-700">
+                日本語
               </Link>
             </div>
           </div>

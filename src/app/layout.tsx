@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   creator: "Gyumin Lee",
   alternates: {
     canonical: "/",
+    languages: {
+      "ko-KR": "/",
+      "en-US": "/en",
+      "ja-JP": "/jp",
+    },
     types: {
       "application/rss+xml": "/feed.xml",
     },
@@ -89,7 +94,7 @@ const structuredData = {
       name: "이규민 포트폴리오",
       url: siteUrl,
       description: siteDescription,
-      inLanguage: ["ko-KR", "en"],
+      inLanguage: ["ko-KR", "en-US", "ja-JP"],
     },
   ],
 };
@@ -100,7 +105,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="h-full antialiased">
+    <html lang="ko" className="h-full antialiased" data-scroll-behavior="smooth">
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"

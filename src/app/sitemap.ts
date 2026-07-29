@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/notes",
     "/resume",
     "/en",
+    "/jp",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: route === "/notes" ? latestNoteDate : undefined,

@@ -26,6 +26,9 @@ export default function Footer() {
           <Link href="/en" className="text-sm text-slate-500 hover:text-slate-950">
             English
           </Link>
+          <Link href="/jp" className="text-sm text-slate-500 hover:text-slate-950">
+            日本語
+          </Link>
           <a
             href={profile.github}
             target="_blank"
