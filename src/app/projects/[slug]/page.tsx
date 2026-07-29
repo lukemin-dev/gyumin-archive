@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import KitechSignalFlow from "@/components/KitechSignalFlow";
 import { getProjectVisuals } from "@/data/project-visuals";
 import { notes, projects } from "@/lib/content-data";
 
@@ -83,6 +84,27 @@ export default async function ProjectDetailPage({
           {project.theme}
         </p>
 
+        {(project.role || project.scope) && (
+          <dl className="mt-6 grid gap-3 sm:grid-cols-2">
+            {project.role && (
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <dt className="text-xs font-bold text-slate-500">담당 역할</dt>
+                <dd className="mt-2 text-sm font-semibold leading-relaxed text-slate-900">
+                  {project.role}
+                </dd>
+              </div>
+            )}
+            {project.scope && (
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <dt className="text-xs font-bold text-slate-500">구현·분석 범위</dt>
+                <dd className="mt-2 text-sm font-semibold leading-relaxed text-slate-900">
+                  {project.scope}
+                </dd>
+              </div>
+            )}
+          </dl>
+        )}
+
         {project.details.length > 0 && (
           <ul className="mt-6 grid gap-3 text-sm leading-relaxed text-slate-600 sm:grid-cols-2">
             {project.details.map((detail) => (
@@ -127,6 +149,12 @@ export default async function ProjectDetailPage({
           </div>
         )}
       </header>
+
+      {project.slug === "kitech-ai-vision-sorting" && (
+        <div className="mt-6">
+          <KitechSignalFlow />
+        </div>
+      )}
 
       {visuals.length > 0 && (
         <section className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
@@ -276,6 +304,22 @@ export default async function ProjectDetailPage({
             </div>
           )}
         </Section>
+
+        {project.validation && project.validation.length > 0 && (
+          <Section title="검증 방법과 공개 범위">
+            <ul className="space-y-3">
+              {project.validation.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"
+                    aria-hidden="true"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
 
         {relatedNotes.length > 0 && (
           <Section title="관련 기술 노트">

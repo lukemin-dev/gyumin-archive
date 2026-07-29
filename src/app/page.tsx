@@ -15,24 +15,16 @@ const latestNotes = notes.slice(0, 3);
 
 const highlights = [
   {
-    value: "약 10초",
-    label: "2~3일 걸리던 SEO 분석·보고 업무 자동화",
-  },
-  {
-    value: "4.23 / 4.5",
-    label: "누계 GPA · 성적우수장학금 6회",
-  },
-  {
-    value: "294.5시간",
-    label: "학생별 설명 방식을 조정한 학습 멘토링",
-  },
-  {
     value: "80% → 100%",
     label: "AI 비전 시스템 촬영 성공률 개선",
   },
   {
     value: "8,092개",
     label: "실제 컨베이어 전량 촬영 검증",
+  },
+  {
+    value: "2~3일 → 약 10초",
+    label: "2~3일 걸리던 SEO 분석·보고 업무 자동화",
   },
   {
     value: "14,000장",
@@ -80,8 +72,8 @@ export default function Home() {
               {profile.title}
             </p>
             <h1 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl sm:leading-[1.12]">
-              반복되는 문제를 구조화하고,
-              <br className="hidden sm:block" /> 자동화 가능한 흐름으로 바꿉니다.
+              전체 데이터 흐름에서 문제를 찾고,
+              <br className="hidden sm:block" /> 검증과 복구까지 책임집니다.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
               {profile.tagline}
@@ -98,7 +90,7 @@ export default function Home() {
                 href="/resume"
                 className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-slate-400 hover:bg-slate-50"
               >
-                이력서 다운로드
+                이력서 보기
               </Link>
               <a
                 href={profile.github}
@@ -137,42 +129,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="주요 성과">
+      <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="주요 성과">
         {highlights.map((item) => (
           <div key={item.value} className="rounded-2xl border border-slate-200 bg-white p-5">
             <p className="text-2xl font-bold tracking-tight text-slate-950">{item.value}</p>
             <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.label}</p>
           </div>
         ))}
-      </section>
-
-      <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" aria-labelledby="home-languages">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
-              Languages
-            </p>
-            <h2 id="home-languages" className="mt-2 text-xl font-bold text-slate-950">
-              영어·일본어 소통 역량
-            </h2>
-          </div>
-          <Link href="/en" className="text-sm font-semibold text-blue-700 hover:underline">
-            영문 포트폴리오 보기 →
-          </Link>
-        </div>
-        <div className="mt-5 grid gap-3 sm:grid-cols-2">
-          {profile.languages.map((language) => (
-            <div key={language.name} className="rounded-xl bg-slate-50 p-4">
-              <p className="font-bold text-slate-900">{language.name}</p>
-              <p className="mt-1 text-sm font-semibold text-blue-700">
-                {language.capability}
-              </p>
-              <p className="mt-2 text-xs leading-relaxed text-slate-500">
-                {language.evidence}
-              </p>
-            </div>
-          ))}
-        </div>
       </section>
 
       {(currentExperience || impactExperience) && (
@@ -239,6 +202,40 @@ export default function Home() {
         <div className="grid gap-5 md:grid-cols-3">
           {latestNotes.map((note) => (
             <NoteItem key={note.slug} note={note} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-16 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" aria-labelledby="home-languages">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
+              Languages
+            </p>
+            <h2 id="home-languages" className="mt-2 text-xl font-bold text-slate-950">
+              영어·일본어 소통 역량
+            </h2>
+          </div>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/en" className="text-sm font-semibold text-blue-700 hover:underline">
+              English →
+            </Link>
+            <Link href="/jp" className="text-sm font-semibold text-blue-700 hover:underline">
+              日本語 →
+            </Link>
+          </div>
+        </div>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          {profile.languages.map((language) => (
+            <div key={language.name} className="rounded-xl bg-slate-50 p-4">
+              <p className="font-bold text-slate-900">{language.name}</p>
+              <p className="mt-1 text-sm font-semibold text-blue-700">
+                {language.capability}
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                {language.evidence}
+              </p>
+            </div>
           ))}
         </div>
       </section>

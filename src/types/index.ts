@@ -60,6 +60,9 @@ export interface Project {
   shortAction: string;
   shortResult: string;
   shortQuestion: string;
+  role?: string;
+  scope?: string;
+  validation?: string[];
   privateCode?: boolean;
   githubUrl?: string;
   demoUrl?: string;
