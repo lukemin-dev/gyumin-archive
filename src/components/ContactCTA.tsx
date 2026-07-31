@@ -20,7 +20,7 @@ export default function ContactCTA() {
               ? "採用・協業についてお話しできれば幸いです。"
               : english
               ? "Open to employment and collaboration opportunities."
-              : "채용·협업에 관해 이야기하고 싶습니다."}
+              : "채용·협업 문의"}
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-stone-600">
             {japanese
