@@ -15,7 +15,7 @@ export default function CoursesPage() {
       <PageHeader
         eyebrow="Courses"
         title="직무와 연결해 이수한 교육"
-        description="수료 여부와 학습 내용을 확인할 수 있도록 실제 참여한 과정만 정리했습니다."
+        description="실제로 참여한 과정과 그 안에서 다룬 내용을 모았습니다."
       />
 
       <div className="space-y-14">

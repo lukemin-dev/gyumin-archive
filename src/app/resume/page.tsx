@@ -20,8 +20,8 @@ export default function ResumePage() {
     <div>
       <PageHeader
         eyebrow="Resume"
-        title="1페이지 개발자 이력서"
-        description="백엔드·클라우드·자동화 경험을 채용담당자가 빠르게 확인할 수 있도록 한 페이지로 정리했습니다."
+        title="한 장으로 보는 이력서"
+        description="경력과 프로젝트를 한 장에 담았습니다. PDF로 내려받거나 새 탭에서 바로 볼 수 있습니다."
       />
 
       <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">

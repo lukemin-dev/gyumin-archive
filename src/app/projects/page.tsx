@@ -15,8 +15,8 @@ export default function ProjectsPage() {
     <div>
       <PageHeader
         eyebrow="Projects"
-        title="문제를 해결한 과정을 보여주는 프로젝트"
-        description="기술 이름보다 어떤 문제를 발견했고, 무엇을 직접 구현했으며, 결과가 어떻게 달라졌는지를 중심으로 정리했습니다."
+        title="직접 만들고 고친 것들"
+        description="완성 화면만 보여주기보다 어디서 막혔고, 무엇을 맡았으며, 결과가 어떻게 달라졌는지 함께 적었습니다."
       />
 
       {featured.length > 0 && (
@@ -24,7 +24,7 @@ export default function ProjectsPage() {
           <div className="mb-5">
             <h2 className="text-xl font-bold tracking-tight text-slate-950">대표 프로젝트</h2>
             <p className="mt-1 text-sm text-slate-500">
-              직무 연관성과 문제 해결 과정이 가장 잘 드러나는 작업입니다.
+              현장과 인턴십에서 직접 맡은 범위가 큰 작업입니다.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

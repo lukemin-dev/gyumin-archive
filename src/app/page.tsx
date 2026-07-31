@@ -20,15 +20,15 @@ const highlights = [
   },
   {
     value: "8,092 / 8,092",
-    label: "센서 설정 변경 후 실제 운영 검증",
+    label: "센서 설정 변경 뒤 실제 운영 결과",
   },
   {
     value: "2~3일 → 약 10초",
-    label: "2~3일 걸리던 SEO 분석·보고 업무 자동화",
+    label: "SEO 분석·보고 자동화 전후",
   },
   {
     value: "14,000장",
-    label: "기존 농산물 이미지 데이터셋 활용 규모",
+    label: "학습에 사용한 기존 농산물 이미지",
   },
 ];
 
@@ -71,9 +71,10 @@ export default function Home() {
             <p className="font-mono text-sm text-emerald-800">
               안녕하세요. 이규민입니다.
             </p>
-            <h1 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.055em] text-stone-950 sm:text-6xl sm:leading-[1.08]">
-              전체 데이터 흐름에서 문제를 찾고,
-              <br className="hidden sm:block" /> 검증과 복구까지 책임집니다.
+            <h1 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.055em] text-stone-950 sm:text-5xl sm:leading-[1.08] lg:text-6xl">
+              코드를 고치기 전에,
+              <br className="hidden sm:block" /> 데이터가 어디서 끊겼는지
+              <br className="hidden sm:block" /> 먼저 봅니다.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
               Python과 Java로 백엔드와 자동화 도구를 만듭니다. 요즘은 한국생산기술연구원에서
@@ -150,7 +151,7 @@ export default function Home() {
                 / experience
               </p>
               <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">
-                현장에서 검증한 경험
+                지금 하고 있는 일
               </h2>
             </div>
             <Link href="/experience" className="text-sm font-semibold text-emerald-800 hover:underline">
@@ -246,13 +247,13 @@ export default function Home() {
 
       <section className="mt-16 border-t-2 border-stone-800 py-8">
         <p className="font-mono text-xs text-emerald-800">
-          / 일할 때 지키는 세 가지
+          / 일할 때 자주 확인하는 것
         </p>
         <div className="mt-4 grid gap-5 sm:grid-cols-3">
           {[
-            ["입력부터 확인", "코드를 고치기 전에 데이터 형식과 시스템 경계를 먼저 확인합니다."],
-            ["실패를 전제로 설계", "재시도·체크포인트·로그를 넣어 중단 이후에도 복구할 수 있게 만듭니다."],
-            ["근거를 남기는 문서화", "문제, 판단 기준, 조치와 결과를 다시 설명할 수 있는 형태로 기록합니다."],
+            ["입력을 먼저 봅니다", "코드를 고치기 전에 데이터 형식과 들어오는 값부터 확인합니다."],
+            ["멈춘 뒤를 생각합니다", "재시도와 체크포인트를 넣어 중간부터 다시 시작할 수 있게 만듭니다."],
+            ["확인한 순서를 남깁니다", "어디서 막혔고 무엇을 바꿨는지 다음 사람이 따라갈 수 있게 기록합니다."],
           ].map(([title, description]) => (
             <div key={title}>
               <h3 className="font-bold text-slate-950">{title}</h3>

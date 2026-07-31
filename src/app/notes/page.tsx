@@ -12,8 +12,8 @@ export default function NotesPage() {
     <div>
       <PageHeader
         eyebrow="Notes"
-        title="구현 과정에서 남긴 기술 노트"
-        description="프로젝트에서 부딪힌 문제와 학습 내용을 나중에 다시 사용할 수 있도록 정리했습니다."
+        title="작업하다 막힌 내용을 적어 둡니다"
+        description="같은 문제를 다시 만났을 때 바로 꺼내 볼 수 있도록 원인과 조치, 결과를 남겼습니다."
       />
 
       <div className="mb-6 flex justify-end">

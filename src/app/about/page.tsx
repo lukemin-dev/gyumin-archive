@@ -19,8 +19,8 @@ export default function AboutPage() {
     <div>
       <PageHeader
         eyebrow="About"
-        title="문제를 나누고, 근거를 남기는 개발자"
-        description="반복 업무 자동화와 시스템 운영 경험을 바탕으로 입력부터 결과까지 다시 설명할 수 있는 구조를 만듭니다."
+        title="왜 안 됐는지 설명할 수 있는 개발자가 되고 싶습니다"
+        description="문제가 생기면 코드를 바로 고치기보다 들어온 값과 로그, 다음 단계로 넘어간 결과부터 살펴봅니다."
       />
 
       <section className="mb-14 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
@@ -59,7 +59,7 @@ export default function AboutPage() {
       {currentExperience && (
         <SectionBlock
           title="현재 집중하는 경험"
-          description="진행 중인 업무는 과장하지 않고 현재 수행한 범위까지만 기록합니다."
+          description="지금 맡고 있는 범위까지만 적었습니다."
         >
           <div className="rounded-2xl border border-blue-100 bg-blue-50 p-6">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
@@ -78,7 +78,7 @@ export default function AboutPage() {
 
       <SectionBlock
         title="기술 역량"
-        description="기술 이름보다 실제로 사용한 맥락에 따라 구분했습니다."
+        description="수업에서만 접한 기술과 프로젝트에서 직접 사용한 기술을 구분했습니다."
       >
         <div className="grid gap-4 md:grid-cols-2">
           {profile.skills.map((category) => (
@@ -140,7 +140,7 @@ export default function AboutPage() {
 
       <SectionBlock
         title="언어 역량"
-        description="공인 등급을 과장하지 않고 실제로 활용한 소통 경험을 기준으로 정리했습니다."
+        description="시험 점수 대신 실제로 영어와 일본어를 사용했던 경험을 적었습니다."
       >
         <div className="grid gap-4 sm:grid-cols-2">
           {profile.languages.map((language) => (

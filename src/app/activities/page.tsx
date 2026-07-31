@@ -15,7 +15,7 @@ export default function ActivitiesPage() {
       <PageHeader
         eyebrow="Activities"
         title="기술 밖에서 쌓은 협업과 설명 경험"
-        description="멘토링, 국제 교류, 학술 활동에서 맡은 역할과 실제로 배운 점을 정리했습니다."
+        description="멘토링과 국제 교류, 학술 활동에서 맡았던 일과 기억에 남은 경험을 모았습니다."
       />
 
       <div className="space-y-14">

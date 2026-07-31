@@ -27,7 +27,7 @@ export default function ContactCTA() {
               ? "担当範囲、問題解決の判断、検証結果について詳しくご説明できます。"
               : english
               ? "I can share more detail about implementation scope, problem-solving decisions, and validation evidence."
-              : "프로젝트의 구현 범위, 문제 해결 과정과 검증 근거를 더 자세히 설명드릴 수 있습니다."}
+              : "궁금한 프로젝트가 있다면 이메일로 연락 주세요."}
           </p>
         </div>
         <div className="mt-6 flex shrink-0 flex-wrap gap-3 sm:mt-0">

@@ -6,7 +6,7 @@ import "./globals.css";
 
 const siteUrl = "https://gyumin-archive.vercel.app";
 const siteDescription =
-  "반복 업무를 자동화하고, 입력 검증·로그·재시도·체크포인트를 통해 재현 가능한 시스템을 만드는 이규민의 개발 포트폴리오입니다.";
+  "센서·PLC·카메라가 연결된 현장 시스템과 백엔드·자동화 프로젝트를 기록한 이규민의 개발 포트폴리오입니다.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

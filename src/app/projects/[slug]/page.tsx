@@ -38,6 +38,56 @@ function Section({
   );
 }
 
+const defaultSectionLabels = {
+  problem: "시작한 이유",
+  result: "만든 결과",
+  bottleneck: "막혔던 지점",
+  solution: "어떻게 풀었는지",
+  evidence: "확인할 수 있는 자료",
+  validation: "직접 확인한 내용",
+  tech: "기술 선택",
+  retrospective: "다시 만든다면",
+  interview: "더 이야기할 수 있는 부분",
+};
+
+const projectSectionLabels: Record<
+  string,
+  Partial<typeof defaultSectionLabels>
+> = {
+  "kitech-ai-vision-sorting": {
+    problem: "처음 본 증상",
+    result: "센서 설정을 바꾼 뒤",
+    bottleneck: "왜 바로 원인을 찾기 어려웠나",
+    solution: "플래시가 멈춘 지점부터 확인",
+    evidence: "공개할 수 있는 현장 근거",
+    validation: "성공으로 본 기준",
+    tech: "사용한 장비와 모델",
+    retrospective: "다시 한다면",
+  },
+  "seo-automation": {
+    problem: "자동화 전",
+    result: "자동화 후",
+    bottleneck: "API가 중간에 멈췄을 때",
+    solution: "처음부터 다시 돌리지 않게",
+    evidence: "공개할 수 있는 결과",
+    validation: "확인한 동작",
+    tech: "연결한 API와 처리 방식",
+    retrospective: "다시 만든다면",
+    interview: "구현하면서 생긴 질문",
+  },
+  "warehouse-fire-anomaly-monitor": {
+    problem: "0과 1만으로는 부족했던 이유",
+    result: "센서에서 앱까지 연결한 결과",
+    bottleneck: "데이터가 부족했던 지점",
+    solution: "아날로그 값과 IsolationForest 선택",
+    evidence: "코드와 문서",
+    validation: "직접 확인한 범위",
+    tech: "기술 선택",
+    retrospective: "남은 한계",
+    interview: "설계하면서 고민한 부분",
+  },
+};
+
 export default async function ProjectDetailPage({
   params,
 }: {
@@ -48,6 +98,10 @@ export default async function ProjectDetailPage({
 
   if (!project) notFound();
 
+  const sectionLabels = {
+    ...defaultSectionLabels,
+    ...projectSectionLabels[project.slug],
+  };
   const visuals = getProjectVisuals(project.slug);
   const diagrams = visuals.filter((visual) => visual.kind === "diagram");
   const screens = visuals.filter((visual) => visual.kind === "screen");
@@ -233,11 +287,13 @@ export default async function ProjectDetailPage({
       )}
 
       <div className="mt-6 grid gap-6 md:grid-cols-2">
-        <Section title="문제">
+        <Section title={sectionLabels.problem}>
           <p className="whitespace-pre-wrap">{project.problem}</p>
         </Section>
         <section className="border-t-2 border-emerald-700 py-6 sm:py-7">
-          <h2 className="text-lg font-bold tracking-tight text-slate-950">결과</h2>
+          <h2 className="text-lg font-bold tracking-tight text-slate-950">
+            {sectionLabels.result}
+          </h2>
           <p className="mt-4 whitespace-pre-wrap text-sm font-semibold leading-7 text-slate-900">
             {project.result}
           </p>
@@ -260,15 +316,15 @@ export default async function ProjectDetailPage({
         </Section>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <Section title="가장 어려웠던 지점">
+          <Section title={sectionLabels.bottleneck}>
             <p className="whitespace-pre-wrap">{project.bottleneck}</p>
           </Section>
-          <Section title="해결 과정">
+          <Section title={sectionLabels.solution}>
             <p className="whitespace-pre-wrap">{project.solution}</p>
           </Section>
         </div>
 
-        <Section title="증명 자료">
+        <Section title={sectionLabels.evidence}>
           {project.evidence && project.evidence.length > 0 ? (
             <div className="grid gap-4 md:grid-cols-2">
               {project.evidence.map((item) => {
@@ -306,7 +362,7 @@ export default async function ProjectDetailPage({
         </Section>
 
         {project.validation && project.validation.length > 0 && (
-          <Section title="검증 방법과 공개 범위">
+          <Section title={sectionLabels.validation}>
             <ul className="space-y-3">
               {project.validation.map((item) => (
                 <li key={item} className="flex gap-3">
@@ -342,16 +398,16 @@ export default async function ProjectDetailPage({
         )}
 
         <div className="grid gap-6 md:grid-cols-2">
-          <Section title="사용한 기술과 이유">
+          <Section title={sectionLabels.tech}>
             <p className="whitespace-pre-wrap">{project.techContext}</p>
           </Section>
-          <Section title="지금 다시 한다면">
+          <Section title={sectionLabels.retrospective}>
             <p className="whitespace-pre-wrap">{project.retrospective}</p>
           </Section>
         </div>
 
         {project.interviewPoints.length > 0 && (
-          <Section title="면접에서 더 설명할 수 있는 부분">
+          <Section title={sectionLabels.interview}>
             <ul className="space-y-3">
               {project.interviewPoints.map((point) => (
                 <li key={point} className="flex gap-3 font-medium text-slate-800">

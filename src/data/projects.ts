@@ -6,7 +6,7 @@ export const projects: Project[] = [
     title: "AI 비전·PLC 농산물 자동 선별 시스템",
     type: "Industry Project",
     period: "재직 중",
-    theme: "센서 입력부터 AI 추론까지 전체 신호 흐름을 분해해 촬영 누락 원인을 개선",
+    theme: "촬영되지 않은 농산물을 따라 센서·PLC·카메라 신호를 점검",
     details: [
       "KEYENCE LR-Z 센서, CUBLOC PLC, 카메라, YOLO, ConvNeXt가 연결된 현장 시스템 분석",
       "초기 검증 100개 중 80개만 플래시 작동과 데이터 기록에 성공한 문제를 센서 설정 변경으로 개선",
@@ -25,7 +25,7 @@ export const projects: Project[] = [
     bottleneck:
       "촬영 누락은 최종 이미지에서만 드러났고, 모델과 설비가 연결된 시스템이라 한 구성 요소만 확인해서는 원인을 특정할 수 없었습니다.",
     solution:
-      "전체 흐름을 센서 입력, PLC 출력, 카메라 트리거, YOLO 검출, ConvNeXt 분류로 나누었습니다. 각 경계의 입력과 출력, 현장 동작을 순서대로 비교해 누락 지점을 좁히고 센서 설정과 PLC 출력 조건을 조정했습니다.",
+      "플래시가 터지지 않은 구간부터 LR-Z 센서 입력, PLC 출력, 카메라 트리거를 거슬러 올라갔습니다. 로그와 실제 컨베이어 동작을 맞춰 보며 누락 지점을 좁히고 센서 설정과 PLC 출력 조건을 조정했습니다.",
     result:
       "초기 검증에서는 100개 중 80개만 플래시가 작동하고 데이터가 기록됐습니다. 센서 설정 변경 후 실제 컨베이어 운영에서 양파 8,092개 모두 플래시 작동과 데이터 기록이 완료된 것을 확인했습니다. 모델 학습에는 약 14,000장 규모의 기존 농산물 이미지 데이터셋을 활용했습니다.",
     validation: [
@@ -35,7 +35,7 @@ export const projects: Project[] = [
       "보안상 원본 설비 로그와 코드는 공개하지 않고 검증 절차와 결과만 공개",
     ],
     retrospective:
-      "앞으로는 단계별 이벤트 시간과 식별자를 일관된 형식으로 남겨 센서 감지부터 추론 결과까지 자동으로 추적할 수 있는 관측 체계를 보강하고 싶습니다.",
+      "이번에는 장비별 로그와 현장 동작의 시간을 직접 맞춰 봤습니다. 다시 한다면 농산물마다 같은 식별자를 붙여 센서 감지부터 추론 결과까지 한 번에 추적할 수 있게 만들고 싶습니다.",
     interviewPoints: [
       "모델 문제가 아닌 센서·PLC 신호 문제로 원인을 좁힌 과정",
       "촬영 성공률과 8,092개 전량 촬영을 확인한 현장 검증 방식",
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     title: "AI 기반 SEO 자동화 파이프라인",
     type: "Internship Project",
     period: "2026.01-2026.02",
-    theme: "AI 기반 SEO 자동화 파이프라인 구축",
+    theme: "2~3일 걸리던 SEO 분석·보고를 약 10초로 줄인 자동화 도구",
     role: "단독 수행 · Python 자동화 파이프라인 전체 설계·구현 및 외부 API 장애 대응",
     scope: "Crosslink 웹사이트 전체의 데이터 수집·정제·우선순위 산정·AI 초안·Markdown 보고서 출력까지 연결",
     details: [
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     solution:
       "비용과 속도 면에서 더 적합한 Gemini 1.5 Flash 모델로 전환하고, 할당량 초과 시 자동으로 재시도하거나 대체 모델을 감지하는 로직을 추가했습니다. 또한 실행 단계를 나누어 체크포인트를 저장하게 만들어, 실패해도 중간부터 다시 실행할 수 있는 구조를 만들었습니다.",
     result:
-      "2~3일 걸리던 수동 작업을 약 10초로 단축했습니다. 담당자가 같은 기준으로 결과를 확인할 수 있는 형태로 정리하여, 반복 업무에 대한 스트레스를 줄였습니다.",
+      "2~3일 걸리던 수동 작업이 약 10초에 끝났습니다. 수집, 우선순위 계산, 초안 생성, 보고서 출력이 정해진 순서로 실행돼 담당자마다 기준이 달라지는 문제도 줄었습니다.",
     validation: [
       "수동 데이터 수집·분석·보고 범위와 자동 파이프라인의 전체 실행 시간을 비교",
       "입력 스키마 오류, API 할당량 초과, 응답 지연 상황에서 예외 처리와 재시도 동작 확인",
@@ -122,12 +122,12 @@ export const projects: Project[] = [
       {
         label: "공개 제한",
         description:
-          "기업 실무 프로젝트라 소스 코드는 공개하지 않고, 포트폴리오에는 문제, 역할, 해결 과정, 결과 중심으로 정리했습니다.",
+          "회사 데이터와 소스 코드는 공개하지 않습니다. 포트폴리오에는 처리 흐름과 제가 맡은 범위만 담았습니다.",
       },
       {
-        label: "면접 설명 포인트",
+        label: "실제로 겪은 운영 이슈",
         description:
-          "Gemini API quota, 재시도, 체크포인트, 입력 스키마 검증처럼 실제 자동화 운영에서 부딪힌 문제를 설명할 수 있습니다.",
+          "Gemini API 할당량 초과와 응답 지연 때문에 재시도, 체크포인트, 입력 스키마 검증을 추가했습니다.",
       },
     ],
     featured: true,
@@ -179,7 +179,7 @@ export const projects: Project[] = [
     shortAction:
       "ADC로 아날로그 값을 수집하고 Flask·SQLite·IsolationForest·모바일 앱을 하나의 파이프라인으로 연결했습니다.",
     shortResult:
-      "실제 센서 변화가 EC2 서버의 AI 판정과 모바일 대시보드에 반영되는 흐름을 검증했습니다.",
+      "센서 값을 바꾸자 EC2의 판정과 모바일 그래프·경고 이력이 함께 바뀌는 것을 확인했습니다.",
     shortQuestion: "실제 이상 데이터가 부족한 상황에서 이상 탐지 모델을 설계한 방법",
     githubUrl: "https://github.com/lukemin-dev/warehouse-fire-anomaly-monitor",
     evidence: [
@@ -192,7 +192,7 @@ export const projects: Project[] = [
       {
         label: "시스템 구성도",
         description:
-          "센서부터 라즈베리파이, Flask API, SQLite, AI 모델, 앱까지의 데이터 흐름을 정리했습니다.",
+          "센서 값이 라즈베리파이, Flask API, SQLite, AI 모델과 앱으로 전달되는 순서를 볼 수 있습니다.",
         href: "https://github.com/lukemin-dev/warehouse-fire-anomaly-monitor/blob/main/docs/architecture.md",
       },
       {
@@ -203,7 +203,7 @@ export const projects: Project[] = [
       {
         label: "면접 대비 Q&A",
         description:
-          "기술 선택, 트러블슈팅, 한계와 개선 방향을 면접 답변 기준으로 정리했습니다.",
+          "ADC와 IsolationForest를 선택한 이유, 막혔던 점과 한계를 질문별로 적었습니다.",
         href: "https://github.com/lukemin-dev/warehouse-fire-anomaly-monitor/blob/main/docs/interview-prep.md",
       },
     ],
@@ -252,7 +252,7 @@ export const projects: Project[] = [
       "Java와 Spring Boot로 REST API를 구현하고 계층형 아키텍처를 적용했습니다.",
     shortProblem: "질문 데이터를 체계적으로 관리할 API가 필요했습니다.",
     shortAction: "Spring Boot 기반 REST API를 구현하고 계층을 분리했습니다.",
-    shortResult: "API 구조, 예외 처리, 테스트와 문서화 흐름을 정리했습니다.",
+    shortResult: "공통 오류 응답과 테스트, API 문서를 갖춘 질문 관리 서버를 완성했습니다.",
     shortQuestion: "DTO, Controller, Service 구조를 분리한 이유와 장점",
     githubUrl: "https://github.com/lukemin-dev/backend-interview-tracker",
     evidence: [
@@ -270,13 +270,13 @@ export const projects: Project[] = [
       {
         label: "아키텍처 리뷰",
         description:
-          "Controller-Service-Repository 계층 분리, DTO 분리, 전역 예외 처리, 테스트 관점을 정리했습니다.",
+          "계층과 DTO를 왜 분리했는지, 전역 예외 처리와 테스트 기준을 설명합니다.",
         href: "https://github.com/lukemin-dev/backend-interview-tracker/blob/main/docs/03-analysis/architecture-review.md",
       },
       {
         label: "면접 대비 노트",
         description:
-          "프로젝트 설명 흐름, 막혔던 점, 해결 방법, 30초 답변 예시를 정리했습니다.",
+          "막혔던 점과 해결 방법, 30초 설명 예시가 들어 있습니다.",
         href: "https://github.com/lukemin-dev/backend-interview-tracker/blob/main/docs/interview-notes.md",
       },
     ],
@@ -330,7 +330,7 @@ export const projects: Project[] = [
       },
       {
         label: "면접 대비 노트",
-        description: "설계 결정, 문제 해결 과정과 면접 설명 포인트를 정리했습니다.",
+        description: "dry-run을 기본값으로 둔 이유와 파일 이동 안전장치를 설명합니다.",
         href: "https://github.com/lukemin-dev/file-organizer-agent/blob/main/docs/interview-notes.md",
       },
       {
@@ -389,7 +389,7 @@ export const projects: Project[] = [
       },
       {
         label: "프로젝트 README",
-        description: "신호 계산 흐름, 지표, 리스크 기준과 한계를 정리했습니다.",
+        description: "신호 계산 순서와 지표, 리스크 기준, 현재 한계를 볼 수 있습니다.",
         href: "https://github.com/lukemin-dev/crypto-entry-guard/blob/main/README.md",
       },
     ],
@@ -443,7 +443,7 @@ export const projects: Project[] = [
       {
         label: "면접 대비 노트",
         description:
-          "TCP 메시지 경계, 수신 버퍼 처리, 멀티스레드 처리와 로그 기준을 정리했습니다.",
+          "TCP 메시지 경계 처리와 수신 버퍼, 멀티스레드 로그 기준을 설명합니다.",
         href: "https://github.com/lukemin-dev/multichat-java/blob/main/docs/interview-notes.md",
       },
     ],
