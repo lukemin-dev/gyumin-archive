@@ -44,9 +44,9 @@ const projects = [
 ];
 
 const achievements = [
-  { value: "80% → 100%", label: "AI vision capture success rate" },
+  { value: "80/100 → 8,092/8,092", label: "Flash activation and data recording" },
   { value: "8,092", label: "Onions captured in a full production run" },
-  { value: "14,000", label: "Agricultural product images prepared" },
+  { value: "14,000", label: "Existing agricultural images used" },
   { value: "~10 sec", label: "SEO analysis and reporting workflow" },
 ];
 
@@ -164,8 +164,8 @@ export default function EnglishSummaryPage() {
               </div>
               <ul className="mt-3 space-y-2">
                 <li>Trained and evaluated YOLO object detection and ConvNeXt classification models in a conveyor environment.</li>
-                <li>Improved the image capture success rate from about 80% to 100% by tuning the LR-Z sensor and PLC output conditions.</li>
-                <li>Verified a full production run in which all 8,092 onions were captured, and prepared a 14,000-image dataset.</li>
+                <li>In the initial test, 80 of 100 items triggered the flash and produced a data record. I traced the signal flow and changed the sensor settings.</li>
+                <li>After the change, all 8,092 onions in a production run met the same success criteria. I also used an existing dataset of about 14,000 agricultural images for model training and tuning.</li>
               </ul>
             </div>
 

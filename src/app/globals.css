@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --surface: #ffffff;
-  --foreground: #111827;
-  --muted: #64748b;
-  --border: #e2e8f0;
-  --accent: #2563eb;
-  --accent-soft: #eff6ff;
+  --background: #f4f1ea;
+  --surface: #fbfaf7;
+  --foreground: #202722;
+  --muted: #69716b;
+  --border: #d8d2c7;
+  --accent: #17624f;
+  --accent-soft: #e7efe9;
 }
 
 @theme inline {
@@ -40,8 +40,13 @@ body {
 }
 
 ::selection {
-  background-color: #dbeafe;
-  color: #1e3a8a;
+  background-color: #d8e6dc;
+  color: #173f35;
+}
+
+a,
+button {
+  text-underline-offset: 0.2em;
 }
 
 :focus-visible {

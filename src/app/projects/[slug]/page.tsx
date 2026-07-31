@@ -31,7 +31,7 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
+    <section className="border-t border-stone-400 py-6 sm:py-7">
       <h2 className="text-lg font-bold tracking-tight text-slate-950">{title}</h2>
       <div className="mt-4 text-sm leading-7 text-slate-600">{children}</div>
     </section>
@@ -64,15 +64,15 @@ export default async function ProjectDetailPage({
         ← 프로젝트 목록
       </Link>
 
-      <header className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-9">
+      <header className="border-b border-stone-300 pb-9">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700">
+          <span className="font-mono text-xs font-bold text-emerald-800">
             {project.type}
           </span>
           <span className="text-xs text-slate-400">{project.period}</span>
           {project.featured && (
-            <span className="rounded-full bg-slate-900 px-3 py-1 text-xs font-bold text-white">
-              대표 프로젝트
+            <span className="font-mono text-xs font-bold text-stone-700">
+              / 대표 프로젝트
             </span>
           )}
         </div>
@@ -87,7 +87,7 @@ export default async function ProjectDetailPage({
         {(project.role || project.scope) && (
           <dl className="mt-6 grid gap-3 sm:grid-cols-2">
             {project.role && (
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <div className="border-l-2 border-emerald-700 pl-4">
                 <dt className="text-xs font-bold text-slate-500">담당 역할</dt>
                 <dd className="mt-2 text-sm font-semibold leading-relaxed text-slate-900">
                   {project.role}
@@ -95,7 +95,7 @@ export default async function ProjectDetailPage({
               </div>
             )}
             {project.scope && (
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <div className="border-l border-stone-400 pl-4">
                 <dt className="text-xs font-bold text-slate-500">구현·분석 범위</dt>
                 <dd className="mt-2 text-sm font-semibold leading-relaxed text-slate-900">
                   {project.scope}
@@ -108,7 +108,7 @@ export default async function ProjectDetailPage({
         {project.details.length > 0 && (
           <ul className="mt-6 grid gap-3 text-sm leading-relaxed text-slate-600 sm:grid-cols-2">
             {project.details.map((detail) => (
-              <li key={detail} className="flex gap-3 rounded-xl bg-slate-50 p-4">
+              <li key={detail} className="flex gap-3 border-t border-stone-300 py-3">
                 <span
                   className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"
                   aria-hidden="true"
@@ -126,7 +126,7 @@ export default async function ProjectDetailPage({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800"
+                className="border-b-2 border-stone-900 px-1 py-2.5 text-sm font-semibold text-stone-900 hover:text-emerald-800"
               >
                 GitHub 저장소 ↗
               </a>
@@ -136,13 +136,13 @@ export default async function ProjectDetailPage({
                 href={project.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+                className="border-b border-stone-400 px-1 py-2.5 text-sm font-semibold text-stone-800 hover:text-stone-950"
               >
                 데모 보기 ↗
               </a>
             )}
             {project.privateCode && (
-              <span className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-600">
+              <span className="font-mono text-xs text-stone-500">
                 기업 실무 보안상 소스 코드 비공개
               </span>
             )}
@@ -157,11 +157,11 @@ export default async function ProjectDetailPage({
       )}
 
       {visuals.length > 0 && (
-        <section className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <section className="mt-10 border-t-2 border-stone-800 py-6 sm:py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
-                Visual Evidence
+              <p className="font-mono text-xs text-emerald-800">
+                / visual evidence
               </p>
               <h2 className="mt-2 text-xl font-bold tracking-tight text-slate-950">
                 구조와 구현 결과
@@ -180,7 +180,7 @@ export default async function ProjectDetailPage({
                   href={visual.src}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition hover:border-blue-200 hover:shadow-md"
+                  className="group block overflow-hidden border border-stone-300 bg-stone-100 transition hover:border-stone-500"
                 >
                   <Image
                     src={visual.src}
@@ -190,7 +190,7 @@ export default async function ProjectDetailPage({
                     sizes="(min-width: 1024px) 56rem, 100vw"
                     className="h-auto w-full object-contain"
                   />
-                  <div className="border-t border-slate-200 bg-white p-4">
+                  <div className="border-t border-stone-300 bg-[#fbfaf7] p-4">
                     <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-blue-700">
                       {visual.caption}
                     </p>
@@ -209,7 +209,7 @@ export default async function ProjectDetailPage({
                   href={visual.src}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition hover:border-blue-200 hover:shadow-md"
+                  className="group overflow-hidden border border-stone-300 bg-stone-100 transition hover:border-stone-500"
                 >
                   <Image
                     src={visual.src}
@@ -219,7 +219,7 @@ export default async function ProjectDetailPage({
                     sizes="(min-width: 640px) 30vw, 100vw"
                     className="h-[30rem] w-full object-contain object-top sm:h-[25rem] lg:h-[30rem]"
                   />
-                  <div className="border-t border-slate-200 bg-white p-4">
+                  <div className="border-t border-stone-300 bg-[#fbfaf7] p-4">
                     <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-blue-700">
                       {visual.caption}
                     </p>
@@ -236,7 +236,7 @@ export default async function ProjectDetailPage({
         <Section title="문제">
           <p className="whitespace-pre-wrap">{project.problem}</p>
         </Section>
-        <section className="rounded-2xl border border-blue-100 bg-blue-50 p-6 shadow-sm sm:p-7">
+        <section className="border-t-2 border-emerald-700 py-6 sm:py-7">
           <h2 className="text-lg font-bold tracking-tight text-slate-950">결과</h2>
           <p className="mt-4 whitespace-pre-wrap text-sm font-semibold leading-7 text-slate-900">
             {project.result}
@@ -273,7 +273,7 @@ export default async function ProjectDetailPage({
             <div className="grid gap-4 md:grid-cols-2">
               {project.evidence.map((item) => {
                 const card = (
-                  <div className="h-full rounded-xl border border-slate-200 bg-slate-50 p-4 transition-colors hover:border-blue-200 hover:bg-blue-50">
+                  <div className="h-full border-t border-stone-300 py-4 transition-colors hover:border-stone-500">
                     <p className="font-bold text-slate-900">{item.label}</p>
                     <p className="mt-2 text-sm leading-relaxed text-slate-600">
                       {item.description}
@@ -299,7 +299,7 @@ export default async function ProjectDetailPage({
               })}
             </div>
           ) : (
-            <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-5 text-slate-500">
+            <div className="border-l border-stone-400 pl-5 text-stone-500">
               공개 가능한 증명 자료를 정리 중입니다.
             </div>
           )}
@@ -328,7 +328,7 @@ export default async function ProjectDetailPage({
                 <Link
                   key={note.slug}
                   href={`/notes/${note.slug}`}
-                  className="rounded-xl border border-slate-200 bg-slate-50 p-4 transition-colors hover:border-blue-200 hover:bg-blue-50"
+                    className="border-t border-stone-300 py-4 transition-colors hover:border-stone-500"
                 >
                   <p className="font-bold text-slate-900">{note.title}</p>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">

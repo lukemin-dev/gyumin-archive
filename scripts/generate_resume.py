@@ -296,7 +296,7 @@ def build_resume(output_path: Path) -> None:
                 styles,
             ),
             bullet(
-                "센서 입력 → PLC 출력 → 카메라 트리거 → AI 추론 단계로 원인을 분리하고 LR-Z 센서와 PLC 조건을 조정해 촬영 성공률을 약 80%에서 100%로 개선",
+                "초기 검증 100개 중 80개만 플래시 작동·데이터 기록에 성공한 원인을 센서 입력 → PLC 출력 → 카메라 트리거 → AI 추론 단계로 분리하고 센서 설정을 변경",
                 styles,
             ),
             bullet(

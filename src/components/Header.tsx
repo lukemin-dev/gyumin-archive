@@ -20,18 +20,18 @@ export default function Header() {
   const isActive = (href: string) => pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
-      <nav className="max-w-5xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between" aria-label="주요 메뉴">
+    <header className="sticky top-0 z-50 border-b border-stone-300/90 bg-[#f4f1ea]/95 backdrop-blur">
+      <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5 sm:px-6" aria-label="주요 메뉴">
         <Link href="/" className="group flex items-center gap-3" aria-label="이규민 포트폴리오 홈">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-sm font-bold text-white transition-transform group-hover:-translate-y-0.5">
-            G
+          <span className="font-mono text-sm font-bold text-emerald-800">
+            gyumin.dev
           </span>
           <span>
-            <span className="block text-sm font-bold text-slate-900 leading-tight">
+            <span className="block text-sm font-bold leading-tight text-stone-900">
               {profile.name}
             </span>
-            <span className="hidden sm:block text-[11px] text-slate-500 leading-tight">
-              Backend · Cloud · Automation
+            <span className="hidden text-[11px] leading-tight text-stone-500 sm:block">
+              기록하고 개선하는 개발자
             </span>
           </span>
         </Link>
@@ -46,24 +46,24 @@ export default function Header() {
                 aria-current={active ? "page" : undefined}
                 className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   active
-                    ? "bg-blue-50 text-blue-700"
-                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
+                    ? "text-emerald-800 underline decoration-2 underline-offset-8"
+                    : "text-stone-600 hover:text-stone-950"
                 }`}
               >
                 {link.label}
               </Link>
             );
           })}
-          <span className="mx-2 h-5 w-px bg-slate-200" aria-hidden="true" />
+          <span className="mx-2 h-5 w-px bg-stone-300" aria-hidden="true" />
           <Link
             href="/en"
-            className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950"
+            className="px-2 py-2 font-mono text-xs font-semibold text-stone-600 transition-colors hover:text-stone-950"
           >
             EN
           </Link>
           <Link
             href="/jp"
-            className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950"
+            className="px-2 py-2 font-mono text-xs font-semibold text-stone-600 transition-colors hover:text-stone-950"
           >
             JP
           </Link>
@@ -71,7 +71,7 @@ export default function Header() {
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950"
+            className="px-2 py-2 text-sm font-semibold text-stone-600 transition-colors hover:text-stone-950"
           >
             GitHub ↗
           </a>
@@ -79,7 +79,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="md:hidden rounded-lg p-2 text-slate-600 hover:bg-slate-100 hover:text-slate-950"
+          className="p-2 text-stone-600 hover:text-stone-950 md:hidden"
           onClick={() => setMobileOpen((open) => !open)}
           aria-label={mobileOpen ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={mobileOpen}
@@ -114,7 +114,7 @@ export default function Header() {
       </nav>
 
       {mobileOpen && (
-        <div id="mobile-navigation" className="md:hidden border-t border-slate-100 bg-white">
+        <div id="mobile-navigation" className="border-t border-stone-300 bg-[#f4f1ea] md:hidden">
           <div className="max-w-5xl mx-auto px-5 py-4">
             <div className="grid gap-1">
               {navLinks.map((link) => {
@@ -127,8 +127,8 @@ export default function Header() {
                     aria-current={active ? "page" : undefined}
                     className={`rounded-lg px-3 py-2.5 text-sm font-medium ${
                       active
-                        ? "bg-blue-50 text-blue-700"
-                        : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
+                        ? "font-bold text-emerald-800"
+                        : "text-stone-600 hover:text-stone-950"
                     }`}
                   >
                     {link.label}

@@ -5,8 +5,8 @@ export const profile: Profile = {
   nameEn: "Gyumin Lee",
   title: "Backend · Cloud · Automation Engineer",
   tagline:
-    "Python·Java로 API와 자동화 파이프라인을 구현하고, 입력 검증·로그·재시도·체크포인트를 통해 실패 이후에도 복구 가능한 시스템을 만듭니다.",
-  bio: "반복되는 업무와 불안정한 데이터 흐름을 구조적으로 정리하는 개발자입니다. 일본 IT 기업 인턴십에서 수작업으로 2~3일 걸리던 SEO 분석·보고 업무를 약 10초로 단축했고, 현재 한국생산기술연구원에서 AI 비전·PLC 기반 자동 선별 시스템의 센서 입력부터 AI 추론까지 전체 흐름을 분석하고 있습니다. 결과만 나열하기보다 문제, 판단 기준, 실행 과정과 근거를 다시 설명할 수 있는 형태로 기록합니다.",
+    "복잡한 문제를 입력부터 결과까지 따라가며 원인을 찾고, 다시 같은 문제가 생겨도 대응할 수 있는 구조로 정리합니다.",
+  bio: "코드만 들여다보기보다 데이터가 어디에서 들어와 어떻게 흘러가는지 먼저 확인하는 개발자입니다. 일본 IT 기업 인턴십에서는 수작업으로 2~3일 걸리던 SEO 분석·보고 과정을 자동화했고, 지금은 한국생산기술연구원에서 센서와 PLC, 카메라, AI 모델이 함께 움직이는 농산물 선별 시스템을 다루고 있습니다. 잘된 결과만 남기기보다 막혔던 이유와 확인한 순서까지 기록하려고 합니다.",
   email: "lgmlgm227@naver.com",
   github: "https://github.com/lukemin-dev",
   portfolioRepo: "https://github.com/lukemin-dev/gyumin-archive",

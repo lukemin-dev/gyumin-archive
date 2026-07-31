@@ -6,11 +6,11 @@ interface ActivityItemProps {
 
 export default function ActivityItem({ activity }: ActivityItemProps) {
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <article className="border-t border-stone-400 py-5">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h3 className="font-bold text-slate-950">{activity.title}</h3>
-          <p className="mt-1 text-sm font-medium text-blue-700">{activity.theme}</p>
+          <p className="mt-1 text-sm font-medium text-emerald-800">{activity.theme}</p>
         </div>
         <div className="shrink-0 text-left sm:text-right">
           <p className="text-xs font-semibold text-slate-500">{activity.type}</p>
@@ -28,7 +28,7 @@ export default function ActivityItem({ activity }: ActivityItemProps) {
       </ul>
 
       {activity.evidence && (
-        <p className="mt-4 rounded-xl bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-800">
+        <p className="mt-4 border-l-2 border-emerald-700 pl-4 text-sm font-semibold text-stone-800">
           {activity.evidence}
         </p>
       )}

@@ -15,11 +15,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       : "h-48 w-full object-contain object-top transition-transform duration-300 group-hover:scale-[1.02]";
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md">
+    <article className="group flex h-full flex-col overflow-hidden border-t-2 border-stone-800 py-5">
       {preview && (
         <Link
           href={`/projects/${project.slug}`}
-          className="block border-b border-slate-200 bg-slate-50"
+          className="mb-5 block overflow-hidden border border-stone-300 bg-stone-100"
           aria-label={`${project.title} 시각 자료와 상세 내용 보기`}
         >
           <Image
@@ -33,9 +33,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </Link>
       )}
 
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <span className="w-fit rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-bold text-blue-700">
+          <span className="w-fit font-mono text-[11px] font-bold uppercase tracking-wide text-emerald-800">
             {project.type}
           </span>
           <span className="text-xs text-slate-400">{project.period}</span>
@@ -48,7 +48,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </h3>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">{project.theme}</p>
 
-        <div className="mt-5 rounded-xl border-l-4 border-blue-500 bg-slate-50 px-4 py-3">
+        <div className="mt-5 border-l-2 border-emerald-700 pl-4">
           <p className="text-xs font-semibold text-slate-500">핵심 결과</p>
           <p className="mt-1 text-sm font-semibold leading-relaxed text-slate-900">
             {project.shortResult || project.result}
@@ -60,7 +60,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </p>
 
         <div className="mt-auto flex flex-wrap items-center gap-4 pt-5 text-sm font-semibold">
-          <Link href={`/projects/${project.slug}`} className="text-blue-700 hover:underline">
+          <Link href={`/projects/${project.slug}`} className="text-emerald-800 hover:underline">
             상세 보기 →
           </Link>
           {project.githubUrl && (

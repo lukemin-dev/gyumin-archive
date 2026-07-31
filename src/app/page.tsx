@@ -15,12 +15,12 @@ const latestNotes = notes.slice(0, 3);
 
 const highlights = [
   {
-    value: "80% → 100%",
-    label: "AI 비전 시스템 촬영 성공률 개선",
+    value: "80 / 100",
+    label: "초기 플래시 작동·데이터 기록 성공",
   },
   {
-    value: "8,092개",
-    label: "실제 컨베이어 전량 촬영 검증",
+    value: "8,092 / 8,092",
+    label: "센서 설정 변경 후 실제 운영 검증",
   },
   {
     value: "2~3일 → 약 10초",
@@ -28,7 +28,7 @@ const highlights = [
   },
   {
     value: "14,000장",
-    label: "농산물 이미지 데이터셋 구축 규모",
+    label: "기존 농산물 이미지 데이터셋 활용 규모",
   },
 ];
 
@@ -40,9 +40,9 @@ function ExperiencePreview({
   experience: (typeof experiences)[number];
 }) {
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <p className="text-xs font-bold uppercase tracking-[0.14em] text-blue-600">
-        {eyebrow}
+    <article className="border-t-2 border-stone-800 py-6">
+      <p className="font-mono text-xs text-emerald-800">
+        {eyebrow === "Current" ? "지금 하는 일" : "직접 만든 변화"}
       </p>
       <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
         <div>
@@ -52,8 +52,8 @@ function ExperiencePreview({
         <span className="shrink-0 text-xs text-slate-400">{experience.period}</span>
       </div>
       <p className="mt-4 text-sm leading-relaxed text-slate-600">{experience.context}</p>
-      <div className="mt-4 rounded-xl bg-slate-50 px-4 py-3">
-        <p className="text-xs font-semibold text-slate-500">핵심 결과</p>
+      <div className="mt-5 border-l-2 border-emerald-700 pl-4">
+        <p className="font-mono text-xs text-stone-500">결과</p>
         <p className="mt-1 text-sm font-semibold leading-relaxed text-slate-900">
           {experience.result}
         </p>
@@ -65,30 +65,31 @@ function ExperiencePreview({
 export default function Home() {
   return (
     <div>
-      <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-        <div className="grid gap-8 p-7 sm:p-10 md:grid-cols-[1fr_auto] md:items-center">
+      <section className="border-b border-stone-300 pb-12 pt-4 sm:pb-16">
+        <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
-              {profile.title}
+            <p className="font-mono text-sm text-emerald-800">
+              안녕하세요. 이규민입니다.
             </p>
-            <h1 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl sm:leading-[1.12]">
+            <h1 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.055em] text-stone-950 sm:text-6xl sm:leading-[1.08]">
               전체 데이터 흐름에서 문제를 찾고,
               <br className="hidden sm:block" /> 검증과 복구까지 책임집니다.
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-              {profile.tagline}
+            <p className="mt-6 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
+              Python과 Java로 백엔드와 자동화 도구를 만듭니다. 요즘은 한국생산기술연구원에서
+              센서, PLC, 카메라와 AI 모델이 함께 움직이는 농산물 선별 시스템을 들여다보고 있습니다.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href="/projects"
-                className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-slate-800"
+                className="border-b-2 border-stone-900 px-1 py-2 text-sm font-bold text-stone-900 hover:text-emerald-800"
               >
                 대표 프로젝트 보기
               </Link>
               <Link
                 href="/resume"
-                className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-slate-400 hover:bg-slate-50"
+                className="border-b border-stone-400 px-1 py-2 text-sm font-semibold text-stone-700 hover:text-stone-950"
               >
                 이력서 보기
               </Link>
@@ -96,7 +97,7 @@ export default function Home() {
                 href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl px-4 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-50"
+                className="px-1 py-2 text-sm font-semibold text-emerald-800 hover:underline"
               >
                 GitHub ↗
               </a>
@@ -106,9 +107,9 @@ export default function Home() {
               {profile.interests.map((interest) => (
                 <span
                   key={interest}
-                  className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600"
+                  className="font-mono text-xs text-stone-500"
                 >
-                  {interest}
+                  #{interest.replaceAll(" ", "_")}
                 </span>
               ))}
             </div>
@@ -121,7 +122,7 @@ export default function Home() {
                 alt={`${profile.name} 프로필 이미지`}
                 width={144}
                 height={144}
-                className="h-28 w-28 rounded-3xl border border-slate-200 object-cover shadow-sm sm:h-36 sm:w-36"
+                className="h-28 w-28 border border-stone-300 object-cover p-1 sm:h-36 sm:w-36"
                 priority
               />
             </div>
@@ -129,11 +130,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="주요 성과">
-        {highlights.map((item) => (
-          <div key={item.value} className="rounded-2xl border border-slate-200 bg-white p-5">
-            <p className="text-2xl font-bold tracking-tight text-slate-950">{item.value}</p>
-            <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.label}</p>
+      <section className="grid border-b border-stone-300 sm:grid-cols-2 lg:grid-cols-4" aria-label="주요 성과">
+        {highlights.map((item, index) => (
+          <div
+            key={item.value}
+            className={`py-6 sm:px-5 ${index > 0 ? "border-t border-stone-300 sm:border-t-0 sm:border-l" : ""}`}
+          >
+            <p className="text-xl font-bold tracking-tight text-stone-950">{item.value}</p>
+            <p className="mt-2 text-sm leading-relaxed text-stone-500">{item.label}</p>
           </div>
         ))}
       </section>
@@ -142,14 +146,14 @@ export default function Home() {
         <section className="mt-16">
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
-                Experience
+              <p className="font-mono text-xs text-emerald-800">
+                / experience
               </p>
               <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">
                 현장에서 검증한 경험
               </h2>
             </div>
-            <Link href="/experience" className="text-sm font-semibold text-blue-700 hover:underline">
+            <Link href="/experience" className="text-sm font-semibold text-emerald-800 hover:underline">
               전체 경험 보기 →
             </Link>
           </div>
@@ -167,14 +171,14 @@ export default function Home() {
       <section className="mt-16">
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
-              Selected Work
+              <p className="font-mono text-xs text-emerald-800">
+                / selected work
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">
               대표 프로젝트
             </h2>
           </div>
-          <Link href="/projects" className="text-sm font-semibold text-blue-700 hover:underline">
+          <Link href="/projects" className="text-sm font-semibold text-emerald-800 hover:underline">
             전체 프로젝트 보기 →
           </Link>
         </div>
@@ -188,14 +192,14 @@ export default function Home() {
       <section className="mt-16">
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
-              Technical Notes
+              <p className="font-mono text-xs text-emerald-800">
+                / notes
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">
               최근 기술 노트
             </h2>
           </div>
-          <Link href="/notes" className="text-sm font-semibold text-blue-700 hover:underline">
+          <Link href="/notes" className="text-sm font-semibold text-emerald-800 hover:underline">
             전체 글 보기 →
           </Link>
         </div>
@@ -206,30 +210,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-16 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" aria-labelledby="home-languages">
+      <section className="mt-16 border-y border-stone-300 py-7" aria-labelledby="home-languages">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
-              Languages
+            <p className="font-mono text-xs text-emerald-800">
+              / languages
             </p>
             <h2 id="home-languages" className="mt-2 text-xl font-bold text-slate-950">
               영어·일본어 소통 역량
             </h2>
           </div>
           <div className="flex flex-wrap gap-4">
-            <Link href="/en" className="text-sm font-semibold text-blue-700 hover:underline">
+            <Link href="/en" className="text-sm font-semibold text-emerald-800 hover:underline">
               English →
             </Link>
-            <Link href="/jp" className="text-sm font-semibold text-blue-700 hover:underline">
+            <Link href="/jp" className="text-sm font-semibold text-emerald-800 hover:underline">
               日本語 →
             </Link>
           </div>
         </div>
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
           {profile.languages.map((language) => (
-            <div key={language.name} className="rounded-xl bg-slate-50 p-4">
+            <div key={language.name} className="border-l border-stone-300 pl-4">
               <p className="font-bold text-slate-900">{language.name}</p>
-              <p className="mt-1 text-sm font-semibold text-blue-700">
+              <p className="mt-1 text-sm font-semibold text-emerald-800">
                 {language.capability}
               </p>
               <p className="mt-2 text-xs leading-relaxed text-slate-500">
@@ -240,9 +244,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-16 rounded-2xl border border-blue-100 bg-blue-50 p-6 sm:p-8">
-        <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
-          Engineering Principles
+      <section className="mt-16 border-t-2 border-stone-800 py-8">
+        <p className="font-mono text-xs text-emerald-800">
+          / 일할 때 지키는 세 가지
         </p>
         <div className="mt-4 grid gap-5 sm:grid-cols-3">
           {[

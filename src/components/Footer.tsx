@@ -3,14 +3,14 @@ import { profile } from "@/data/profile";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-slate-200 bg-white">
+    <footer className="mt-auto border-t border-stone-300 bg-[#ebe7de]">
       <div className="max-w-5xl mx-auto px-5 sm:px-6 py-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-sm font-semibold text-slate-800">
             {profile.name} · {profile.nameEn}
           </p>
           <p className="mt-1 text-xs text-slate-500">
-            Backend · Cloud · Automation Portfolio
+            직접 만들고, 실패한 이유까지 기록합니다.
           </p>
         </div>
         <div className="flex flex-wrap gap-x-5 gap-y-2">
