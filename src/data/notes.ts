@@ -3,14 +3,14 @@ import type { Note } from "@/types";
 export const notes: Note[] = [
   {
     slug: "tracing-ai-vision-capture-failures",
-    title: "AI 비전 촬영 누락을 센서부터 추론까지 추적한 방법",
+    title: "AI 비전 촬영 누락 원인 찾기: 센서·PLC·카메라 점검 방법",
     date: "2026-07-28",
     summary:
       "농산물 자동 선별 시스템의 촬영 누락을 AI 모델 문제로 단정하지 않고 센서, PLC, 카메라, 추론 단계로 나누어 분석한 과정을 정리했습니다.",
     tags: ["AI 비전", "PLC", "센서", "문제 해결"],
     relatedProject: {
-      slug: "experience",
-      title: "한국생산기술연구원 현장실습 경험",
+      slug: "kitech-ai-vision-sorting",
+      title: "AI 비전·PLC 농산물 자동 선별 시스템",
     },
     evidence: [
       {
@@ -56,10 +56,10 @@ AI 비전 시스템의 장애는 모델만 들여다봐서는 해결되지 않�
   },
   {
     slug: "why-reproducible-automation",
-    title: "재현 가능한 자동화가 중요한 이유",
+    title: "Gemini API 자동화 실패 복구: 재시도·체크포인트 적용",
     date: "2026-02-28",
     summary:
-      "자동화를 만들 때 '재현 가능성'을 왜 핵심 원칙으로 삼아야 하는지, 인턴십 경험을 바탕으로 정리한 글입니다.",
+      "Gemini API 할당량 초과와 응답 지연에 대응하기 위해 입력 검증, 재시도와 체크포인트를 적용한 과정을 정리했습니다.",
     tags: ["자동화", "DevOps", "재현성"],
     relatedProject: {
       slug: "seo-automation",
@@ -83,10 +83,10 @@ Crosslink 인턴십에서 SEO 자동화 파이프라인을 구축하면서 입�
   },
   {
     slug: "java-socket-logging-lessons",
-    title: "Java Socket 로깅에서 배운 것",
+    title: "Java Socket 메시지가 잘리는 이유: TCP 메시지 경계와 로깅",
     date: "2024-06-20",
     summary:
-      "멀티스레드 Socket 서버에서 구조화된 로깅이 왜 필수인지, 프로젝트 경험을 통해 정리했습니다.",
+      "멀티스레드 Socket 서버에서 메시지가 잘린 원인과 길이 기반 메시지 경계 처리, 구조화된 로깅 적용 과정을 정리했습니다.",
     tags: ["Java", "Socket", "로깅", "디버깅"],
     relatedProject: {
       slug: "java-socket",
@@ -107,10 +107,10 @@ Crosslink 인턴십에서 SEO 자동화 파이프라인을 구축하면서 입�
   },
   {
     slug: "edge-to-cloud-iot",
-    title: "IoT 모니터링에서 Edge-to-Cloud 흐름이 중요한 이유",
+    title: "Raspberry Pi 센서 데이터를 Flask·AWS로 전송한 방법",
     date: "2026-07-20",
     summary:
-      "IoT 데이터를 Edge에서 Cloud까지 안정적으로 전달하는 구조를 설계하면서 배운 점을 정리했습니다.",
+      "Raspberry Pi 센서 값을 2초 주기로 Flask API와 AWS EC2에 전송하고 모바일 화면까지 연결한 과정을 정리했습니다.",
     tags: ["IoT", "클라우드", "Edge Computing", "모니터링"],
     relatedProject: {
       slug: "warehouse-fire-anomaly-monitor",

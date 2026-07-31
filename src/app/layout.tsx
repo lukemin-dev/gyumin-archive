@@ -63,6 +63,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "BQ413X8nbm4_arZBeDcGxtp7xi-pVK_WhRVhGZvvmm4",
+  },
 };
 
 const structuredData = {
