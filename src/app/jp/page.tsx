@@ -163,7 +163,7 @@ export default function JapanesePortfolioPage() {
             <div className="border-t border-slate-100 pt-6">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <h3 className="font-bold text-slate-900">Crosslink · AI SEO自動化インターン</h3>
+                  <h3 className="font-bold text-slate-900">Yahoo-Crosslink · AI SEO自動化インターン</h3>
                   <p className="mt-1 text-sm text-slate-500">日本・横浜</p>
                 </div>
                 <span className="text-xs text-slate-400">2026年1月〜2月</span>

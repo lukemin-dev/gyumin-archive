@@ -8,7 +8,7 @@ export const metadata = {
 
 const resumeHighlights = [
   "한국생산기술연구원 AI 비전·PLC 현장실습 인턴",
-  "Crosslink AI SEO 자동화 인턴십 · 2~3일 → 약 10초",
+  "Yahoo-Crosslink AI SEO 자동화 인턴십 · 2~3일 → 약 10초",
   "전남대학교 소프트컴퓨팅·인공지능 연구실 학부연구생",
   "백엔드·AI 비전·자동화 프로젝트와 GitHub 증명 자료",
   "GPA 4.23/4.5 · 성적우수장학금 6회 · 멘토링 294.5시간",

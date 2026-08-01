@@ -172,7 +172,7 @@ export default function EnglishSummaryPage() {
             <div className="border-t border-slate-100 pt-6">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <h3 className="font-bold text-slate-900">Crosslink · AI SEO Automation Intern</h3>
+                  <h3 className="font-bold text-slate-900">Yahoo-Crosslink · AI SEO Automation Intern</h3>
                   <p className="mt-1 text-sm text-slate-500">Yokohama, Japan</p>
                 </div>
                 <span className="text-xs text-slate-400">Jan 2026 – Feb 2026</span>

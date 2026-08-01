@@ -71,14 +71,14 @@ export const projects: Project[] = [
     period: "2026.01-2026.02",
     theme: "2~3일 걸리던 SEO 분석·보고를 약 10초로 줄인 자동화 도구",
     role: "단독 수행 · Python 자동화 파이프라인 전체 설계·구현 및 외부 API 장애 대응",
-    scope: "Crosslink 웹사이트 전체의 데이터 수집·정제·우선순위 산정·AI 초안·Markdown 보고서 출력까지 연결",
+    scope: "Yahoo-Crosslink 웹사이트 전체의 데이터 수집·정제·우선순위 산정·AI 초안·Markdown 보고서 출력까지 연결",
     details: [
       "GSC API, Google Sheets API, Gemini API를 연동해 데이터 수집부터 리포트 생성까지 자동화",
       "입력 스키마 검증, 예외 데이터 분리, 재시도 규칙, 체크포인트를 적용",
       "수작업으로 2~3일 걸리던 SEO 분석 과정을 약 10초 내외로 단축",
     ],
     problem:
-      "Crosslink 웹사이트 전체의 SEO 데이터를 수동으로 수집·분석·보고하는 데 약 2~3일이 걸렸습니다. 사람이 하다 보니 누락이 생기고, 담당자에 따라 분석 기준이 달라서 일관된 결과를 얻기 어려웠습니다.",
+      "Yahoo-Crosslink 웹사이트 전체의 SEO 데이터를 수동으로 수집·분석·보고하는 데 약 2~3일이 걸렸습니다. 사람이 하다 보니 누락이 생기고, 담당자에 따라 분석 기준이 달라서 일관된 결과를 얻기 어려웠습니다.",
     myContribution: [
       "GSC API와 Google Sheets API를 연동해 데이터 수집 및 입출력 자동화",
       "데이터 정제 후 우선순위 스코어링 로직 구현",

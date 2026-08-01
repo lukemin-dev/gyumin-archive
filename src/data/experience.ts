@@ -20,8 +20,8 @@ export const experiences: Experience[] = [
     techStack: ["Python", "YOLO", "ConvNeXt", "PLC", "KEYENCE LR-Z", "Computer Vision"],
   },
   {
-    title: "Crosslink 인턴십 — SEO 자동화팀",
-    company: "Crosslink (일본, 요코하마)",
+    title: "Yahoo-Crosslink 인턴십 — SEO 자동화팀",
+    company: "Yahoo-Crosslink (일본, 요코하마)",
     period: "2026.01 - 2026.02",
     context:
       "요코하마 소재 IT 기업의 SEO 자동화팀에서 인턴으로 근무하며 AI 기반 SEO 분석 파이프라인 개발을 담당했습니다.",
