@@ -28,11 +28,13 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = Path(os.environ.get("RESUME_OUTPUT", ROOT / "public" / "resume.pdf"))
 
 REGULAR_FONT_CANDIDATES = [
+    os.environ.get("RESUME_FONT_REGULAR", ""),
     "/usr/share/fonts/truetype/nanum/NanumSquareR.ttf",
     "/usr/share/fonts/truetype/nanum/NanumSquareRoundR.ttf",
     "/usr/share/fonts/truetype/nanum/NanumGothic.ttf",
 ]
 BOLD_FONT_CANDIDATES = [
+    os.environ.get("RESUME_FONT_BOLD", ""),
     "/usr/share/fonts/truetype/nanum/NanumSquareB.ttf",
     "/usr/share/fonts/truetype/nanum/NanumSquareRoundB.ttf",
     "/usr/share/fonts/truetype/nanum/NanumGothicBold.ttf",
@@ -47,7 +49,7 @@ ACCENT = colors.HexColor("#2563EB")
 
 def first_existing(paths: Iterable[str]) -> str:
     for path in paths:
-        if Path(path).exists():
+        if path and Path(path).is_file():
             return path
     raise FileNotFoundError("Nanum font was not found. Install fonts-nanum first.")
 
@@ -272,7 +274,7 @@ def build_resume(output_path: Path) -> None:
         Paragraph(
             "Python·Java로 API와 자동화 파이프라인을 구현하고 AWS/Linux 환경에 배포한 경험이 있습니다. "
             "<b>일본 IT 기업 인턴십에서 2~3일 걸리던 SEO 분석·보고 업무를 약 10초로 단축</b>했습니다. "
-            "현재 한국생산기술연구원에서 AI 비전·PLC 기반 자동 선별 시스템의 데이터 흐름과 현장 동작을 분석하고 있습니다.",
+            "한국생산기술연구원 현장실습에서 촬영 누락 구간의 LR-Z 센서 입력, PLC 출력, 카메라 트리거를 순서대로 점검했습니다.",
             styles["summary"],
         ),
     ]
@@ -284,7 +286,7 @@ def build_resume(output_path: Path) -> None:
         entry_header(
             "한국생산기술연구원",
             "AI 비전·PLC 현장실습 인턴",
-            "재직 중",
+            "2026.07 - 2026.08.14",
             "모빌리티 핵심부품소재센터 · 광주",
             styles,
         )
@@ -292,11 +294,11 @@ def build_resume(output_path: Path) -> None:
     kitech.extend(
         [
             bullet(
-                "YOLO 객체 검출과 ConvNeXt 등급 분류 모델을 학습·튜닝하고 실제 컨베이어 환경에서 성능을 검증",
+                "YOLO 객체 검출·ConvNeXt 등급 분류 모델 학습·튜닝에 참여하고, 실제 컨베이어에서 플래시 작동과 데이터 기록을 확인",
                 styles,
             ),
             bullet(
-                "초기 검증 100개 중 80개만 플래시 작동·데이터 기록에 성공한 원인을 센서 입력 → PLC 출력 → 카메라 트리거 → AI 추론 단계로 분리하고 센서 설정을 변경",
+                "초기 검증 100개 중 80개에서만 플래시 작동·데이터 기록을 확인한 뒤, LR-Z 센서 설정과 PLC P41~P44 출력 조건을 조정",
                 styles,
             ),
             bullet(

@@ -5,8 +5,8 @@ export const profile: Profile = {
   nameEn: "Gyumin Lee",
   title: "Backend · Cloud · Automation Engineer",
   tagline:
-    "복잡한 문제를 입력부터 결과까지 따라가며 원인을 찾고, 다시 같은 문제가 생겨도 대응할 수 있는 구조로 정리합니다.",
-  bio: "코드만 들여다보기보다 데이터가 어디에서 들어와 어떻게 흘러가는지 먼저 확인하는 개발자입니다. 일본 IT 기업 인턴십에서는 수작업으로 2~3일 걸리던 SEO 분석·보고 과정을 자동화했고, 지금은 한국생산기술연구원에서 센서와 PLC, 카메라, AI 모델이 함께 움직이는 농산물 선별 시스템을 다루고 있습니다. 잘된 결과만 남기기보다 막혔던 이유와 확인한 순서까지 기록하려고 합니다.",
+    "입력값과 로그를 확인해 문제가 생긴 지점을 좁히고, 실패해도 이어서 실행할 수 있게 만듭니다.",
+  bio: "입력값, 로그, 결과를 함께 확인해 문제가 생긴 지점을 좁히는 개발자입니다. 일본 IT 기업 인턴십에서는 수작업으로 2~3일 걸리던 SEO 분석·보고 과정을 약 10초로 자동화했습니다. 한국생산기술연구원 현장실습에서는 촬영 누락이 난 대상을 기준으로 LR-Z 센서, PLC, 카메라 트리거를 차례로 점검했습니다.",
   email: "lgmlgm227@naver.com",
   github: "https://github.com/lukemin-dev",
   portfolioRepo: "https://github.com/lukemin-dev/gyumin-archive",

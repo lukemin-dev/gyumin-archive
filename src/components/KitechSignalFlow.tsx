@@ -13,7 +13,7 @@ export default function KitechSignalFlow() {
         <p className="text-xs font-bold uppercase tracking-[0.14em] text-blue-700">
           Signal Flow
         </p>
-        <p className="mt-2 font-bold text-slate-950">촬영 결과가 만들어지는 전체 흐름</p>
+        <p className="mt-2 font-bold text-slate-950">플래시 작동과 데이터 기록을 확인한 순서</p>
         <p className="mt-1 text-sm text-slate-600">
           각 경계의 입력과 출력을 순서대로 확인해 누락 지점을 좁혔습니다.
         </p>

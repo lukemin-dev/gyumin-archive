@@ -104,7 +104,7 @@ export default function JapanesePortfolioPage() {
         </p>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-500">
           横浜のIT企業でのインターンでは、手作業で2〜3日かかっていたSEO分析・レポート業務を約10秒に短縮しました。
-          現在は韓国生産技術研究院で、AIビジョンとPLCを活用した農産物自動選別システムに取り組んでいます。
+          韓国生産技術研究院では、2026年7月から8月14日までAIビジョンとPLCを活用した農産物自動選別システムに取り組みました。
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link href="/" className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50">
@@ -151,12 +151,12 @@ export default function JapanesePortfolioPage() {
                   <h3 className="font-bold text-slate-900">韓国生産技術研究院 · AIビジョン・PLCインターン</h3>
                   <p className="mt-1 text-sm text-slate-500">韓国・光州</p>
                 </div>
-                <span className="text-xs text-slate-400">在職中</span>
+                <span className="text-xs text-slate-400">2026年7月〜8月14日</span>
               </div>
               <ul className="mt-3 list-disc space-y-2 pl-5">
-                <li>コンベヤー環境でYOLO物体検出モデルとConvNeXt等級分類モデルを学習・評価しています。</li>
-                <li>初期検証では100個中80個でフラッシュ作動とデータ記録を確認しました。信号の流れを段階別に調べ、センサー設定を変更しました。</li>
-                <li>変更後の実運用ではタマネギ8,092個すべてが同じ成功条件を満たしました。モデル学習には既存の農産物画像約14,000枚を活用しました。</li>
+                <li>YOLO物体検出モデルとConvNeXt等級分類モデルの学習・チューニングに参加しました。</li>
+                <li>初期検証では100個中80個でフラッシュ作動とデータ記録を確認しました。LR-Z入力、PLC出力、カメラトリガーを順に調べ、センサー設定を変更しました。</li>
+                <li>変更後の実運用ではタマネギ8,092個（2,136.38kg）すべてでフラッシュ作動とデータ記録を確認しました。モデル学習には既存の農産物画像約14,000枚を活用しました。</li>
               </ul>
             </div>
 

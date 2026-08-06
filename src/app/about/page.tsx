@@ -11,9 +11,7 @@ export const metadata = {
 
 export default function AboutPage() {
   const education = profile.education[0];
-  const currentExperience = experiences.find((experience) =>
-    experience.period.includes("재직 중") || experience.period.includes("진행 중"),
-  );
+  const recentExperience = experiences[0];
 
   return (
     <div>
@@ -56,21 +54,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {currentExperience && (
+      {recentExperience && (
         <SectionBlock
-          title="현재 집중하는 경험"
-          description="지금 맡고 있는 범위까지만 적었습니다."
+          title="최근 현장 경험"
+          description="현장실습에서 직접 맡은 범위까지만 적었습니다."
         >
           <div className="rounded-2xl border border-blue-100 bg-blue-50 p-6">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <h3 className="font-bold text-slate-950">{currentExperience.title}</h3>
-                <p className="mt-1 text-sm text-slate-500">{currentExperience.company}</p>
+                <h3 className="font-bold text-slate-950">{recentExperience.title}</h3>
+                <p className="mt-1 text-sm text-slate-500">{recentExperience.company}</p>
               </div>
-              <span className="text-xs font-semibold text-blue-700">{currentExperience.period}</span>
+              <span className="text-xs font-semibold text-blue-700">{recentExperience.period}</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-slate-700">
-              {currentExperience.responsibility}
+              {recentExperience.responsibility}
             </p>
           </div>
         </SectionBlock>

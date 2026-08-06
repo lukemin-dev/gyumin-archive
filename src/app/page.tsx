@@ -6,9 +6,7 @@ import { experiences } from "@/data/experience";
 import { profile } from "@/data/profile";
 import { notes, projects } from "@/lib/content-data";
 
-const currentExperience = experiences.find((experience) =>
-  experience.period.includes("재직 중") || experience.period.includes("진행 중"),
-);
+const recentExperience = experiences[0];
 const impactExperience = experiences.find((experience) => experience.featured);
 const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
 const latestNotes = notes.slice(0, 3);
@@ -42,7 +40,7 @@ function ExperiencePreview({
   return (
     <article className="border-t-2 border-stone-800 py-6">
       <p className="font-mono text-xs text-emerald-800">
-        {eyebrow === "Current" ? "지금 하는 일" : "직접 만든 변화"}
+        {eyebrow === "Recent" ? "최근 현장 경험" : "직접 만든 변화"}
       </p>
       <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
         <div>
@@ -77,8 +75,8 @@ export default function Home() {
               <br className="hidden sm:block" /> 먼저 봅니다.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
-              Python과 Java로 백엔드와 자동화 도구를 만듭니다. 요즘은 한국생산기술연구원에서
-              센서, PLC, 카메라와 AI 모델이 함께 움직이는 농산물 선별 시스템을 들여다보고 있습니다.
+              Python과 Java로 백엔드와 자동화 도구를 만듭니다. 한국생산기술연구원 현장실습에서는
+              촬영 누락 구간에서 LR-Z 센서 입력, PLC 출력, 카메라 트리거를 차례로 확인했습니다.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -143,7 +141,7 @@ export default function Home() {
         ))}
       </section>
 
-      {(currentExperience || impactExperience) && (
+      {(recentExperience || impactExperience) && (
         <section className="mt-16">
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
@@ -151,7 +149,7 @@ export default function Home() {
                 / experience
               </p>
               <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">
-                지금 하고 있는 일
+                최근 실무 경험
               </h2>
             </div>
             <Link href="/experience" className="text-sm font-semibold text-emerald-800 hover:underline">
@@ -159,10 +157,10 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid gap-5 lg:grid-cols-2">
-            {currentExperience && (
-              <ExperiencePreview eyebrow="Current" experience={currentExperience} />
+            {recentExperience && (
+              <ExperiencePreview eyebrow="Recent" experience={recentExperience} />
             )}
-            {impactExperience && impactExperience !== currentExperience && (
+            {impactExperience && impactExperience !== recentExperience && (
               <ExperiencePreview eyebrow="Measured Impact" experience={impactExperience} />
             )}
           </div>

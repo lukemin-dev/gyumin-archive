@@ -99,8 +99,9 @@ export default function EnglishSummaryPage() {
           I build backend systems and automation workflows with clear input rules,
           observable logs, and failure recovery in mind. During an internship in
           Japan, I reduced an SEO analysis and reporting workflow from two to three
-          days to about ten seconds. I am currently working on an AI vision and PLC
-          based agricultural sorting system at the Korea Institute of Industrial Technology.
+          days to about ten seconds. From July 2026 through August 14, 2026, I worked
+          on an AI vision and PLC-based agricultural sorting system at the Korea Institute
+          of Industrial Technology.
         </p>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-500">
           I can communicate in English for technical documentation and project work,

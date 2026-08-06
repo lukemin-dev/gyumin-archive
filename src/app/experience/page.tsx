@@ -13,7 +13,7 @@ export default function ExperiencePage() {
       <PageHeader
         eyebrow="Experience"
         title="어디에서 무엇을 맡았는지"
-        description="현재 업무와 인턴십, 연구 경험을 실제로 맡은 일과 결과를 기준으로 적었습니다."
+        description="현장실습과 인턴십, 연구 경험을 실제로 맡은 일과 결과를 기준으로 적었습니다."
       />
 
       <div className="grid gap-6">

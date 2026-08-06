@@ -28,13 +28,13 @@ export default function ResumePage() {
         <div className="grid gap-8 p-7 sm:p-9 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
             <span className="inline-flex rounded-full bg-blue-50 px-3 py-1.5 text-xs font-bold text-blue-700">
-              2026.07 업데이트 · A4 1페이지
+              2026.08 업데이트 · A4 1페이지
             </span>
             <h2 className="mt-5 text-2xl font-bold tracking-tight text-slate-950">
               {profile.name} · {profile.title}
             </h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-600">
-              실무 성과, 현재 경험, 대표 프로젝트와 기술 기반을 한 화면에서 확인할 수 있습니다.
+              실무 성과, 현장 경험, 대표 프로젝트와 기술 기반을 한 화면에서 확인할 수 있습니다.
               이메일·GitHub·포트폴리오 링크도 PDF 안에서 바로 열립니다.
             </p>
 
