@@ -6,7 +6,7 @@ export const profile: Profile = {
   title: "Backend · Cloud · Automation Engineer",
   tagline:
     "입력값과 로그를 확인해 문제가 생긴 지점을 좁히고, 실패해도 이어서 실행할 수 있게 만듭니다.",
-  bio: "입력값, 로그, 결과를 함께 확인해 문제가 생긴 지점을 좁히는 개발자입니다. 일본 IT 기업 인턴십에서는 수작업으로 2~3일 걸리던 SEO 분석·보고 과정을 약 10초로 자동화했습니다. 한국생산기술연구원 현장실습에서는 촬영 누락이 난 대상을 기준으로 LR-Z 센서, PLC, 카메라 트리거를 차례로 점검했습니다.",
+  bio: "입력값, 로그, 결과를 함께 확인해 문제가 생긴 지점을 좁히는 개발자입니다. 일본 IT 기업 인턴십에서는 수작업으로 2~3일 걸리던 SEO 분석·보고 과정을 약 10초로 자동화했고, 현장실습에서는 ROS2 통신 격리와 공개 LiDAR 데이터 재현 결과를 검증했습니다.",
   email: "lgmlgm227@naver.com",
   github: "https://github.com/lukemin-dev",
   portfolioRepo: "https://github.com/lukemin-dev/gyumin-archive",
@@ -51,7 +51,7 @@ export const profile: Profile = {
     },
     {
       category: "AI & Automation",
-      items: ["YOLO", "ConvNeXt", "scikit-learn", "GSC API", "Google Sheets API", "Gemini API", "PLC"],
+      items: ["scikit-learn", "GSC API", "Google Sheets API", "Gemini API", "ROS2", "FAST-LIO"],
     },
     {
       category: "Engineering Practice",

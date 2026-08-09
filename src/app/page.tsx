@@ -13,20 +13,20 @@ const latestNotes = notes.slice(0, 3);
 
 const highlights = [
   {
-    value: "80 / 100",
-    label: "초기 플래시 작동·데이터 기록 성공",
+    value: "10개",
+    label: "TF Tutorial 실행 파일 빌드·실행",
   },
   {
-    value: "8,092 / 8,092",
-    label: "센서 설정 변경 뒤 실제 운영 결과",
+    value: "0.0164 rad",
+    label: "Turtlesim 90도 회전 최종 각도 오차",
   },
   {
     value: "2~3일 → 약 10초",
     label: "SEO 분석·보고 자동화 전후",
   },
   {
-    value: "14,000장",
-    label: "학습에 사용한 기존 농산물 이미지",
+    value: "6종",
+    label: "공개 Livox rosbag 재생·PCD 생성 검수",
   },
 ];
 
@@ -75,8 +75,8 @@ export default function Home() {
               <br className="hidden sm:block" /> 먼저 봅니다.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
-              Python과 Java로 백엔드와 자동화 도구를 만듭니다. 한국생산기술연구원 현장실습에서는
-              촬영 누락 구간에서 LR-Z 센서 입력, PLC 출력, 카메라 트리거를 차례로 확인했습니다.
+              Python과 Java로 백엔드와 자동화 도구를 만듭니다. 외부 API 장애가 나도 중간부터 다시
+              실행할 수 있게 만들고, ROS2 통신 격리와 공개 LiDAR 데이터 재현 결과를 검증했습니다.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">

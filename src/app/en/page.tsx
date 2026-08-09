@@ -4,7 +4,7 @@ import { profile } from "@/data/profile";
 export const metadata = {
   title: "Gyumin Lee | English Summary",
   description:
-    "English summary of Gyumin Lee's backend, automation, cloud, and AI vision experience.",
+    "English summary of Gyumin Lee's backend, automation, cloud, ROS2, and LiDAR data processing experience.",
   alternates: {
     canonical: "/en",
     languages: {
@@ -16,7 +16,7 @@ export const metadata = {
   openGraph: {
     title: "Gyumin Lee | Backend · Cloud · Automation",
     description:
-      "English portfolio summary covering backend, automation, cloud, AI vision, and multilingual communication experience.",
+      "English portfolio summary covering backend, automation, cloud, ROS2, LiDAR data processing, and multilingual communication experience.",
     url: "/en",
     locale: "en_US",
   },
@@ -44,19 +44,13 @@ const projects = [
 ];
 
 const achievements = [
-  { value: "80/100 → 8,092/8,092", label: "Flash activation and data recording" },
-  { value: "8,092", label: "Onions captured in a full production run" },
-  { value: "14,000", label: "Existing agricultural images used" },
   { value: "~10 sec", label: "SEO analysis and reporting workflow" },
+  { value: "10", label: "TF tutorial executables built and run" },
+  { value: "0.0164 rad", label: "Final Turtlesim 90-degree turn error" },
+  { value: "6", label: "Public Livox rosbag runs with PCD output checked" },
 ];
 
 const technicalNotes = [
-  {
-    href: "/notes/tracing-ai-vision-capture-failures",
-    title: "Tracing AI Vision Capture Failures from Sensor to Inference",
-    description:
-      "How I separated the LR-Z sensor, PLC, camera trigger, YOLO, and ConvNeXt stages to locate missed captures.",
-  },
   {
     href: "/notes/edge-to-cloud-iot",
     title: "Why the Edge-to-Cloud Flow Matters in IoT Monitoring",
@@ -99,9 +93,8 @@ export default function EnglishSummaryPage() {
           I build backend systems and automation workflows with clear input rules,
           observable logs, and failure recovery in mind. During an internship in
           Japan, I reduced an SEO analysis and reporting workflow from two to three
-          days to about ten seconds. From July 2026 through August 14, 2026, I worked
-          on an AI vision and PLC-based agricultural sorting system at the Korea Institute
-          of Industrial Technology.
+          days to about ten seconds. During field practice, I verified ROS2 communication isolation,
+          TF-based control, and public LiDAR data reproduction results.
         </p>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-500">
           I can communicate in English for technical documentation and project work,
@@ -157,17 +150,18 @@ export default function EnglishSummaryPage() {
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h3 className="font-bold text-slate-900">
-                    Korea Institute of Industrial Technology · AI Vision & PLC Intern
+                    Korea Institute of Industrial Technology · ROS2 and LiDAR Data Processing Intern
                   </h3>
                   <p className="mt-1 text-sm text-slate-500">Gwangju, Korea</p>
                 </div>
-                <span className="text-xs text-slate-400">Currently employed</span>
+                <span className="text-xs text-slate-400">Jul 2026 – Aug 14, 2026</span>
               </div>
               <ul className="mt-3 space-y-2">
-                <li>Trained and evaluated YOLO object detection and ConvNeXt classification models in a conveyor environment.</li>
-                <li>In the initial test, 80 of 100 items triggered the flash and produced a data record. I traced the signal flow and changed the sensor settings.</li>
-                <li>After the change, all 8,092 onions in a production run met the same success criteria. I also used an existing dataset of about 14,000 agricultural images for model training and tuning.</li>
+                <li>Separated same-named Topic, Service, and Action communication with ROS_DOMAIN_ID 1 and 2, then checked data delivery through Domain Bridge.</li>
+                <li>Built and ran 10 TF tutorial executables. In Turtlesim PID control, confirmed a final angle of 1.554 rad and a target error of 0.0164 rad for a 90-degree turn.</li>
+                <li>Reproduced six public Livox rosbags with FAST-LIO in Docker-based ROS1 Noetic and checked PointCloud, Path, and PCD outputs.</li>
               </ul>
+              <p className="mt-3 text-xs text-slate-500">This work was limited to learning and reproduction with public code and datasets; it did not include operating real LiDAR, JACKAL, or a minicart, or developing FAST-LIO itself.</p>
             </div>
 
             <div className="border-t border-slate-100 pt-6">

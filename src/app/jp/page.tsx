@@ -23,10 +23,10 @@ export const metadata = {
 };
 
 const achievements = [
-  { value: "80/100 → 8,092/8,092", label: "フラッシュ作動・データ記録" },
-  { value: "8,092個", label: "実運用で全数撮影を確認" },
   { value: "約10秒", label: "SEO分析・レポート作業" },
   { value: "6回", label: "成績優秀奨学金" },
+  { value: "10個", label: "TF Tutorial実行ファイルのビルド・実行" },
+  { value: "0.0164 rad", label: "Turtlesimの90度回転の最終角度誤差" },
 ];
 
 const workPrinciples = [
@@ -104,7 +104,7 @@ export default function JapanesePortfolioPage() {
         </p>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-500">
           横浜のIT企業でのインターンでは、手作業で2〜3日かかっていたSEO分析・レポート業務を約10秒に短縮しました。
-          韓国生産技術研究院では、2026年7月から8月14日までAIビジョンとPLCを活用した農産物自動選別システムに取り組みました。
+          現場実習では、ROS2通信の分離、TFを用いた制御、公開LiDARデータの再現結果を検証しました。
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link href="/" className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50">
@@ -148,16 +148,17 @@ export default function JapanesePortfolioPage() {
             <div>
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <h3 className="font-bold text-slate-900">韓国生産技術研究院 · AIビジョン・PLCインターン</h3>
+                  <h3 className="font-bold text-slate-900">韓国生産技術研究院 · ROS2・LiDARデータ処理インターン</h3>
                   <p className="mt-1 text-sm text-slate-500">韓国・光州</p>
                 </div>
                 <span className="text-xs text-slate-400">2026年7月〜8月14日</span>
               </div>
               <ul className="mt-3 list-disc space-y-2 pl-5">
-                <li>YOLO物体検出モデルとConvNeXt等級分類モデルの学習・チューニングに参加しました。</li>
-                <li>初期検証では100個中80個でフラッシュ作動とデータ記録を確認しました。LR-Z入力、PLC出力、カメラトリガーを順に調べ、センサー設定を変更しました。</li>
-                <li>変更後の実運用ではタマネギ8,092個（2,136.38kg）すべてでフラッシュ作動とデータ記録を確認しました。モデル学習には既存の農産物画像約14,000枚を活用しました。</li>
+                <li>ROS_DOMAIN_ID 1・2で同名のTopic・Service・Action通信を分離し、Domain Bridgeによるデータ伝達を確認しました。</li>
+                <li>TF Tutorialの実行ファイル10個をビルド・実行し、Turtlesim PID制御では90度回転で最終角度1.554 rad、目標との差0.0164 radを確認しました。</li>
+                <li>DockerベースのROS1 Noetic・FAST-LIO環境で公開Livox rosbag 6種を再現し、PointCloud・Path・PCD生成結果を検証しました。</li>
               </ul>
+              <p className="mt-3 text-xs text-slate-500">公開コードと公開データセットを用いた学習・再現の範囲であり、実機LiDAR・JACKAL・ミニカーの運用やFAST-LIO自体の開発は含みません。</p>
             </div>
 
             <div className="border-t border-slate-100 pt-6">

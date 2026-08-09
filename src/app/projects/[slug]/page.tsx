@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import KitechSignalFlow from "@/components/KitechSignalFlow";
 import { getProjectVisuals } from "@/data/project-visuals";
 import { notes, projects } from "@/lib/content-data";
 
@@ -54,16 +53,6 @@ const projectSectionLabels: Record<
   string,
   Partial<typeof defaultSectionLabels>
 > = {
-  "kitech-ai-vision-sorting": {
-    problem: "처음 본 증상",
-    result: "센서 설정을 바꾼 뒤",
-    bottleneck: "왜 바로 원인을 찾기 어려웠나",
-    solution: "플래시가 멈춘 지점부터 확인",
-    evidence: "공개할 수 있는 현장 근거",
-    validation: "성공으로 본 기준",
-    tech: "사용한 장비와 모델",
-    retrospective: "다시 한다면",
-  },
   "seo-automation": {
     problem: "자동화 전",
     result: "자동화 후",
@@ -203,12 +192,6 @@ export default async function ProjectDetailPage({
           </div>
         )}
       </header>
-
-      {project.slug === "kitech-ai-vision-sorting" && (
-        <div className="mt-6">
-          <KitechSignalFlow />
-        </div>
-      )}
 
       {visuals.length > 0 && (
         <section className="mt-10 border-t-2 border-stone-800 py-6 sm:py-8">

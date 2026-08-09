@@ -32,12 +32,14 @@ REGULAR_FONT_CANDIDATES = [
     "/usr/share/fonts/truetype/nanum/NanumSquareR.ttf",
     "/usr/share/fonts/truetype/nanum/NanumSquareRoundR.ttf",
     "/usr/share/fonts/truetype/nanum/NanumGothic.ttf",
+    "/System/Library/Fonts/Supplemental/AppleGothic.ttf",
 ]
 BOLD_FONT_CANDIDATES = [
     os.environ.get("RESUME_FONT_BOLD", ""),
     "/usr/share/fonts/truetype/nanum/NanumSquareB.ttf",
     "/usr/share/fonts/truetype/nanum/NanumSquareRoundB.ttf",
     "/usr/share/fonts/truetype/nanum/NanumGothicBold.ttf",
+    "/System/Library/Fonts/Supplemental/AppleGothic.ttf",
 ]
 
 INK = colors.HexColor("#111827")
@@ -255,7 +257,7 @@ def build_resume(output_path: Path) -> None:
         title="이규민 이력서",
         author="Lee Gyumin",
         subject="Backend Cloud Automation Engineer Resume",
-        keywords="Backend, Cloud, Automation, Python, Java, AWS, AI Vision, PLC",
+        keywords="Backend, Cloud, Automation, Python, Java, AWS, ROS2, LiDAR",
         pageCompression=1,
     )
     frame = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="resume", showBoundary=0)
@@ -274,7 +276,7 @@ def build_resume(output_path: Path) -> None:
         Paragraph(
             "Python·Java로 API와 자동화 파이프라인을 구현하고 AWS/Linux 환경에 배포한 경험이 있습니다. "
             "<b>일본 IT 기업 인턴십에서 2~3일 걸리던 SEO 분석·보고 업무를 약 10초로 단축</b>했습니다. "
-            "한국생산기술연구원 현장실습에서 촬영 누락 구간의 LR-Z 센서 입력, PLC 출력, 카메라 트리거를 순서대로 점검했습니다.",
+            "현장실습에서는 ROS2 통신 격리와 공개 LiDAR 데이터 재현 결과를 검증했습니다.",
             styles["summary"],
         ),
     ]
@@ -285,7 +287,7 @@ def build_resume(output_path: Path) -> None:
     kitech.extend(
         entry_header(
             "한국생산기술연구원",
-            "AI 비전·PLC 현장실습 인턴",
+            "ROS2·LiDAR 데이터 처리 현장실습 인턴",
             "2026.07 - 2026.08.14",
             "모빌리티 핵심부품소재센터 · 광주",
             styles,
@@ -294,15 +296,15 @@ def build_resume(output_path: Path) -> None:
     kitech.extend(
         [
             bullet(
-                "YOLO 객체 검출·ConvNeXt 등급 분류 모델 학습·튜닝에 참여하고, 실제 컨베이어에서 플래시 작동과 데이터 기록을 확인",
+                "ROS_DOMAIN_ID 1·2에서 동일한 Topic·Service·Action 통신을 분리하고 Domain Bridge의 데이터 전달을 확인",
                 styles,
             ),
             bullet(
-                "초기 검증 100개 중 80개에서만 플래시 작동·데이터 기록을 확인한 뒤, LR-Z 센서 설정과 PLC P41~P44 출력 조건을 조정",
+                "TF Tutorial 실행 파일 10개를 빌드·실행하고, Turtlesim PID 제어의 90도 회전에서 최종 각도 1.554 rad·오차 0.0164 rad를 확인",
                 styles,
             ),
             bullet(
-                "양파·단호박 촬영 데이터를 등급 기준에 맞춰 라벨링하고 학습 데이터의 품질을 검수",
+                "Docker 기반 ROS1 Noetic·FAST-LIO 환경에서 공개 Livox rosbag 6종을 재현하고 PointCloud·Path·PCD 생성 결과를 검수",
                 styles,
             ),
         ]
@@ -428,7 +430,7 @@ def build_resume(output_path: Path) -> None:
         Paragraph(
             "<b>Backend:</b> Java, Spring Boot, Python, Flask, REST API, SQL, SQLite&nbsp;&nbsp;|&nbsp;&nbsp;"
             "<b>Cloud / Infra:</b> AWS EC2, Linux, systemd, Git, GitHub Actions<br/>"
-            "<b>AI / Automation:</b> YOLO, ConvNeXt, scikit-learn, GSC API, Google Sheets API, Gemini API, ROS2&nbsp;&nbsp;|&nbsp;&nbsp;"
+            "<b>AI / Automation:</b> scikit-learn, GSC API, Google Sheets API, Gemini API, ROS2, FAST-LIO&nbsp;&nbsp;|&nbsp;&nbsp;"
             "<b>Practices:</b> Input Validation, Retry, Checkpointing, Logging, Testing<br/>"
             "<b>CS:</b> 자료구조, 알고리즘, 운영체제, 데이터베이스, 네트워크, 소프트웨어공학<br/>"
             "<b>Languages:</b> 영어 기술 문서·업무 소통, 일본어 일상·협업 소통",

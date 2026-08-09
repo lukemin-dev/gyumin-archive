@@ -2,22 +2,22 @@ import type { Experience } from "@/types";
 
 export const experiences: Experience[] = [
   {
-    title: "현장실습 인턴 — AI 비전·PLC 자동 선별 시스템",
+    title: "현장실습 인턴 — ROS2·LiDAR 데이터 처리 검증",
     company: "한국생산기술연구원 모빌리티 핵심부품소재센터",
     period: "2026.07 - 2026.08.14",
     context:
-      "농산물이 컨베이어를 통과할 때 LR-Z 센서, CUBLOC PLC, 카메라, YOLO·ConvNeXt가 차례로 동작하는 자동 선별 라인을 점검했습니다.",
+      "ROS2 통신 격리, TF 좌표 변환·제어, 공개 Livox rosbag 기반 FAST-LIO 재현 결과를 확인했습니다.",
     responsibility:
-      "YOLO 객체 검출·ConvNeXt 등급 분류 모델 학습·튜닝에 참여하고, 양파·단호박 촬영 데이터의 라벨이 등급 기준과 맞는지 확인했습니다. 촬영 누락이 나면 LR-Z 입력, PLC 출력, 카메라 트리거를 순서대로 확인했습니다.",
+      "ROS_DOMAIN_ID 1·2에서 동일한 Topic·Service·Action 이름의 통신을 분리하고 Domain Bridge의 데이터 전달을 확인했습니다. TF Tutorial 실행 파일 10개를 빌드·실행하고, 공개 Livox rosbag 6종의 FAST-LIO 재현 결과를 검수했습니다.",
     problemEncountered:
-      "초기 100개 검증에서 20개는 플래시 작동과 데이터 기록이 동시에 남지 않았습니다. 최종 이미지에서만 누락이 보여 센서, PLC, 카메라, 모델 중 어느 단계에서 끊겼는지 바로 알 수 없었습니다.",
+      "동일한 이름의 ROS2 통신이 다른 실행 환경과 섞이지 않는지, 좌표 변환·제어와 LiDAR 매핑 결과가 각각 의도대로 동작하는지 확인 기준이 필요했습니다.",
     actionTaken:
-      "누락된 대상의 시점을 맞춰 LR-Z 센서 입력, PLC P41~P44 출력, 카메라 트리거를 점검했습니다. LR-Z를 U.C.D. 배경 튜닝 모드로 바꾸고 응답 시간을 50ms에서 10ms로 조정했으며, P41~P44 출력 조건을 수정했습니다.",
+      "ROS_DOMAIN_ID로 통신을 분리한 뒤 Domain Bridge 메시지 전달을 확인했습니다. Turtlesim PID 제어에서는 90도 회전 목표의 최종 각도와 오차를 확인했고, Docker 기반 ROS1 Noetic 환경에서 공개 Livox rosbag 6종의 PointCloud·Path·PCD 생성 결과를 검수했습니다.",
     result:
-      "초기 검증에서는 100개 중 80개만 플래시 작동과 데이터 기록이 모두 남았습니다. 설정 변경 후 실제 운영에서는 양파 8,092개(2,136.38kg) 모두에서 같은 두 기록을 확인했습니다.",
+      "Domain 격리와 Bridge 전달을 확인했고, TF Tutorial 실행 파일 10개를 빌드·실행했습니다. Turtlesim 90도 회전에서 최종 각도 1.554 rad, 목표 대비 오차 0.0164 rad를 확인했으며, 공개 rosbag 6종의 재생과 PCD 생성 결과를 검수했습니다.",
     whatILearned:
-      "촬영 결과가 없다고 해서 모델부터 확인하지 않았습니다. 이후에는 센서 입력 → PLC 출력 → 카메라 트리거 순서로 마지막으로 남은 신호를 찾아 확인 범위를 좁혔습니다.",
-    techStack: ["Python", "YOLO", "ConvNeXt", "PLC", "KEYENCE LR-Z", "Computer Vision"],
+      "이 활동은 공개 코드와 공개 데이터셋을 활용한 학습·재현 범위다. 실제 LiDAR 장비·JACKAL·미니카 운용이나 FAST-LIO 알고리즘 자체 개발과는 구분해 기록합니다.",
+    techStack: ["ROS2", "TF", "Turtlesim", "Docker", "ROS1 Noetic", "FAST-LIO", "Livox"],
   },
   {
     title: "Yahoo-Crosslink 인턴십 — SEO 자동화팀",

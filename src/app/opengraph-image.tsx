@@ -50,7 +50,7 @@ export default function OpenGraphImage() {
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", color: "#64748b", fontSize: 24 }}>
-          <span>Python · Java · AWS · AI Vision</span>
+          <span>Python · Java · AWS · ROS2</span>
           <span>gyumin-archive.vercel.app</span>
         </div>
       </div>

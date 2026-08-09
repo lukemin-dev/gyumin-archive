@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import KitechSignalFlow from "@/components/KitechSignalFlow";
 import MarkdownBody from "@/components/MarkdownBody";
 import { notes } from "@/lib/content-data";
 import { estimateReadingMinutes } from "@/lib/notes";
@@ -120,7 +119,6 @@ export default async function NoteDetailPage({
         )}
       </header>
 
-      {note.slug === "tracing-ai-vision-capture-failures" && <KitechSignalFlow />}
 
       <MarkdownBody content={note.content} />
 

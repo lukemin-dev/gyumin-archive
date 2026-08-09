@@ -6,7 +6,7 @@ import "./globals.css";
 
 const siteUrl = "https://gyumin-archive.vercel.app";
 const siteDescription =
-  "센서·PLC·카메라가 연결된 현장 시스템과 백엔드·자동화 프로젝트를 기록한 이규민의 개발 포트폴리오입니다.";
+  "ROS2·LiDAR 데이터 처리와 백엔드·클라우드·자동화 프로젝트를 기록한 이규민의 개발 포트폴리오입니다.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -34,8 +34,9 @@ export const metadata: Metadata = {
     "Automation",
     "Python",
     "Spring Boot",
-    "AI Vision",
-    "PLC",
+    "ROS2",
+    "LiDAR",
+    "AI Automation",
   ],
   openGraph: {
     title: "이규민 | Backend · Cloud · Automation",
@@ -87,8 +88,9 @@ const structuredData = {
         "Backend Development",
         "Cloud Infrastructure",
         "Workflow Automation",
-        "AI Vision",
-        "PLC Integration",
+        "ROS2",
+        "LiDAR Data Processing",
+        "AI Automation",
       ],
       knowsLanguage: ["Korean", "English", "Japanese"],
     },
