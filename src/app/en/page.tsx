@@ -27,7 +27,7 @@ const projects = [
     href: "/projects/seo-automation",
     title: "AI-powered SEO Automation Pipeline",
     description:
-      "Automated data collection, prioritization, and reporting with Python and external APIs, reducing a multi-day workflow to about ten seconds.",
+      "Automated data collection, prioritization, and reporting with Python and external APIs, with a recorded automated runtime of about ten seconds, excluding human review.",
   },
   {
     href: "/projects/warehouse-fire-anomaly-monitor",
@@ -44,7 +44,7 @@ const projects = [
 ];
 
 const achievements = [
-  { value: "~10 sec", label: "SEO analysis and reporting workflow" },
+  { value: "~10 sec", label: "Automated run; human review excluded" },
   { value: "10", label: "TF tutorial executables built and run" },
   { value: "0.0164 rad", label: "Final Turtlesim 90-degree turn error" },
   { value: "6", label: "Public Livox rosbag runs with PCD output checked" },
@@ -91,13 +91,11 @@ export default function EnglishSummaryPage() {
         </p>
         <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
           I build backend systems and automation workflows with clear input rules,
-          observable logs, and failure recovery in mind. During an internship in
-          Japan, I reduced an SEO analysis and reporting workflow from two to three
-          days to about ten seconds. During field practice, I verified ROS2 communication isolation,
+          observable logs, and failure recovery in mind. At Crosslink, I automated SEO data processing and report generation. A recorded automated run took about ten seconds, excluding human review. During field practice, I verified ROS2 communication isolation,
           TF-based control, and public LiDAR data reproduction results.
         </p>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-500">
-          I can communicate in English for technical documentation and project work,
+          I use English technical and API documentation,
           and in Japanese for everyday and collaborative situations.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
@@ -145,19 +143,19 @@ export default function EnglishSummaryPage() {
 
       <div className="mt-6 grid gap-6">
         <Section title="Experience">
-          <div className="space-y-6">
+          <div className="space-y-6"><div><h3 className="font-bold text-slate-900">Kumho Tire · Manufacturing IT Intern</h3><p>Sep 2026 - Present</p><p>Implemented employee matching across HR, groupware and PLM, license/role revocation, account deactivation and result emails. Supported assigned KCEM SQL migration work and accompanied MES/POP site visits.</p></div>
             <div>
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h3 className="font-bold text-slate-900">
-                    Korea Institute of Industrial Technology · ROS2 and LiDAR Data Processing Intern
+                    Korea Institute of Industrial Technology · Research Intern
                   </h3>
                   <p className="mt-1 text-sm text-slate-500">Gwangju, Korea</p>
                 </div>
-                <span className="text-xs text-slate-400">Jul 2026 – Aug 14, 2026</span>
+                <span className="text-xs text-slate-400">Jul - Aug 2026</span>
               </div>
               <ul className="mt-3 space-y-2">
-                <li>Separated same-named Topic, Service, and Action communication with ROS_DOMAIN_ID 1 and 2, then checked data delivery through Domain Bridge.</li>
+                <li>Traced sensor, PLC and camera signals; after adjustments, checked flash activation and data records for 8,092 onions. This is not an AI accuracy metric.</li><li>Separated same-named Topic, Service, and Action communication with ROS_DOMAIN_ID 1 and 2, then checked data delivery through Domain Bridge.</li>
                 <li>Built and ran 10 TF tutorial executables. In Turtlesim PID control, confirmed a final angle of 1.554 rad and a target error of 0.0164 rad for a 90-degree turn.</li>
                 <li>Reproduced six public Livox rosbags with FAST-LIO in Docker-based ROS1 Noetic and checked PointCloud, Path, and PCD outputs.</li>
               </ul>
@@ -167,14 +165,14 @@ export default function EnglishSummaryPage() {
             <div className="border-t border-slate-100 pt-6">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <h3 className="font-bold text-slate-900">Yahoo-Crosslink · AI SEO Automation Intern</h3>
+                  <h3 className="font-bold text-slate-900">Crosslink · AI SEO Automation Intern</h3>
                   <p className="mt-1 text-sm text-slate-500">Yokohama, Japan</p>
                 </div>
                 <span className="text-xs text-slate-400">Jan 2026 – Feb 2026</span>
               </div>
               <ul className="mt-3 space-y-2">
                 <li>Connected Google Search Console, Google Sheets, and Gemini APIs in a Python automation pipeline.</li>
-                <li>Reduced manual data extraction, analysis, and reporting time from two to three days to about ten seconds.</li>
+                <li>Automated SEO processing and reports; recorded runtime about ten seconds excludes human review and varies with input and API response.</li>
                 <li>Implemented input validation, retries, checkpoints, and automatic model detection for quota and latency issues.</li>
               </ul>
             </div>
@@ -235,11 +233,9 @@ export default function EnglishSummaryPage() {
             <p className="mt-1">B.E. in Computer Engineering · Expected Feb 2027</p>
             <ul className="mt-3 space-y-2">
               <li>GPA {education?.gpa ?? "-"}</li>
-              <li>Department top-ranking experience</li>
+
               <li>
-                Academic Excellence Scholarship, six times: Aug 31, 2023;
-                Feb 28, 2024; Aug 31, 2024; Feb 28, 2025; Aug 31, 2025;
-                and Feb 28, 2026
+                Academic Excellence Awards for seven consecutive semesters, Spring 2023 through Spring 2026
               </li>
             </ul>
           </Section>
@@ -258,7 +254,7 @@ export default function EnglishSummaryPage() {
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
               <h3 className="font-bold text-slate-900">English</h3>
-              <p className="mt-2">Technical documentation and project communication.</p>
+              <p className="mt-2">Reading technical and API documentation.</p>
               <p className="mt-2 text-xs text-slate-500">
                 Used for API documentation, technical research, and international exchange support.
               </p>

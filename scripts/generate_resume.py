@@ -265,226 +265,52 @@ def build_resume(output_path: Path) -> None:
 
     story = [
         Paragraph("이규민", styles["name"]),
-        Paragraph("BACKEND · CLOUD · AUTOMATION ENGINEER", styles["headline"]),
-        Paragraph(
-            '010-5838-6229&nbsp;&nbsp;|&nbsp;&nbsp;'
-            '<link href="mailto:lgmlgm227@naver.com" color="#4B5563">lgmlgm227@naver.com</link>&nbsp;&nbsp;|&nbsp;&nbsp;'
-            '<link href="https://github.com/lukemin-dev" color="#4B5563">github.com/lukemin-dev</link>&nbsp;&nbsp;|&nbsp;&nbsp;'
-            '<link href="https://gyumin-archive.vercel.app" color="#4B5563">gyumin-archive.vercel.app</link>',
-            styles["contact"],
-        ),
-        Paragraph(
-            "Python·Java로 API와 자동화 파이프라인을 구현하고 AWS/Linux 환경에 배포한 경험이 있습니다. "
-            "<b>일본 IT 기업 인턴십에서 2~3일 걸리던 SEO 분석·보고 업무를 약 10초로 단축</b>했습니다. "
-            "현장실습에서는 ROS2 통신 격리와 공개 LiDAR 데이터 재현 결과를 검증했습니다.",
-            styles["summary"],
-        ),
+        Paragraph("BACKEND · SYSTEM INTEGRATION · AUTOMATION", styles["headline"]),
+        Paragraph('<link href="mailto:lgmlgm227@naver.com">lgmlgm227@naver.com</link> | <link href="https://github.com/lukemin-dev">github.com/lukemin-dev</link> | <link href="https://gyumin-archive.vercel.app">gyumin-archive.vercel.app</link>', styles["contact"]),
+        Paragraph("Python과 Java로 시스템 연동과 업무 자동화를 구현합니다. 센서·PLC·카메라 촬영 누락을 추적하고, 인사·그룹웨어·PLM 정보를 연결해 계정 회수 흐름을 구현했습니다.", styles["summary"]),
     ]
-
     story.extend(section("Experience", styles))
-
-    kitech = []
-    kitech.extend(
-        entry_header(
-            "한국생산기술연구원",
-            "ROS2·LiDAR 데이터 처리 현장실습 인턴",
-            "2026.07 - 2026.08.14",
-            "모빌리티 핵심부품소재센터 · 광주",
-            styles,
-        )
-    )
-    kitech.extend(
-        [
-            bullet(
-                "ROS_DOMAIN_ID 1·2에서 동일한 Topic·Service·Action 통신을 분리하고 Domain Bridge의 데이터 전달을 확인",
-                styles,
-            ),
-            bullet(
-                "TF Tutorial 실행 파일 10개를 빌드·실행하고, Turtlesim PID 제어의 90도 회전에서 최종 각도 1.554 rad·오차 0.0164 rad를 확인",
-                styles,
-            ),
-            bullet(
-                "Docker 기반 ROS1 Noetic·FAST-LIO 환경에서 공개 Livox rosbag 6종을 재현하고 PointCloud·Path·PCD 생성 결과를 검수",
-                styles,
-            ),
-        ]
-    )
-    story.append(KeepTogether(kitech))
-    story.append(Spacer(1, 0.9 * mm))
-
-    crosslink = []
-    crosslink.extend(
-        entry_header(
-            "Crosslink",
-            "AI SEO 자동화 인턴",
-            "2026.01 - 2026.02",
-            "요코하마, 일본",
-            styles,
-        )
-    )
-    crosslink.extend(
-        [
-            bullet(
-                "Python으로 GSC·Google Sheets·Gemini API를 연동해 데이터 수집-정제-우선순위 산정-리포트 생성 전 과정을 자동화",
-                styles,
-            ),
-            bullet("수작업으로 2~3일 걸리던 SEO 분석·보고 업무를 약 10초로 단축", styles),
-            bullet(
-                "API 할당량 초과와 응답 지연에 대응해 Flash 모델 전환, 사용 가능한 모델을 자동으로 감지하는 로직, 재시도, 체크포인트, 입력 스키마 검증을 구현",
-                styles,
-            ),
-        ]
-    )
-    story.append(KeepTogether(crosslink))
-    story.append(Spacer(1, 0.9 * mm))
-
-    research = []
-    research.extend(
-        entry_header(
-            "전남대학교 소프트컴퓨팅·인공지능 연구실",
-            "학부연구생",
-            "2025.09 - 2026.07",
-            "컴퓨터공학과",
-            styles,
-        )
-    )
-    research.extend(
-        [
-            bullet("소프트컴퓨팅·인공지능 관련 논문과 기술 자료를 검토하고 연구실 세미나·프로젝트에 참여", styles),
-            bullet("실험 입력 조건, 비교 기준, 결과를 문서화하며 AI 모델과 데이터 분석 흐름을 정리", styles),
-        ]
-    )
-    story.append(KeepTogether(research))
-    story.append(Spacer(1, 1.1 * mm))
-
-    story.extend(section("Selected Projects", styles))
-
-    warehouse = []
-    warehouse.extend(
-        entry_header(
-            "창고 화재·이상 징후 감지 시스템",
-            "팀장 · 기여도 50%",
-            "2026.03 - 2026.07",
-            "",
-            styles,
-            url="https://github.com/lukemin-dev/warehouse-fire-anomaly-monitor",
-        )
-    )
-    warehouse.extend(
-        [
-            bullet(
-                "Raspberry Pi 센서 데이터를 Flask API·SQLite로 수집·저장하고 IsolationForest 기반 이상 탐지 서비스를 AWS EC2에 배포",
-                styles,
-            ),
-            bullet(
-                "MCP3008 ADC로 0~1023 아날로그 값을 수집해 디지털 출력(0/1)만으로는 어려웠던 전조 변화를 분석할 수 있는 데이터 흐름을 구현",
-                styles,
-            ),
-        ]
-    )
-    story.append(KeepTogether(warehouse))
-    story.append(Spacer(1, 0.55 * mm))
-
-    backend = []
-    backend.extend(
-        entry_header(
-            "Backend Interview Tracker",
-            "개인 프로젝트",
-            "2024.03 - 2024.04",
-            "",
-            styles,
-            url="https://github.com/lukemin-dev/backend-interview-tracker",
-        )
-    )
-    backend.append(
-        bullet(
-            "Spring Boot REST API를 계층형 구조로 설계하고 전역 예외 처리, 페이지네이션, Swagger 문서화, 테스트를 적용",
-            styles,
-        )
-    )
-    story.append(KeepTogether(backend))
-    story.append(Spacer(1, 0.55 * mm))
-
-    organizer = []
-    organizer.extend(
-        entry_header(
-            "File Organizer Agent",
-            "개인 프로젝트",
-            "2026",
-            "",
-            styles,
-            url="https://github.com/lukemin-dev/file-organizer-agent",
-        )
-    )
-    organizer.append(
-        bullet(
-            "기본 dry-run, 중복 파일명 처리, 실행 로그, pytest, GitHub Actions CI를 갖춘 Python CLI를 구현",
-            styles,
-        )
-    )
-    story.append(KeepTogether(organizer))
-    story.append(Spacer(1, 1.0 * mm))
-
-    story.extend(section("Technical Skills", styles))
-    story.append(
-        Paragraph(
-            "<b>Backend:</b> Java, Spring Boot, Python, Flask, REST API, SQL, SQLite&nbsp;&nbsp;|&nbsp;&nbsp;"
-            "<b>Cloud / Infra:</b> AWS EC2, Linux, systemd, Git, GitHub Actions<br/>"
-            "<b>AI / Automation:</b> scikit-learn, GSC API, Google Sheets API, Gemini API, ROS2, FAST-LIO&nbsp;&nbsp;|&nbsp;&nbsp;"
-            "<b>Practices:</b> Input Validation, Retry, Checkpointing, Logging, Testing<br/>"
-            "<b>CS:</b> 자료구조, 알고리즘, 운영체제, 데이터베이스, 네트워크, 소프트웨어공학<br/>"
-            "<b>Languages:</b> 영어 기술 문서·업무 소통, 일본어 일상·협업 소통",
-            styles["skills"],
-        )
-    )
-    story.append(Spacer(1, 0.9 * mm))
-
-    story.extend(section("Education", styles))
-    education = []
-    education.extend(entry_header("전남대학교", "컴퓨터공학과", "2027.02 졸업예정", "", styles))
-    education.extend(
-        [
-            bullet(
-                "GPA 4.23/4.5 · 전공 GPA 4.4/4.5 · 학과 수석 경험 · 성적우수장학금 6회 · 수원시장학재단 우수 장학생",
-                styles,
-            ),
-            bullet(
-                "AWS Master Class·H-Mobility Class 자율주행 인지 과정 수료 · Osaka University J-SHIP 참여",
-                styles,
-            ),
-        ]
-    )
-    story.append(KeepTogether(education))
-    story.append(Spacer(1, 0.9 * mm))
-
-    story.extend(section("Additional Experience", styles))
-    mentoring = []
-    mentoring.extend(
-        entry_header(
-            "대학생 청소년교육지원사업",
-            "학습 멘토",
-            "2025.05 - 2026.06",
-            "초록어린이지역아동센터",
-            styles,
-        )
-    )
-    mentoring.append(
-        bullet("총 294.5시간 동안 학생별 이해 수준에 맞춰 설명 단계를 조정하고 학습 내용을 문서화", styles)
-    )
-    story.append(KeepTogether(mentoring))
-    story.append(Spacer(1, 0.45 * mm))
-
-    military = []
-    military.extend(
-        entry_header(
-            "공군",
-            "군사경찰 · 병장 만기 전역",
-            "2020.02 - 2021.11",
-            "",
-            styles,
-        )
-    )
-    story.append(KeepTogether(military))
+    entries = [
+        ("금호타이어", "생산·연구IT 인턴", "2026.09 - 현재", [
+            "인사 DB·그룹웨어·PLM 사용자를 대조하고 License·Role 회수, 계정 비활성화와 결과 이메일 통보를 구현",
+            "KCEM의 담당 범위 MSSQL 쿼리를 PostgreSQL로 전환하며 조회 결과·화면 연계 항목 점검",
+            "담당자와 MES·POP 현장에 동행해 생산 7개 공정의 작업지시·LOT·검사정보 흐름 확인"]),
+        ("한국생산기술연구원", "현장실습 인턴", "2026.07 - 2026.08", [
+            "농산물 자동선별 시스템 촬영 누락을 센서 감지 → PLC 입출력 → 카메라 트리거 순으로 점검",
+            "LR-Z 응답시간 50ms → 10ms 및 PLC 출력 조건 조정 후 양파 8,092개 플래시 작동·데이터 기록 확인 (AI 정확도와 구분)"]),
+        ("Crosslink", "소프트웨어 자동화 인턴 · 일본", "2026.01 - 2026.02", [
+            "Python으로 GSC·Google Sheets·Gemini API를 연결해 수집·정제·우선순위 산정·리포트 생성 자동화",
+            "입력 검증·재시도·체크포인트 구현. 자동 실행 약 10초 기록은 사람의 검토·수정 시간 제외"]),
+    ]
+    for company, role, period, items in entries:
+        block=entry_header(company,role,period,"",styles)
+        block.extend(bullet(item,styles) for item in items)
+        story.append(KeepTogether(block));story.append(Spacer(1,2*mm))
+    story.extend(section("Selected Projects",styles))
+    for title,role,period,url,items in [
+        ("Java Socket 실시간 통신", "수업 경험·현재 공개 구현", "2023.10 - 2023.12", "https://github.com/lukemin-dev/multichat-java", [
+            "4바이트 길이 헤더·반복 수신·스레드 풀 기반 세션 처리와 이벤트 로그 (현재 공개 코드 기준)",
+            "2026.10.07 공개 코드 단위 테스트 3개 통과: 메시지 왕복, 분할 입력, 초과 길이 거부. 실제 네트워크 부하 검증과 구분"]),
+        ("센서 데이터 기반 이상 징후 모니터링", "센서·서버·모바일 연동", "2026.03 - 2026.07", "https://github.com/lukemin-dev/warehouse-fire-anomaly-monitor", [
+            "Raspberry Pi에서 2초 주기 수집, Flask·SQLite·Isolation Forest·모바일 앱 연동 및 AWS EC2 배포",
+            "센서값 변경 후 저장·판정·그래프·경고 이력 반영 확인. 실제 화재 성능·안전 인증을 받은 시스템이 아닌 시제품"]),
+    ]:
+        block=entry_header(title,role,period,"",styles,url=url)
+        block.extend(bullet(item,styles) for item in items)
+        story.append(KeepTogether(block));story.append(Spacer(1,2*mm))
+    story.extend(section("Skills & Education",styles))
+    for text in [
+        "<b>개발:</b> Python, Java, SQL, Spring MVC/Boot, MyBatis, Flask, PostgreSQL, SQLite",
+        "<b>배포·도구:</b> AWS EC2, Linux, systemd, Git | <b>언어:</b> 영어 기술 문서 독해, 일본어 현지 교류·인턴 경험",
+        "<b>전남대학교 컴퓨터공학과</b> · 2027.02 졸업예정 · GPA 4.23/4.5",
+        "2023-1학기부터 2026-1학기까지 7학기 연속 성적우수상 · 2025년 수원시장학재단 제20기 장학생",
+        "인공지능 중급과정(AWS 마스터 클래스) 160시간 · 자율주행 인지 Track 16시간 이수",
+    ]: story.append(Paragraph(text,styles["skills"]));story.append(Spacer(1,1*mm))
+    story.extend(section("Community",styles))
+    story.extend(entry_header("대학생 청소년교육지원사업","학습 멘토","2025.05 - 2026.01","",styles))
+    story.append(bullet("294.5시간 영어 학습지도·멘토링. 학생의 이해 수준에 맞춰 설명하고, 체험활동과 꾸준한 지도로 질문할 수 있는 관계 형성",styles))
+    story.append(Spacer(1,2*mm))
+    story.append(Paragraph("2026.10.08 업데이트 · 개인 담당 범위와 검증 결과를 기준으로 작성",styles["org"]))
 
     doc.build(story)
 

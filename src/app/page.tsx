@@ -11,24 +11,7 @@ const impactExperience = experiences.find((experience) => experience.featured);
 const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
 const latestNotes = notes.slice(0, 3);
 
-const highlights = [
-  {
-    value: "10개",
-    label: "TF Tutorial 실행 파일 빌드·실행",
-  },
-  {
-    value: "0.0164 rad",
-    label: "Turtlesim 90도 회전 최종 각도 오차",
-  },
-  {
-    value: "2~3일 → 약 10초",
-    label: "SEO 분석·보고 자동화 전후",
-  },
-  {
-    value: "6종",
-    label: "공개 Livox rosbag 재생·PCD 생성 검수",
-  },
-];
+const highlights = [{"value":"8,092개","label":"설정 변경 후 플래시 작동·데이터 기록 확인"},{"value":"TCP","label":"길이 헤더 기반 메시지 경계 처리"},{"value":"PLM","label":"사용자 대조·권한 회수·결과 통보 구현"},{"value":"7학기 연속","label":"전남대학교 성적우수상"}];
 
 function ExperiencePreview({
   eyebrow,
@@ -70,13 +53,10 @@ export default function Home() {
               안녕하세요. 이규민입니다.
             </p>
             <h1 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.055em] text-stone-950 sm:text-5xl sm:leading-[1.08] lg:text-6xl">
-              코드를 고치기 전에,
-              <br className="hidden sm:block" /> 데이터가 어디서 끊겼는지
-              <br className="hidden sm:block" /> 먼저 봅니다.
+              현장의 신호와 데이터를<br className="hidden sm:block" /> 연결하고, 끝까지 확인합니다.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
-              Python과 Java로 백엔드와 자동화 도구를 만듭니다. 외부 API 장애가 나도 중간부터 다시
-              실행할 수 있게 만들고, ROS2 통신 격리와 공개 LiDAR 데이터 재현 결과를 검증했습니다.
+              {profile.bio}
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">

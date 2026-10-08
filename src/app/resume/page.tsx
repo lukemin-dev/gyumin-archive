@@ -7,12 +7,11 @@ export const metadata = {
 };
 
 const resumeHighlights = [
-  "한국생산기술연구원 ROS2·LiDAR 데이터 처리 현장실습",
-  "Yahoo-Crosslink AI SEO 자동화 인턴십 · 2~3일 → 약 10초",
-  "전남대학교 소프트컴퓨팅·인공지능 연구실 학부연구생",
-  "백엔드·ROS2·자동화 프로젝트와 GitHub 증명 자료",
-  "GPA 4.23/4.5 · 성적우수장학금 6회 · 멘토링 294.5시간",
-  "영어 기술 문서·업무 소통 · 일본어 일상·협업 소통",
+  "금호타이어 PLM 계정 회수 자동화·KCEM DB 전환",
+  "생기원 센서·PLC·카메라 촬영 누락 개선과 8,092개 확인",
+  "Crosslink API 연동·리포트 자동화 (사람 검토 시간 별도)",
+  "Java Socket 통신·센서 데이터 모니터링 프로젝트",
+  "GPA 4.23/4.5 · 성적우수상 7학기 연속 · 멘토링 294.5시간",
 ];
 
 export default function ResumePage() {
@@ -28,7 +27,7 @@ export default function ResumePage() {
         <div className="grid gap-8 p-7 sm:p-9 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
             <span className="inline-flex rounded-full bg-blue-50 px-3 py-1.5 text-xs font-bold text-blue-700">
-              2026.08 업데이트 · A4 1페이지
+              2026.10.08 업데이트 · A4 1페이지
             </span>
             <h2 className="mt-5 text-2xl font-bold tracking-tight text-slate-950">
               {profile.name} · {profile.title}

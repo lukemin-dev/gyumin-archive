@@ -117,7 +117,7 @@ export default function AboutPage() {
               <p className="mt-1 text-xs text-slate-500">학과 최상위 성적 경험</p>
             </div>
             <div className="rounded-xl bg-slate-50 p-4">
-              <p className="text-xl font-bold text-slate-950">6회</p>
+              <p className="text-xl font-bold text-slate-950">7학기 연속</p>
               <p className="mt-1 text-xs text-slate-500">성적우수장학금</p>
             </div>
           </div>
