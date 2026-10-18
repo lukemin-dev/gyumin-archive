@@ -4,416 +4,55 @@ import { notFound } from "next/navigation";
 import { getProjectVisuals } from "@/data/project-visuals";
 import { notes, projects } from "@/lib/content-data";
 
-export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export function generateStaticParams() { return projects.map((p) => ({ slug: p.slug })); }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = projects.find((item) => item.slug === slug);
-  if (!project) return { title: "프로젝트를 찾을 수 없습니다" };
-  return {
-    title: `${project.title} | 이규민`,
-    description: project.theme,
-  };
+  const p = projects.find((p) => p.slug === slug);
+  return { title: p ? `${p.title} | 이규민` : "프로젝트를 찾을 수 없습니다", description: p?.theme };
 }
-
-function Section({
-  title,
-  id,
-  children,
-}: {
-  title: string;
-  id?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section id={id} className="border-t border-stone-300 py-7 sm:py-9">
-      <h2 className="text-lg font-bold tracking-tight text-slate-950">{title}</h2>
-      <div className="mt-4 text-base leading-8 text-slate-600">{children}</div>
+export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const p = projects.find((item) => item.slug === slug);
+  if (!p) notFound();
+  const visuals = getProjectVisuals(slug);
+  const related = notes.filter((n) => n.relatedProject?.slug === slug);
+  return <article className="mx-auto max-w-3xl">
+    <Link href="/projects" className="text-sm text-emerald-800 hover:underline">← 프로젝트 목록</Link>
+    <header className="mt-8 border-b border-stone-300 pb-8">
+      <p className="text-sm text-stone-600">{p.period} · {p.type}</p>
+      <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">{p.title}</h1>
+      <p className="mt-4 text-lg leading-8 text-stone-600">{p.theme}</p>
+      <dl className="mt-6 space-y-3 text-sm leading-7">
+        {p.role && <div className="grid gap-1 sm:grid-cols-[6rem_1fr]"><dt className="text-stone-500">내 역할</dt><dd>{p.role}</dd></div>}
+        {p.scope && <div className="grid gap-1 sm:grid-cols-[6rem_1fr]"><dt className="text-stone-500">작업 범위</dt><dd>{p.scope}</dd></div>}
+      </dl>
+      <div className="mt-5 flex flex-wrap gap-5 text-sm text-emerald-800">
+        {p.githubUrl && <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="underline">공개 코드 ↗</a>}
+        {p.demoUrl && <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="underline">데모 ↗</a>}
+        {p.privateCode && <span className="text-stone-500">회사 내부 코드와 운영 화면은 공개하지 않습니다.</span>}
+      </div>
+    </header>
+    <nav aria-label="프로젝트 목차" className="my-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-emerald-800">
+      <a href="#context" className="hover:underline">문제와 역할 ↓</a><a href="#process" className="hover:underline">해결 과정 ↓</a><a href="#result" className="hover:underline">결과와 남은 점 ↓</a>
+    </nav>
+    <section id="context" className="py-6">
+      <h2 className="text-2xl font-bold">문제와 내 역할</h2><p className="mt-5 whitespace-pre-wrap text-base leading-8 text-stone-700">{p.problem}</p>
+      <ul className="mt-5 list-disc space-y-2 pl-5 text-base leading-8 text-stone-700">{p.myContribution.map((item) => <li key={item}>{item}</li>)}</ul>
     </section>
-  );
-}
-
-const defaultSectionLabels = {
-  problem: "시작한 이유",
-  result: "만든 결과",
-  bottleneck: "막혔던 지점",
-  solution: "어떻게 풀었는지",
-  evidence: "확인할 수 있는 자료",
-  validation: "직접 확인한 내용",
-  tech: "기술 선택",
-  retrospective: "다시 만든다면",
-  interview: "더 이야기할 수 있는 부분",
-};
-
-const projectSectionLabels: Record<
-  string,
-  Partial<typeof defaultSectionLabels>
-> = {
-  "seo-automation": {
-    problem: "자동화 전",
-    result: "자동화 후",
-    bottleneck: "API가 중간에 멈췄을 때",
-    solution: "처음부터 다시 돌리지 않게",
-    evidence: "공개할 수 있는 결과",
-    validation: "확인한 동작",
-    tech: "연결한 API와 처리 방식",
-    retrospective: "다시 만든다면",
-    interview: "구현하면서 생긴 질문",
-  },
-  "warehouse-fire-anomaly-monitor": {
-    problem: "0과 1만으로는 부족했던 이유",
-    result: "센서에서 앱까지 연결한 결과",
-    bottleneck: "데이터가 부족했던 지점",
-    solution: "아날로그 값과 IsolationForest 선택",
-    evidence: "코드와 문서",
-    validation: "직접 확인한 범위",
-    tech: "기술 선택",
-    retrospective: "남은 한계",
-    interview: "설계하면서 고민한 부분",
-  },
-};
-
-export default async function ProjectDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const project = projects.find((item) => item.slug === slug);
-
-  if (!project) notFound();
-
-  const sectionLabels = {
-    ...defaultSectionLabels,
-    ...projectSectionLabels[project.slug],
-  };
-  const visuals = getProjectVisuals(project.slug);
-  const diagrams = visuals.filter((visual) => visual.kind === "diagram");
-  const screens = visuals.filter((visual) => visual.kind === "screen");
-  const relatedNotes = notes.filter(
-    (note) => note.relatedProject?.slug === project.slug,
-  );
-
-  return (
-    <article className="mx-auto max-w-4xl">
-      <Link
-        href="/projects"
-        className="mb-7 inline-flex text-sm font-semibold text-stone-600 hover:text-emerald-800"
-      >
-        ← 프로젝트 목록
-      </Link>
-
-      <header id="overview" className="border-b border-stone-300 pb-9">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="font-mono text-xs font-bold text-emerald-800">
-            {project.type}
-          </span>
-          <span className="text-xs text-stone-600">{project.period}</span>
-          {project.featured && (
-            <span className="font-mono text-xs font-bold text-stone-700">
-              / 대표 프로젝트
-            </span>
-          )}
-        </div>
-
-        <h1 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-          {project.title}
-        </h1>
-        <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
-          {project.theme}
-        </p>
-
-        {(project.role || project.scope) && (
-          <dl className="mt-6 grid gap-3 sm:grid-cols-2">
-            {project.role && (
-              <div className="border-l-2 border-emerald-700 pl-4">
-                <dt className="text-xs font-bold text-stone-600">담당 역할</dt>
-                <dd className="mt-2 text-sm font-semibold leading-relaxed text-slate-900">
-                  {project.role}
-                </dd>
-              </div>
-            )}
-            {project.scope && (
-              <div className="border-l border-stone-400 pl-4">
-                <dt className="text-xs font-bold text-stone-600">구현·분석 범위</dt>
-                <dd className="mt-2 text-sm font-semibold leading-relaxed text-slate-900">
-                  {project.scope}
-                </dd>
-              </div>
-            )}
-          </dl>
-        )}
-
-        {project.details.length > 0 && (
-          <ul className="mt-6 grid gap-3 text-sm leading-relaxed text-slate-600 sm:grid-cols-2">
-            {project.details.map((detail) => (
-              <li key={detail} className="flex gap-3 border-t border-stone-300 py-3">
-                <span
-                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-700"
-                  aria-hidden="true"
-                />
-                <span>{detail}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {(project.githubUrl || project.demoUrl || project.privateCode) && (
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-b-2 border-stone-900 px-1 py-2.5 text-sm font-semibold text-stone-900 hover:text-emerald-800"
-              >
-                GitHub 저장소 ↗
-              </a>
-            )}
-            {project.demoUrl && (
-              <a
-                href={project.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-b border-stone-400 px-1 py-2.5 text-sm font-semibold text-stone-800 hover:text-stone-950"
-              >
-                데모 보기 ↗
-              </a>
-            )}
-            {project.privateCode && (
-              <span className="font-mono text-xs text-stone-500">
-                기업 실무 보안상 소스 코드 비공개
-              </span>
-            )}
-          </div>
-        )}
-      </header>
-
-      <nav aria-label="프로젝트 목차" className="my-7 flex flex-wrap gap-2">
-        {[["overview", "개요"], ["contribution", "담당 역할"], ["solution", "문제 해결"], ["reflection", "기술과 회고"]].map(([id, label]) => (
-          <a key={id} href={`#${id}`} className="rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-emerald-800 hover:bg-[#e7efe9]">{label} ↓</a>
-        ))}
-      </nav>
-      {visuals.length > 0 && (
-        <section className="mt-10 border-t-2 border-stone-800 py-6 sm:py-8">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="font-mono text-xs text-emerald-800">
-                / visual evidence
-              </p>
-              <h2 className="mt-2 text-xl font-bold tracking-tight text-slate-950">
-                구조와 구현 결과
-              </h2>
-            </div>
-            <p className="text-sm text-stone-600">
-              공개 설명을 재구성한 흐름도 · 공개 가능한 구현 자료
-            </p>
-          </div>
-
-          {diagrams.length > 0 && (
-            <div className="mt-6 space-y-4">
-              {diagrams.map((visual) => (
-                <a
-                  key={visual.src}
-                  href={visual.src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block overflow-hidden border border-stone-300 bg-stone-100 transition hover:border-stone-500"
-                >
-                  <Image
-                    src={visual.src}
-                    alt={visual.alt}
-                    width={visual.width}
-                    height={visual.height}
-                    sizes="(min-width: 1024px) 56rem, 100vw"
-                    className="h-auto w-full object-contain"
-                  />
-                  <div className="border-t border-stone-300 bg-[#fbfaf7] p-4">
-                    <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-emerald-800">
-                      {visual.caption}
-                    </p>
-                    <p className="mt-1 text-xs text-stone-600">원본 자료 보기 ↗</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-          )}
-
-          {screens.length > 0 && (
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              {screens.map((visual) => (
-                <a
-                  key={visual.src}
-                  href={visual.src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group overflow-hidden border border-stone-300 bg-stone-100 transition hover:border-stone-500"
-                >
-                  <Image
-                    src={visual.src}
-                    alt={visual.alt}
-                    width={visual.width}
-                    height={visual.height}
-                    sizes="(min-width: 640px) 30vw, 100vw"
-                    className="h-[30rem] w-full object-contain object-top sm:h-[25rem] lg:h-[30rem]"
-                  />
-                  <div className="border-t border-stone-300 bg-[#fbfaf7] p-4">
-                    <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-emerald-800">
-                      {visual.caption}
-                    </p>
-                    <p className="mt-1 text-xs text-stone-600">원본 이미지 보기 ↗</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-          )}
-        </section>
-      )}
-
-      <div className="mt-6 grid gap-6 md:grid-cols-2">
-        <Section title={sectionLabels.problem}>
-          <p className="whitespace-pre-wrap">{project.problem}</p>
-        </Section>
-        <section className="border-t-2 border-emerald-700 py-6 sm:py-7">
-          <h2 className="text-lg font-bold tracking-tight text-slate-950">
-            {sectionLabels.result}
-          </h2>
-          <p className="mt-4 whitespace-pre-wrap text-sm font-semibold leading-7 text-slate-900">
-            {project.result}
-          </p>
-        </section>
-      </div>
-
-      <div className="mt-6 grid gap-6">
-        <Section id="contribution" title="내가 직접 한 일">
-          <ul className="space-y-3">
-            {project.myContribution.map((item) => (
-              <li key={item} className="flex gap-3">
-                <span
-                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-700"
-                  aria-hidden="true"
-                />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </Section>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          <Section id="solution" title={sectionLabels.bottleneck}>
-            <p className="whitespace-pre-wrap">{project.bottleneck}</p>
-          </Section>
-          <Section title={sectionLabels.solution}>
-            <p className="whitespace-pre-wrap">{project.solution}</p>
-          </Section>
-        </div>
-
-        {project.evidence && project.evidence.length > 0 && <Section title={sectionLabels.evidence}>
-          {project.evidence && project.evidence.length > 0 ? (
-            <div className="grid gap-4 md:grid-cols-2">
-              {project.evidence.map((item) => {
-                const card = (
-                  <div className="h-full border-t border-stone-300 py-4 transition-colors hover:border-stone-500">
-                    <p className="font-bold text-slate-900">{item.label}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                      {item.description}
-                    </p>
-                    {item.href && (
-                      <p className="mt-3 text-sm font-semibold text-emerald-800">자료 열기 ↗</p>
-                    )}
-                  </div>
-                );
-
-                return item.href ? (
-                  <a
-                    key={`${item.label}-${item.href}`}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {card}
-                  </a>
-                ) : (
-                  <div key={item.label}>{card}</div>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="border-l border-stone-400 pl-5 text-stone-500">
-              공개 가능한 증명 자료를 정리 중입니다.
-            </div>
-          )}
-        </Section>
-
-        }
-
-        {project.validation && project.validation.length > 0 && (
-          <Section title={sectionLabels.validation}>
-            <ul className="space-y-3">
-              {project.validation.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"
-                    aria-hidden="true"
-                  />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Section>
-        )}
-
-        {relatedNotes.length > 0 && (
-          <Section title="관련 기술 노트">
-            <div className="grid gap-4 md:grid-cols-2">
-              {relatedNotes.map((note) => (
-                <Link
-                  key={note.slug}
-                  href={`/notes/${note.slug}`}
-                    className="border-t border-stone-300 py-4 transition-colors hover:border-stone-500"
-                >
-                  <p className="font-bold text-slate-900">{note.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                    {note.summary}
-                  </p>
-                  <p className="mt-3 text-sm font-semibold text-emerald-800">글 읽기 →</p>
-                </Link>
-              ))}
-            </div>
-          </Section>
-        )}
-
-        <div className="grid gap-6 md:grid-cols-2">
-          <Section id="reflection" title={sectionLabels.tech}>
-            <p className="whitespace-pre-wrap">{project.techContext}</p>
-          </Section>
-          <Section title={sectionLabels.retrospective}>
-            <p className="whitespace-pre-wrap">{project.retrospective}</p>
-          </Section>
-        </div>
-
-        {project.interviewPoints.length > 0 && (
-          <Section title={sectionLabels.interview}>
-            <ul className="space-y-3">
-              {project.interviewPoints.map((point) => (
-                <li key={point} className="flex gap-3 font-medium text-slate-800">
-                  <span
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400"
-                    aria-hidden="true"
-                  />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </Section>
-        )}
-      </div>
-    </article>
-  );
+    <section id="process" className="mt-5 border-t border-stone-300 py-8">
+      <h2 className="text-2xl font-bold">해결 과정</h2>
+      <p className="mt-5 whitespace-pre-wrap text-base leading-8 text-stone-700">{p.bottleneck}</p>
+      <p className="mt-4 whitespace-pre-wrap text-base leading-8 text-stone-700">{p.solution}</p>
+      {slug === "kitech-vision-plc-validation" ? <div className="mt-7 overflow-x-auto"><table className="w-full border-collapse text-left text-sm leading-7"><caption className="mb-3 text-left font-semibold">바꾼 설정과 확인한 결과</caption><thead><tr className="border-y border-stone-300 bg-[#e7efe9]"><th className="p-3">항목</th><th className="p-3">작업 내용</th></tr></thead><tbody><tr className="border-b border-stone-300"><th className="p-3 font-medium">LR-Z 센서</th><td className="p-3">응답시간 50ms → 10ms</td></tr><tr className="border-b border-stone-300"><th className="p-3 font-medium">PLC</th><td className="p-3">출력 조건 조정</td></tr><tr className="border-b border-stone-300"><th className="p-3 font-medium">후속 운전 확인</th><td className="p-3">양파 8,092개 전량의 플래시 작동·데이터 기록 확인</td></tr></tbody></table><p className="mt-3 text-xs leading-6 text-stone-600">촬영·기록 확인 결과이며 AI 등급분류 정확도를 뜻하지 않습니다.</p></div> : <div className="mt-7 space-y-7">{visuals.map((v) => <figure key={v.src}><a href={v.src} target="_blank" rel="noopener noreferrer" aria-label={`${v.alt} 원본 보기`}><Image src={v.src} alt={v.alt} width={v.width} height={v.height} sizes="(min-width: 768px) 768px, 100vw" className={v.kind === "screen" ? "max-h-[32rem] w-full border border-stone-300 object-contain" : "h-auto w-full border border-stone-300"} /></a><figcaption className="mt-2 text-xs leading-6 text-stone-600">{v.caption}</figcaption></figure>)}</div>}
+      <details className="mt-6 border-y border-stone-300 py-4"><summary className="cursor-pointer text-sm font-semibold text-emerald-800">사용한 기술과 선택 이유</summary><p className="mt-4 whitespace-pre-wrap text-base leading-8 text-stone-700">{p.techContext}</p></details>
+    </section>
+    <section id="result" className="border-t border-stone-300 py-8">
+      <h2 className="text-2xl font-bold">결과와 남은 점</h2><p className="mt-5 whitespace-pre-wrap border-l-2 border-emerald-800 pl-5 text-base font-medium leading-8">{p.result}</p>
+      {p.validation && p.validation.length > 0 && <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-stone-700">{p.validation.map((item) => <li key={item}>{item}</li>)}</ul>}
+      <p className="mt-5 whitespace-pre-wrap text-base leading-8 text-stone-700">{p.retrospective}</p>
+      {p.evidence && p.evidence.length > 0 && <div className="mt-6 space-y-3">{p.evidence.map((e) => <div key={e.label} className="text-sm leading-7"><p className="font-semibold">{e.href ? <a href={e.href} target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline">{e.label} ↗</a> : e.label}</p><p className="text-stone-600">{e.description}</p></div>)}</div>}
+    </section>
+    {related.length > 0 && <aside className="border-t border-stone-300 py-7"><h2 className="font-semibold">작업하며 남긴 글</h2>{related.map((n) => <Link key={n.slug} href={`/notes/${n.slug}`} className="mt-3 block text-sm leading-7 text-emerald-800 hover:underline">{n.title} →</Link>)}</aside>}
+    <Link href="/projects" className="mt-6 inline-block text-sm text-emerald-800 underline">다른 프로젝트 보기 →</Link>
+  </article>;
 }

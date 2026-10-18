@@ -51,7 +51,7 @@ export default function NotesExplorer({ notes }: { notes: Note[] }) {
         <p>검색 결과가 없습니다. 다른 검색어나 태그를 선택해 주세요.</p>
         <button type="button" onClick={() => { setQuery(""); setSelectedTag("전체"); }} className="mt-3 font-semibold text-emerald-800 underline">전체 노트 보기</button>
       </div>}
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="divide-y-0">
         {filteredNotes.map((note) => (
           <NoteItem key={note.slug} note={note} />
         ))}

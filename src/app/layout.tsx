@@ -6,7 +6,7 @@ import "./globals.css";
 
 const siteUrl = "https://gyumin-archive.vercel.app";
 const siteDescription =
-  "ROS2·LiDAR 데이터 처리와 백엔드·클라우드·자동화 프로젝트를 기록한 이규민의 개발 포트폴리오입니다.";
+  "금호타이어 생산연구IT 인턴 이규민의 포트폴리오. 시스템 연동, 제조 현장 검증, AI 업무 자동화 경험을 소개합니다.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

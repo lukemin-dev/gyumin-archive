@@ -31,7 +31,7 @@ export default function Header() {
               {profile.name}
             </span>
             <span className="hidden text-[11px] leading-tight text-stone-500 sm:block">
-              기록하고 개선하는 개발자
+              개발 · 실무 기록
             </span>
           </span>
         </Link>

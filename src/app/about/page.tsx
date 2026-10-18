@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { appliedSkills } from "@/data/portfolio";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import SectionBlock from "@/components/SectionBlock";
@@ -17,8 +19,8 @@ export default function AboutPage() {
     <div>
       <PageHeader
         eyebrow="About"
-        title="왜 안 됐는지 설명할 수 있는 개발자가 되고 싶습니다"
-        description="문제가 생기면 코드를 바로 고치기보다 들어온 값과 로그, 다음 단계로 넘어간 결과부터 살펴봅니다."
+        title="이규민입니다"
+        description="컴퓨터공학을 공부하며 제조 현장과 일본 기업에서 인턴으로 일했습니다."
       />
 
       <section className="mb-14 rounded-3xl border border-stone-300 bg-[#fbfaf7] p-6  sm:p-8">
@@ -57,7 +59,7 @@ export default function AboutPage() {
       {recentExperience && (
         <SectionBlock
           title="최근 현장 경험"
-          description="현장실습에서 직접 맡은 범위까지만 적었습니다."
+          description="금호타이어 생산연구IT팀에서 시스템 연동과 자동화를 맡고 있습니다."
         >
           <div className="rounded-2xl border border-stone-300 bg-[#e7efe9] p-6">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
@@ -74,27 +76,9 @@ export default function AboutPage() {
         </SectionBlock>
       )}
 
-      <SectionBlock
-        title="기술 역량"
-        description="수업에서만 접한 기술과 프로젝트에서 직접 사용한 기술을 구분했습니다."
-      >
-        <div className="grid gap-4 md:grid-cols-2">
-          {profile.skills.map((category) => (
-            <div key={category.category} className="rounded-2xl border border-stone-300 bg-[#fbfaf7] p-5">
-              <h3 className="text-sm font-bold text-slate-950">{category.category}</h3>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {category.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+      <SectionBlock title="어디에 써 본 기술인지">
+        <div className="divide-y divide-stone-300">{appliedSkills.map((item) => <div key={item.skills} className="grid gap-3 py-5 sm:grid-cols-[10rem_1fr]"><p className="text-sm text-emerald-800">{item.context}</p><div><h3 className="font-semibold">{item.skills}</h3><p className="mt-2 text-sm leading-7 text-stone-600">{item.detail}</p><Link href={item.href} className="mt-2 inline-block text-sm text-emerald-800 underline">{item.link} →</Link></div></div>)}</div>
+        <p className="mt-5 text-sm leading-7 text-stone-600">전공 수업에서는 자료구조·알고리즘·운영체제·데이터베이스·네트워크를 공부했습니다.</p>
       </SectionBlock>
 
       <SectionBlock title="학력 및 학업 성취">
@@ -138,7 +122,7 @@ export default function AboutPage() {
 
       <SectionBlock
         title="언어 역량"
-        description="시험 점수 대신 실제로 영어와 일본어를 사용했던 경험을 적었습니다."
+        description="영어 기술 문서를 읽고, 일본 현지에서 교류와 인턴 업무를 경험했습니다."
       >
         <div className="grid gap-4 sm:grid-cols-2">
           {profile.languages.map((language) => (

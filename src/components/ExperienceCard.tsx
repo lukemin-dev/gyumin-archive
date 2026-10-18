@@ -15,17 +15,18 @@ function DetailItem({ label, children }: { label: string; children: React.ReactN
 
 export default function ExperienceCard({ experience }: ExperienceCardProps) {
   const ongoing =
-    experience.period.includes("재직 중") || experience.period.includes("진행 중");
+    experience.period.includes("재직 중") || experience.period.includes("진행 중") || experience.period.includes("현재");
 
   return (
-    <article className="border-t-2 border-stone-800 py-6 sm:py-7">
+    <article className="relative border-l border-stone-300 pb-10 pl-7 sm:pl-10">
+      <span aria-hidden="true" className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-emerald-800" />
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="flex flex-wrap items-center gap-2">
             <h2 className="text-lg font-bold text-slate-950">{experience.title}</h2>
             {ongoing && (
               <span className="font-mono text-[11px] font-bold text-emerald-800">
-                {experience.period.includes("재직 중") ? "재직 중" : "진행 중"}
+                {(experience.period.includes("재직 중") || experience.period.includes("현재")) ? "재직 중" : "진행 중"}
               </span>
             )}
           </div>

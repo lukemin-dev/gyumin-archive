@@ -46,7 +46,7 @@ INK = colors.HexColor("#111827")
 TEXT = colors.HexColor("#4B5563")
 MUTED = colors.HexColor("#6B7280")
 RULE = colors.HexColor("#D1D5DB")
-ACCENT = colors.HexColor("#2563EB")
+ACCENT = colors.HexColor("#17624F")
 
 
 def first_existing(paths: Iterable[str]) -> str:
@@ -102,8 +102,8 @@ def build_styles() -> dict[str, ParagraphStyle]:
         "summary": ParagraphStyle(
             "summary",
             fontName="Nanum",
-            fontSize=8.65,
-            leading=10.8,
+            fontSize=10,
+            leading=14,
             textColor=TEXT,
             alignment=TA_LEFT,
             wordWrap="CJK",
@@ -112,8 +112,8 @@ def build_styles() -> dict[str, ParagraphStyle]:
         "section": ParagraphStyle(
             "section",
             fontName="Nanum-Bold",
-            fontSize=9.9,
-            leading=11.2,
+            fontSize=11,
+            leading=15,
             textColor=ACCENT,
             spaceBefore=0.8 * mm,
             spaceAfter=0,
@@ -121,8 +121,8 @@ def build_styles() -> dict[str, ParagraphStyle]:
         "entry_left": ParagraphStyle(
             "entry_left",
             fontName="Nanum-Bold",
-            fontSize=9.05,
-            leading=10.4,
+            fontSize=10,
+            leading=13,
             textColor=INK,
             wordWrap="CJK",
         ),
@@ -145,8 +145,8 @@ def build_styles() -> dict[str, ParagraphStyle]:
         "bullet": ParagraphStyle(
             "bullet",
             fontName="Nanum",
-            fontSize=8.15,
-            leading=9.7,
+            fontSize=9.5,
+            leading=13,
             textColor=TEXT,
             leftIndent=4.0 * mm,
             firstLineIndent=-2.8 * mm,
@@ -157,8 +157,8 @@ def build_styles() -> dict[str, ParagraphStyle]:
         "skills": ParagraphStyle(
             "skills",
             fontName="Nanum",
-            fontSize=7.85,
-            leading=9.45,
+            fontSize=9.5,
+            leading=13,
             textColor=TEXT,
             wordWrap="CJK",
             spaceAfter=0,
@@ -189,7 +189,7 @@ def entry_header(
 ):
     if url:
         title_markup = f'<link href="{url}" color="#111827">{title}</link>'
-        link_markup = f' <link href="{url}" color="#2563EB">GitHub</link>'
+        link_markup = f' <link href="{url}" color="#17624F">GitHub</link>'
     else:
         title_markup = title
         link_markup = ""
@@ -267,7 +267,7 @@ def build_resume(output_path: Path) -> None:
         Paragraph("이규민", styles["name"]),
         Paragraph("BACKEND · SYSTEM INTEGRATION · AUTOMATION", styles["headline"]),
         Paragraph('<link href="mailto:lgmlgm227@naver.com">lgmlgm227@naver.com</link> | <link href="https://github.com/lukemin-dev">github.com/lukemin-dev</link> | <link href="https://gyumin-archive.vercel.app">gyumin-archive.vercel.app</link>', styles["contact"]),
-        Paragraph("Python과 Java로 시스템 연동과 업무 자동화를 구현합니다. 센서·PLC·카메라 촬영 누락을 추적하고, 인사·그룹웨어·PLM 정보를 연결해 계정 회수 흐름을 구현했습니다.", styles["summary"]),
+        Paragraph("금호타이어 생산연구IT 인턴으로 일하며 Python과 Java로 시스템 연동과 업무 자동화를 구현하고 있습니다. 한국생산기술연구원에서는 촬영 누락을 점검했고, 일본 Crosslink에서는 데이터 처리와 보고서를 자동화했습니다.", styles["summary"]),
     ]
     story.extend(section("Experience", styles))
     entries = [
@@ -304,13 +304,13 @@ def build_resume(output_path: Path) -> None:
         "<b>배포·도구:</b> AWS EC2, Linux, systemd, Git | <b>언어:</b> 영어 기술 문서 독해, 일본어 현지 교류·인턴 경험",
         "<b>전남대학교 컴퓨터공학과</b> · 2027.02 졸업예정 · GPA 4.23/4.5",
         "2023-1학기부터 2026-1학기까지 7학기 연속 성적우수상 · 2025년 수원시장학재단 제20기 장학생",
-        "인공지능 중급과정(AWS 마스터 클래스) 160시간 · 자율주행 인지 Track 16시간 이수",
+        "AWS Master Class · 자율주행 인지 Track 이수",
     ]: story.append(Paragraph(text,styles["skills"]));story.append(Spacer(1,1*mm))
     story.extend(section("Community",styles))
-    story.extend(entry_header("대학생 청소년교육지원사업","학습 멘토","2025.05 - 2026.01","",styles))
+    story.extend(entry_header("대학생 청소년교육지원사업","학습 멘토","총 294.5시간","",styles))
     story.append(bullet("294.5시간 영어 학습지도·멘토링. 학생의 이해 수준에 맞춰 설명하고, 체험활동과 꾸준한 지도로 질문할 수 있는 관계 형성",styles))
     story.append(Spacer(1,2*mm))
-    story.append(Paragraph("2026.10.08 업데이트 · 개인 담당 범위와 검증 결과를 기준으로 작성",styles["org"]))
+    story.append(Paragraph("2026.10.18 업데이트",styles["org"]))
 
     doc.build(story)
 

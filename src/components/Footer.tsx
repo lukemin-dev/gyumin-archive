@@ -10,7 +10,7 @@ export default function Footer() {
             {profile.name} · {profile.nameEn}
           </p>
           <p className="mt-1 text-xs text-stone-600">
-            직접 만들고, 실패한 이유까지 기록합니다.
+            개발 프로젝트와 인턴 경험을 모아 두었습니다.
           </p>
         </div>
         <div className="flex flex-wrap gap-x-5 gap-y-2">
