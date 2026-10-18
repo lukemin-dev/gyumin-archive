@@ -139,6 +139,11 @@ export default function AboutPage() {
         </div>
       </SectionBlock>
 
+      <SectionBlock title="일본에서 보낸 시간">
+        <p className="max-w-3xl text-base leading-8 text-stone-700">오사카대학교 J-SHIP에서는 일본어를 배우고 여러 나라의 참가자들과 함께 활동했습니다. 이후 일본 Crosslink에서 인턴으로 일하며 Python과 API를 활용한 자동화 프로그램을 만들었습니다. 수업에서 배운 언어를 실제 생활과 업무에서 사용해 본 경험입니다.</p>
+        <Link href="/projects/seo-automation" className="mt-4 inline-block text-sm font-semibold text-emerald-800 underline underline-offset-4">일본 인턴에서 만든 프로그램 →</Link>
+      </SectionBlock>
+
       <SectionBlock title="관심 분야">
         <div className="flex flex-wrap gap-2">
           {profile.interests.map((interest) => (
