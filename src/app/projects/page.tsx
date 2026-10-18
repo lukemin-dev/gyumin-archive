@@ -23,7 +23,7 @@ export default function ProjectsPage() {
         <section className="mb-14">
           <div className="mb-5">
             <h2 className="text-xl font-bold tracking-tight text-slate-950">대표 프로젝트</h2>
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-sm text-stone-600">
               현장과 인턴십에서 직접 맡은 범위가 큰 작업입니다.
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function ProjectsPage() {
         <section>
           <div className="mb-5">
             <h2 className="text-xl font-bold tracking-tight text-slate-950">그 밖의 프로젝트</h2>
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-sm text-stone-600">
               수업과 개인 학습에서 구현한 시스템 및 자동화 도구입니다.
             </p>
           </div>

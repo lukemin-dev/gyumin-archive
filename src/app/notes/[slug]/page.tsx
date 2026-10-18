@@ -81,7 +81,7 @@ export default async function NoteDetailPage({
   };
 
   return (
-    <article>
+    <article className="mx-auto max-w-3xl">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleStructuredData) }}
@@ -94,7 +94,7 @@ export default async function NoteDetailPage({
       </Link>
 
       <header className="mb-8 pb-6 border-b border-gray-200">
-        <h1 className="text-2xl font-bold text-gray-900">{note.title}</h1>
+        <h1 className="text-3xl font-bold text-gray-900">{note.title}</h1>
         <p className="mt-2 text-sm text-gray-400">
           <time dateTime={note.date}>{note.date}</time>
           <span aria-hidden="true"> · </span>
@@ -123,7 +123,7 @@ export default async function NoteDetailPage({
       <MarkdownBody content={note.content} />
 
       {(note.relatedProject || (note.evidence && note.evidence.length > 0)) && (
-        <section className="mt-12 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <section className="mt-12 rounded-2xl border border-stone-300 bg-[#fbfaf7] p-6 ">
           <h2 className="text-lg font-bold text-slate-950">관련 프로젝트와 근거</h2>
           {note.relatedProject && (
             <Link
@@ -155,13 +155,13 @@ export default async function NoteDetailPage({
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-xl border border-slate-200 bg-slate-50 p-4 hover:border-blue-200 hover:bg-blue-50"
+                    className="rounded-xl border border-stone-300 bg-slate-50 p-4 hover:border-stone-300 hover:bg-[#e7efe9]"
                   >
                     {content}
-                    <p className="mt-3 text-sm font-semibold text-blue-700">자료 열기 ↗</p>
+                    <p className="mt-3 text-sm font-semibold text-emerald-800">자료 열기 ↗</p>
                   </a>
                 ) : (
-                  <div key={item.label} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                  <div key={item.label} className="rounded-xl border border-stone-300 bg-slate-50 p-4">
                     {content}
                   </div>
                 );
@@ -172,7 +172,7 @@ export default async function NoteDetailPage({
       )}
 
       {relatedNotes.length > 0 && (
-        <aside className="mt-12 border-t border-slate-200 pt-8" aria-labelledby="related-notes">
+        <aside className="mt-12 border-t border-stone-300 pt-8" aria-labelledby="related-notes">
           <h2 id="related-notes" className="text-lg font-bold text-slate-950">
             관련 기술 노트
           </h2>
@@ -181,10 +181,10 @@ export default async function NoteDetailPage({
               <Link
                 key={relatedNote.slug}
                 href={`/notes/${relatedNote.slug}`}
-                className="rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-blue-300 hover:bg-blue-50"
+                className="rounded-xl border border-stone-300 bg-[#fbfaf7] p-4 transition-colors hover:border-emerald-600 hover:bg-[#e7efe9]"
               >
                 <p className="font-semibold text-slate-900">{relatedNote.title}</p>
-                <p className="mt-2 text-xs text-slate-500">{relatedNote.date}</p>
+                <p className="mt-2 text-xs text-stone-600">{relatedNote.date}</p>
               </Link>
             ))}
           </div>

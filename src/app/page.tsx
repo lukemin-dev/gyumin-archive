@@ -28,9 +28,9 @@ function ExperiencePreview({
       <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
         <div>
           <h3 className="font-bold text-slate-950">{experience.title}</h3>
-          <p className="mt-1 text-sm text-slate-500">{experience.company}</p>
+          <p className="mt-1 text-sm text-stone-600">{experience.company}</p>
         </div>
-        <span className="shrink-0 text-xs text-slate-400">{experience.period}</span>
+        <span className="shrink-0 text-xs text-stone-600">{experience.period}</span>
       </div>
       <p className="mt-4 text-sm leading-relaxed text-slate-600">{experience.context}</p>
       <div className="mt-5 border-l-2 border-emerald-700 pl-4">
@@ -47,16 +47,16 @@ export default function Home() {
   return (
     <div>
       <section className="border-b border-stone-300 pb-12 pt-4 sm:pb-16">
-        <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
+        <div className="grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-center">
           <div>
             <p className="font-mono text-sm text-emerald-800">
               안녕하세요. 이규민입니다.
             </p>
-            <h1 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.055em] text-stone-950 sm:text-5xl sm:leading-[1.08] lg:text-6xl">
-              현장의 신호와 데이터를<br className="hidden sm:block" /> 연결하고, 끝까지 확인합니다.
+            <h1 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.055em] text-stone-950 sm:text-5xl leading-[1.2] sm:leading-[1.2]">
+              현장과 소프트웨어를<br /> 연결합니다.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
-              {profile.bio}
+              제조 현장의 데이터를 이해하고, 시스템 연동과 자동화로 문제를 해결합니다. 직접 구현하고 검증한 과정을 기록합니다.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -94,18 +94,10 @@ export default function Home() {
             </div>
           </div>
 
-          {profile.image && (
-            <div className="order-first md:order-last">
-              <Image
-                src={profile.image}
-                alt={`${profile.name} 프로필 이미지`}
-                width={144}
-                height={144}
-                className="h-28 w-28 border border-stone-300 object-cover p-1 sm:h-36 sm:w-36"
-                priority
-              />
-            </div>
-          )}
+          <Link href="/projects/plm-account-recovery" className="overflow-hidden rounded-2xl border border-stone-300 bg-[#e7efe9]" aria-label="PLM 계정 자동 회수 프로젝트 보기">
+            <Image src="/projects/plm-account-recovery.svg" alt="인사 정보, 사용자 대조, PLM 권한 처리를 연결한 흐름" width={800} height={440} priority sizes="(min-width: 768px) 42vw, 100vw" className="w-full h-auto" />
+            <p className="border-t border-stone-300 px-5 py-4 text-sm font-semibold text-emerald-800">실무 프로젝트 · PLM 계정 자동 회수 →</p>
+          </Link>
         </div>
       </section>
 
@@ -119,6 +111,28 @@ export default function Home() {
             <p className="mt-2 text-sm leading-relaxed text-stone-500">{item.label}</p>
           </div>
         ))}
+      </section>
+
+
+      <section className="mt-16">
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <div>
+              <p className="font-mono text-xs text-emerald-800">
+                / selected work
+            </p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">
+              대표 프로젝트
+            </h2>
+          </div>
+          <Link href="/projects" className="text-sm font-semibold text-emerald-800 hover:underline">
+            전체 프로젝트 보기 →
+          </Link>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {featuredProjects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
       </section>
 
       {(recentExperience || impactExperience) && (
@@ -146,27 +160,6 @@ export default function Home() {
           </div>
         </section>
       )}
-
-      <section className="mt-16">
-        <div className="mb-6 flex items-end justify-between gap-4">
-          <div>
-              <p className="font-mono text-xs text-emerald-800">
-                / selected work
-            </p>
-            <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">
-              대표 프로젝트
-            </h2>
-          </div>
-          <Link href="/projects" className="text-sm font-semibold text-emerald-800 hover:underline">
-            전체 프로젝트 보기 →
-          </Link>
-        </div>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
-      </section>
 
       <section className="mt-16">
         <div className="mb-6 flex items-end justify-between gap-4">
@@ -215,7 +208,7 @@ export default function Home() {
               <p className="mt-1 text-sm font-semibold text-emerald-800">
                 {language.capability}
               </p>
-              <p className="mt-2 text-xs leading-relaxed text-slate-500">
+              <p className="mt-2 text-xs leading-relaxed text-stone-600">
                 {language.evidence}
               </p>
             </div>

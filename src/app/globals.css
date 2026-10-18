@@ -36,6 +36,8 @@ body {
     system-ui,
     sans-serif;
   line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
   text-rendering: optimizeLegibility;
 }
 

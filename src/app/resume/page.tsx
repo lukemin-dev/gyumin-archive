@@ -23,10 +23,10 @@ export default function ResumePage() {
         description="경력과 프로젝트를 한 장에 담았습니다. PDF로 내려받거나 새 탭에서 바로 볼 수 있습니다."
       />
 
-      <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+      <section className="overflow-hidden rounded-3xl border border-stone-300 bg-[#fbfaf7] ">
         <div className="grid gap-8 p-7 sm:p-9 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
-            <span className="inline-flex rounded-full bg-blue-50 px-3 py-1.5 text-xs font-bold text-blue-700">
+            <span className="inline-flex rounded-full bg-[#e7efe9] px-3 py-1.5 text-xs font-bold text-emerald-800">
               2026.10.08 업데이트 · A4 1페이지
             </span>
             <h2 className="mt-5 text-2xl font-bold tracking-tight text-slate-950">
@@ -49,21 +49,21 @@ export default function ResumePage() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+                className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-[#fbfaf7] px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
               >
                 새 탭에서 미리보기 ↗
               </a>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
+          <div className="rounded-2xl border border-stone-300 bg-slate-50 p-5">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-800">
               Included
             </p>
             <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-600">
               {resumeHighlights.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" aria-hidden="true" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-700" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -75,27 +75,27 @@ export default function ResumePage() {
       <section className="mt-8 grid gap-4 sm:grid-cols-3">
         <a
           href={`mailto:${profile.email}`}
-          className="rounded-2xl border border-slate-200 bg-white p-5 hover:border-slate-300"
+          className="rounded-2xl border border-stone-300 bg-[#fbfaf7] p-5 hover:border-slate-300"
         >
-          <p className="text-xs font-bold text-slate-400">EMAIL</p>
+          <p className="text-xs font-bold text-stone-600">EMAIL</p>
           <p className="mt-2 break-all text-sm font-semibold text-slate-800">{profile.email}</p>
         </a>
         <a
           href={profile.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-2xl border border-slate-200 bg-white p-5 hover:border-slate-300"
+          className="rounded-2xl border border-stone-300 bg-[#fbfaf7] p-5 hover:border-slate-300"
         >
-          <p className="text-xs font-bold text-slate-400">GITHUB</p>
+          <p className="text-xs font-bold text-stone-600">GITHUB</p>
           <p className="mt-2 text-sm font-semibold text-slate-800">lukemin-dev ↗</p>
         </a>
         <a
           href={profile.portfolioRepo}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-2xl border border-slate-200 bg-white p-5 hover:border-slate-300"
+          className="rounded-2xl border border-stone-300 bg-[#fbfaf7] p-5 hover:border-slate-300"
         >
-          <p className="text-xs font-bold text-slate-400">SOURCE</p>
+          <p className="text-xs font-bold text-stone-600">SOURCE</p>
           <p className="mt-2 text-sm font-semibold text-slate-800">Portfolio Repository ↗</p>
         </a>
       </section>

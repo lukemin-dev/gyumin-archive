@@ -67,7 +67,7 @@ const technicalNotes = [
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
+    <section className="rounded-2xl border border-stone-300 bg-[#fbfaf7] p-6  sm:p-7">
       <h2 className="text-xl font-bold tracking-tight text-slate-950">{title}</h2>
       <div className="mt-4 text-sm leading-7 text-slate-600">{children}</div>
     </section>
@@ -79,14 +79,14 @@ export default function EnglishSummaryPage() {
 
   return (
     <div className="mx-auto max-w-4xl" lang="en">
-      <header className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-10">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
+      <header className="rounded-3xl border border-stone-300 bg-[#fbfaf7] p-7  sm:p-10">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-800">
           English Summary
         </p>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
           {profile.nameEn}
         </h1>
-        <p className="mt-3 text-lg font-semibold text-blue-700">
+        <p className="mt-3 text-lg font-semibold text-emerald-800">
           Backend · Cloud · Automation Engineer
         </p>
         <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
@@ -94,9 +94,9 @@ export default function EnglishSummaryPage() {
           observable logs, and failure recovery in mind. At Crosslink, I automated SEO data processing and report generation. A recorded automated run took about ten seconds, excluding human review. During field practice, I verified ROS2 communication isolation,
           TF-based control, and public LiDAR data reproduction results.
         </p>
-        <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-500">
-          I use English technical and API documentation,
-          and in Japanese for everyday and collaborative situations.
+        <p className="mt-4 max-w-3xl text-sm leading-7 text-stone-600">
+          I read technical and API documentation in English and communicate
+          in Japanese in everyday and collaborative situations.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link
@@ -121,7 +121,7 @@ export default function EnglishSummaryPage() {
           </Link>
           <a
             href={`mailto:${profile.email}`}
-            className="rounded-xl px-4 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-50"
+            className="rounded-xl px-4 py-3 text-sm font-semibold text-emerald-800 hover:bg-[#e7efe9]"
           >
             Email
           </a>
@@ -130,11 +130,11 @@ export default function EnglishSummaryPage() {
 
       <section className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="Key achievements">
         {achievements.map((achievement) => (
-          <div key={achievement.value} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div key={achievement.value} className="rounded-2xl border border-stone-300 bg-[#fbfaf7] p-5 ">
             <p className="text-2xl font-bold tracking-tight text-slate-950">
               {achievement.value}
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-slate-500">
+            <p className="mt-2 text-sm leading-relaxed text-stone-600">
               {achievement.label}
             </p>
           </div>
@@ -150,25 +150,25 @@ export default function EnglishSummaryPage() {
                   <h3 className="font-bold text-slate-900">
                     Korea Institute of Industrial Technology · Research Intern
                   </h3>
-                  <p className="mt-1 text-sm text-slate-500">Gwangju, Korea</p>
+                  <p className="mt-1 text-sm text-stone-600">Gwangju, Korea</p>
                 </div>
-                <span className="text-xs text-slate-400">Jul - Aug 2026</span>
+                <span className="text-xs text-stone-600">Jul - Aug 2026</span>
               </div>
               <ul className="mt-3 space-y-2">
                 <li>Traced sensor, PLC and camera signals; after adjustments, checked flash activation and data records for 8,092 onions. This is not an AI accuracy metric.</li><li>Separated same-named Topic, Service, and Action communication with ROS_DOMAIN_ID 1 and 2, then checked data delivery through Domain Bridge.</li>
                 <li>Built and ran 10 TF tutorial executables. In Turtlesim PID control, confirmed a final angle of 1.554 rad and a target error of 0.0164 rad for a 90-degree turn.</li>
                 <li>Reproduced six public Livox rosbags with FAST-LIO in Docker-based ROS1 Noetic and checked PointCloud, Path, and PCD outputs.</li>
               </ul>
-              <p className="mt-3 text-xs text-slate-500">This work was limited to learning and reproduction with public code and datasets; it did not include operating real LiDAR, JACKAL, or a minicart, or developing FAST-LIO itself.</p>
+              <p className="mt-3 text-xs text-stone-600">This work was limited to learning and reproduction with public code and datasets; it did not include operating real LiDAR, JACKAL, or a minicart, or developing FAST-LIO itself.</p>
             </div>
 
             <div className="border-t border-slate-100 pt-6">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h3 className="font-bold text-slate-900">Crosslink · AI SEO Automation Intern</h3>
-                  <p className="mt-1 text-sm text-slate-500">Yokohama, Japan</p>
+                  <p className="mt-1 text-sm text-stone-600">Yokohama, Japan</p>
                 </div>
-                <span className="text-xs text-slate-400">Jan 2026 – Feb 2026</span>
+                <span className="text-xs text-stone-600">Jan 2026 – Feb 2026</span>
               </div>
               <ul className="mt-3 space-y-2">
                 <li>Connected Google Search Console, Google Sheets, and Gemini APIs in a Python automation pipeline.</li>
@@ -183,9 +183,9 @@ export default function EnglishSummaryPage() {
                   <h3 className="font-bold text-slate-900">
                     Chonnam National University · Undergraduate Research Assistant
                   </h3>
-                  <p className="mt-1 text-sm text-slate-500">Soft Computing and Artificial Intelligence Lab</p>
+                  <p className="mt-1 text-sm text-stone-600">Soft Computing and Artificial Intelligence Lab</p>
                 </div>
-                <span className="text-xs text-slate-400">Sep 2025 – Jul 2026</span>
+                <span className="text-xs text-stone-600">Sep 2025 – Jul 2026</span>
               </div>
               <p className="mt-3">
                 Reviewed research papers and documented experimental inputs, comparison criteria,
@@ -201,11 +201,11 @@ export default function EnglishSummaryPage() {
               <Link
                 key={project.href}
                 href={project.href}
-                className="rounded-xl border border-slate-200 bg-slate-50 p-4 transition-colors hover:border-blue-200 hover:bg-blue-50"
+                className="rounded-xl border border-stone-300 bg-slate-50 p-4 transition-colors hover:border-stone-300 hover:bg-[#e7efe9]"
               >
                 <h3 className="font-bold leading-snug text-slate-900">{project.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{project.description}</p>
-                <p className="mt-4 text-sm font-semibold text-blue-700">View project →</p>
+                <p className="mt-4 text-sm font-semibold text-emerald-800">View project →</p>
               </Link>
             ))}
           </div>
@@ -217,11 +217,11 @@ export default function EnglishSummaryPage() {
               <Link
                 key={note.href}
                 href={note.href}
-                className="rounded-xl border border-slate-200 bg-slate-50 p-4 transition-colors hover:border-blue-200 hover:bg-blue-50"
+                className="rounded-xl border border-stone-300 bg-slate-50 p-4 transition-colors hover:border-stone-300 hover:bg-[#e7efe9]"
               >
                 <h3 className="font-bold leading-snug text-slate-900">{note.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{note.description}</p>
-                <p className="mt-4 text-sm font-semibold text-blue-700">Read note →</p>
+                <p className="mt-4 text-sm font-semibold text-emerald-800">Read note →</p>
               </Link>
             ))}
           </div>
@@ -252,17 +252,17 @@ export default function EnglishSummaryPage() {
 
         <Section title="Languages">
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <div className="rounded-xl border border-stone-300 bg-slate-50 p-4">
               <h3 className="font-bold text-slate-900">English</h3>
               <p className="mt-2">Reading technical and API documentation.</p>
-              <p className="mt-2 text-xs text-slate-500">
+              <p className="mt-2 text-xs text-stone-600">
                 Used for API documentation, technical research, and international exchange support.
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <div className="rounded-xl border border-stone-300 bg-slate-50 p-4">
               <h3 className="font-bold text-slate-900">Japanese</h3>
               <p className="mt-2">Everyday and collaborative communication.</p>
-              <p className="mt-2 text-xs text-slate-500">
+              <p className="mt-2 text-xs text-stone-600">
                 Used during an internship in Yokohama and the Osaka University J-SHIP program.
               </p>
             </div>

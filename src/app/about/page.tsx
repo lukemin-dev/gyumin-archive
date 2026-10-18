@@ -21,24 +21,24 @@ export default function AboutPage() {
         description="문제가 생기면 코드를 바로 고치기보다 들어온 값과 로그, 다음 단계로 넘어간 결과부터 살펴봅니다."
       />
 
-      <section className="mb-14 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+      <section className="mb-14 rounded-3xl border border-stone-300 bg-[#fbfaf7] p-6  sm:p-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
           {profile.image && (
             <Image
               src={profile.image}
               alt={`${profile.name} 프로필 이미지`}
-              width={144}
-              height={144}
-              className="h-28 w-28 shrink-0 rounded-3xl border border-slate-200 object-cover sm:h-36 sm:w-36"
+              width={192}
+              height={192}
+              className="h-28 w-28 shrink-0 rounded-3xl border border-stone-300 object-cover sm:h-48 sm:w-48"
               priority
             />
           )}
           <div>
             <h2 className="text-xl font-bold text-slate-950">{profile.name}</h2>
-            <p className="mt-1 text-sm font-semibold text-blue-700">{profile.title}</p>
+            <p className="mt-1 text-sm font-semibold text-emerald-800">{profile.title}</p>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">{profile.bio}</p>
             <div className="mt-5 flex flex-wrap gap-4 text-sm font-semibold">
-              <a href={`mailto:${profile.email}`} className="text-blue-700 hover:underline">
+              <a href={`mailto:${profile.email}`} className="text-emerald-800 hover:underline">
                 {profile.email}
               </a>
               <a
@@ -59,13 +59,13 @@ export default function AboutPage() {
           title="최근 현장 경험"
           description="현장실습에서 직접 맡은 범위까지만 적었습니다."
         >
-          <div className="rounded-2xl border border-blue-100 bg-blue-50 p-6">
+          <div className="rounded-2xl border border-stone-300 bg-[#e7efe9] p-6">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <h3 className="font-bold text-slate-950">{recentExperience.title}</h3>
-                <p className="mt-1 text-sm text-slate-500">{recentExperience.company}</p>
+                <p className="mt-1 text-sm text-stone-600">{recentExperience.company}</p>
               </div>
-              <span className="text-xs font-semibold text-blue-700">{recentExperience.period}</span>
+              <span className="text-xs font-semibold text-emerald-800">{recentExperience.period}</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-slate-700">
               {recentExperience.responsibility}
@@ -80,7 +80,7 @@ export default function AboutPage() {
       >
         <div className="grid gap-4 md:grid-cols-2">
           {profile.skills.map((category) => (
-            <div key={category.category} className="rounded-2xl border border-slate-200 bg-white p-5">
+            <div key={category.category} className="rounded-2xl border border-stone-300 bg-[#fbfaf7] p-5">
               <h3 className="text-sm font-bold text-slate-950">{category.category}</h3>
               <div className="mt-3 flex flex-wrap gap-2">
                 {category.items.map((item) => (
@@ -98,27 +98,27 @@ export default function AboutPage() {
       </SectionBlock>
 
       <SectionBlock title="학력 및 학업 성취">
-        <div className="rounded-2xl border border-slate-200 bg-white p-6">
+        <div className="rounded-2xl border border-stone-300 bg-[#fbfaf7] p-6">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h3 className="font-bold text-slate-950">{education?.school}</h3>
-              <p className="mt-1 text-sm text-slate-500">{education?.major}</p>
+              <p className="mt-1 text-sm text-stone-600">{education?.major}</p>
             </div>
-            <span className="text-xs text-slate-400">{education?.period}</span>
+            <span className="text-xs text-stone-600">{education?.period}</span>
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
             <div className="rounded-xl bg-slate-50 p-4">
               <p className="text-xl font-bold text-slate-950">{education?.gpa}</p>
-              <p className="mt-1 text-xs text-slate-500">누계 GPA</p>
+              <p className="mt-1 text-xs text-stone-600">누계 GPA</p>
             </div>
             <div className="rounded-xl bg-slate-50 p-4">
               <p className="text-xl font-bold text-slate-950">수석</p>
-              <p className="mt-1 text-xs text-slate-500">학과 최상위 성적 경험</p>
+              <p className="mt-1 text-xs text-stone-600">학과 최상위 성적 경험</p>
             </div>
             <div className="rounded-xl bg-slate-50 p-4">
               <p className="text-xl font-bold text-slate-950">7학기 연속</p>
-              <p className="mt-1 text-xs text-slate-500">성적우수장학금</p>
+              <p className="mt-1 text-xs text-stone-600">성적우수장학금</p>
             </div>
           </div>
 
@@ -127,9 +127,9 @@ export default function AboutPage() {
               <div key={award.title} className="flex flex-col gap-1 py-3 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <p className="text-sm font-semibold text-slate-800">{award.title}</p>
-                  <p className="mt-1 text-xs text-slate-500">{award.description}</p>
+                  <p className="mt-1 text-xs text-stone-600">{award.description}</p>
                 </div>
-                <span className="text-xs text-slate-400">{award.date}</span>
+                <span className="text-xs text-stone-600">{award.date}</span>
               </div>
             ))}
           </div>
@@ -142,9 +142,9 @@ export default function AboutPage() {
       >
         <div className="grid gap-4 sm:grid-cols-2">
           {profile.languages.map((language) => (
-            <div key={language.name} className="rounded-2xl border border-slate-200 bg-white p-5">
+            <div key={language.name} className="rounded-2xl border border-stone-300 bg-[#fbfaf7] p-5">
               <h3 className="font-bold text-slate-950">{language.name}</h3>
-              <p className="mt-2 text-sm font-semibold text-blue-700">
+              <p className="mt-2 text-sm font-semibold text-emerald-800">
                 {language.capability}
               </p>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
@@ -160,7 +160,7 @@ export default function AboutPage() {
           {profile.interests.map((interest) => (
             <span
               key={interest}
-              className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700"
+              className="rounded-full border border-stone-300 bg-[#e7efe9] px-3 py-1.5 text-sm font-medium text-emerald-800"
             >
               {interest}
             </span>

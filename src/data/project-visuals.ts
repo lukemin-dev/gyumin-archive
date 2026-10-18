@@ -11,6 +11,10 @@ const warehouseVisualRoot =
   "https://raw.githubusercontent.com/lukemin-dev/warehouse-fire-anomaly-monitor/main/assets/screenshots";
 
 export const projectVisuals: Record<string, ProjectVisual[]> = {
+  "plm-account-recovery": [{ src: "/projects/plm-account-recovery.svg", alt: "사용자 식별부터 권한 회수·결과 통보까지의 개념도", caption: "사용자 식별부터 권한 회수·결과 통보까지의 개념도 (공개 설명을 바탕으로 재구성)", width: 800, height: 440, kind: "diagram" }],
+  "kitech-vision-plc-validation": [{ src: "/projects/kitech-vision-plc-validation.svg", alt: "센서·PLC·카메라 순서로 촬영 누락을 점검한 흐름", caption: "센서·PLC·카메라 순서로 촬영 누락을 점검한 흐름 (공개 설명을 바탕으로 재구성)", width: 800, height: 440, kind: "diagram" }],
+  "java-socket": [{ src: "/projects/java-socket.svg", alt: "길이 헤더를 사용한 TCP 메시지 경계 처리 개념도", caption: "길이 헤더를 사용한 TCP 메시지 경계 처리 개념도 (공개 설명을 바탕으로 재구성)", width: 800, height: 440, kind: "diagram" }],
+
   "seo-automation": [
     {
       src: "/projects/seo-automation-pipeline.svg",

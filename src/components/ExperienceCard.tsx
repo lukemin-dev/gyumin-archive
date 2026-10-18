@@ -7,7 +7,7 @@ interface ExperienceCardProps {
 function DetailItem({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <p className="text-xs font-bold text-slate-500">{label}</p>
+      <p className="text-xs font-bold text-stone-600">{label}</p>
       <p className="mt-1 text-sm leading-relaxed text-slate-600">{children}</p>
     </div>
   );
@@ -29,16 +29,16 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
               </span>
             )}
           </div>
-          <p className="mt-1 text-sm text-slate-500">{experience.company}</p>
+          <p className="mt-1 text-sm text-stone-600">{experience.company}</p>
         </div>
-        <span className="shrink-0 text-xs text-slate-400">{experience.period}</span>
+        <span className="shrink-0 text-xs text-stone-600">{experience.period}</span>
       </div>
 
       <p className="mt-5 text-sm leading-relaxed text-slate-600">{experience.context}</p>
 
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <div className="border-l border-stone-300 pl-4">
-          <p className="text-xs font-bold text-slate-500">핵심 역할</p>
+          <p className="text-xs font-bold text-stone-600">핵심 역할</p>
           <p className="mt-2 text-sm font-medium leading-relaxed text-slate-800">
             {experience.responsibility}
           </p>

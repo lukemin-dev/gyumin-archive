@@ -19,7 +19,7 @@ export default function NotesPage() {
       <div className="mb-6 flex justify-end">
         <a
           href="/feed.xml"
-          className="text-sm font-semibold text-blue-700 hover:underline"
+          className="text-sm font-semibold text-emerald-800 hover:underline"
         >
           RSS 구독 →
         </a>
@@ -28,7 +28,7 @@ export default function NotesPage() {
       {notes.length > 0 ? (
         <NotesExplorer notes={notes} />
       ) : (
-        <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center text-sm text-slate-500">
+        <div className="rounded-2xl border border-dashed border-slate-300 bg-[#fbfaf7] p-8 text-center text-sm text-stone-600">
           공개된 기술 노트를 정리 중입니다.
         </div>
       )}

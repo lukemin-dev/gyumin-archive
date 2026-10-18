@@ -24,15 +24,17 @@ export async function generateMetadata({
 
 function Section({
   title,
+  id,
   children,
 }: {
   title: string;
+  id?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="border-t border-stone-400 py-6 sm:py-7">
+    <section id={id} className="border-t border-stone-300 py-7 sm:py-9">
       <h2 className="text-lg font-bold tracking-tight text-slate-950">{title}</h2>
-      <div className="mt-4 text-sm leading-7 text-slate-600">{children}</div>
+      <div className="mt-4 text-base leading-8 text-slate-600">{children}</div>
     </section>
   );
 }
@@ -102,17 +104,17 @@ export default async function ProjectDetailPage({
     <article className="mx-auto max-w-4xl">
       <Link
         href="/projects"
-        className="mb-7 inline-flex text-sm font-semibold text-slate-500 hover:text-blue-700"
+        className="mb-7 inline-flex text-sm font-semibold text-stone-600 hover:text-emerald-800"
       >
         ← 프로젝트 목록
       </Link>
 
-      <header className="border-b border-stone-300 pb-9">
+      <header id="overview" className="border-b border-stone-300 pb-9">
         <div className="flex flex-wrap items-center gap-2">
           <span className="font-mono text-xs font-bold text-emerald-800">
             {project.type}
           </span>
-          <span className="text-xs text-slate-400">{project.period}</span>
+          <span className="text-xs text-stone-600">{project.period}</span>
           {project.featured && (
             <span className="font-mono text-xs font-bold text-stone-700">
               / 대표 프로젝트
@@ -131,7 +133,7 @@ export default async function ProjectDetailPage({
           <dl className="mt-6 grid gap-3 sm:grid-cols-2">
             {project.role && (
               <div className="border-l-2 border-emerald-700 pl-4">
-                <dt className="text-xs font-bold text-slate-500">담당 역할</dt>
+                <dt className="text-xs font-bold text-stone-600">담당 역할</dt>
                 <dd className="mt-2 text-sm font-semibold leading-relaxed text-slate-900">
                   {project.role}
                 </dd>
@@ -139,7 +141,7 @@ export default async function ProjectDetailPage({
             )}
             {project.scope && (
               <div className="border-l border-stone-400 pl-4">
-                <dt className="text-xs font-bold text-slate-500">구현·분석 범위</dt>
+                <dt className="text-xs font-bold text-stone-600">구현·분석 범위</dt>
                 <dd className="mt-2 text-sm font-semibold leading-relaxed text-slate-900">
                   {project.scope}
                 </dd>
@@ -153,7 +155,7 @@ export default async function ProjectDetailPage({
             {project.details.map((detail) => (
               <li key={detail} className="flex gap-3 border-t border-stone-300 py-3">
                 <span
-                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"
+                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-700"
                   aria-hidden="true"
                 />
                 <span>{detail}</span>
@@ -193,6 +195,11 @@ export default async function ProjectDetailPage({
         )}
       </header>
 
+      <nav aria-label="프로젝트 목차" className="my-7 flex flex-wrap gap-2">
+        {[["overview", "개요"], ["contribution", "담당 역할"], ["solution", "문제 해결"], ["reflection", "기술과 회고"]].map(([id, label]) => (
+          <a key={id} href={`#${id}`} className="rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-emerald-800 hover:bg-[#e7efe9]">{label} ↓</a>
+        ))}
+      </nav>
       {visuals.length > 0 && (
         <section className="mt-10 border-t-2 border-stone-800 py-6 sm:py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
@@ -204,8 +211,8 @@ export default async function ProjectDetailPage({
                 구조와 구현 결과
               </h2>
             </div>
-            <p className="text-sm text-slate-500">
-              프로젝트 구조도와 공개된 실제 구현 화면
+            <p className="text-sm text-stone-600">
+              공개 설명을 재구성한 흐름도 · 공개 가능한 구현 자료
             </p>
           </div>
 
@@ -228,10 +235,10 @@ export default async function ProjectDetailPage({
                     className="h-auto w-full object-contain"
                   />
                   <div className="border-t border-stone-300 bg-[#fbfaf7] p-4">
-                    <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-blue-700">
+                    <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-emerald-800">
                       {visual.caption}
                     </p>
-                    <p className="mt-1 text-xs text-slate-400">원본 자료 보기 ↗</p>
+                    <p className="mt-1 text-xs text-stone-600">원본 자료 보기 ↗</p>
                   </div>
                 </a>
               ))}
@@ -257,10 +264,10 @@ export default async function ProjectDetailPage({
                     className="h-[30rem] w-full object-contain object-top sm:h-[25rem] lg:h-[30rem]"
                   />
                   <div className="border-t border-stone-300 bg-[#fbfaf7] p-4">
-                    <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-blue-700">
+                    <p className="text-sm font-semibold leading-relaxed text-slate-800 group-hover:text-emerald-800">
                       {visual.caption}
                     </p>
-                    <p className="mt-1 text-xs text-slate-400">원본 이미지 보기 ↗</p>
+                    <p className="mt-1 text-xs text-stone-600">원본 이미지 보기 ↗</p>
                   </div>
                 </a>
               ))}
@@ -284,12 +291,12 @@ export default async function ProjectDetailPage({
       </div>
 
       <div className="mt-6 grid gap-6">
-        <Section title="내가 직접 한 일">
+        <Section id="contribution" title="내가 직접 한 일">
           <ul className="space-y-3">
             {project.myContribution.map((item) => (
               <li key={item} className="flex gap-3">
                 <span
-                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"
+                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-700"
                   aria-hidden="true"
                 />
                 <span>{item}</span>
@@ -299,7 +306,7 @@ export default async function ProjectDetailPage({
         </Section>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <Section title={sectionLabels.bottleneck}>
+          <Section id="solution" title={sectionLabels.bottleneck}>
             <p className="whitespace-pre-wrap">{project.bottleneck}</p>
           </Section>
           <Section title={sectionLabels.solution}>
@@ -307,7 +314,7 @@ export default async function ProjectDetailPage({
           </Section>
         </div>
 
-        <Section title={sectionLabels.evidence}>
+        {project.evidence && project.evidence.length > 0 && <Section title={sectionLabels.evidence}>
           {project.evidence && project.evidence.length > 0 ? (
             <div className="grid gap-4 md:grid-cols-2">
               {project.evidence.map((item) => {
@@ -318,7 +325,7 @@ export default async function ProjectDetailPage({
                       {item.description}
                     </p>
                     {item.href && (
-                      <p className="mt-3 text-sm font-semibold text-blue-700">자료 열기 ↗</p>
+                      <p className="mt-3 text-sm font-semibold text-emerald-800">자료 열기 ↗</p>
                     )}
                   </div>
                 );
@@ -343,6 +350,8 @@ export default async function ProjectDetailPage({
             </div>
           )}
         </Section>
+
+        }
 
         {project.validation && project.validation.length > 0 && (
           <Section title={sectionLabels.validation}>
@@ -373,7 +382,7 @@ export default async function ProjectDetailPage({
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">
                     {note.summary}
                   </p>
-                  <p className="mt-3 text-sm font-semibold text-blue-700">글 읽기 →</p>
+                  <p className="mt-3 text-sm font-semibold text-emerald-800">글 읽기 →</p>
                 </Link>
               ))}
             </div>
@@ -381,7 +390,7 @@ export default async function ProjectDetailPage({
         )}
 
         <div className="grid gap-6 md:grid-cols-2">
-          <Section title={sectionLabels.tech}>
+          <Section id="reflection" title={sectionLabels.tech}>
             <p className="whitespace-pre-wrap">{project.techContext}</p>
           </Section>
           <Section title={sectionLabels.retrospective}>
